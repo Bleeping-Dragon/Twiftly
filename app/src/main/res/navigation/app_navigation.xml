@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/homePage">
+
+    <fragment
+        android:id="@+id/homePage"
+        android:name="com.bleepingdragon.twiftly.HomePage"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" >
+        <action
+            android:id="@+id/action_homePage_to_workingHoursPage"
+            app:destination="@id/workingHoursPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/workingHoursPage"
+        android:name="com.bleepingdragon.twiftly.WorkingHoursPage"
+        android:label="fragment_working_hours_page"
+        tools:layout="@layout/fragment_working_hours_page" />
+</navigation>
