@@ -21,6 +21,13 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <include layout="@layout/hours_setting_layout"></include>
+        <include layout="@layout/hours_setting_layout"></include>
+        <include layout="@layout/hours_setting_layout"></include>
+        <include layout="@layout/hours_setting_layout"></include>
+        <include layout="@layout/hours_setting_layout"></include>
+        <include layout="@layout/hours_setting_layout"></include>
+        <include layout="@layout/hours_setting_layout"></include>
+        
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
