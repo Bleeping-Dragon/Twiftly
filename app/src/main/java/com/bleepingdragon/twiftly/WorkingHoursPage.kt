@@ -1,6 +1,7 @@
 package com.bleepingdragon.twiftly
 
 import android.os.Bundle
+import android.text.InputType
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -43,26 +44,31 @@ class WorkingHoursPage : Fragment() {
         //Inflate the layout for this fragment
         _binding = FragmentWorkingHoursPageBinding.inflate(inflater, container, false)
 
+        binding.hoursToWorkLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.hoursToWorkLayout.textInputLayout.hint = "Hours to work"
         binding.hoursToWorkLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.hoursToWorkLayout.textInputLayout)
         }
 
+        binding.startAtLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.startAtLayout.textInputLayout.hint = "Hour to start working"
         binding.startAtLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.startAtLayout.textInputLayout)
         }
 
+        binding.breakStartLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.breakStartLayout.textInputLayout.hint = "Break start"
         binding.breakStartLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.breakStartLayout.textInputLayout)
         }
 
+        binding.breakEndLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.breakEndLayout.textInputLayout.hint = "Break end"
         binding.breakEndLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.breakEndLayout.textInputLayout)
         }
 
+        binding.finishAtLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.finishAtLayout.textInputLayout.hint = "Hour to finish working"
         binding.finishAtLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.finishAtLayout.textInputLayout)
