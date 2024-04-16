@@ -44,27 +44,27 @@ class WorkingHoursPage : Fragment() {
         _binding = FragmentWorkingHoursPageBinding.inflate(inflater, container, false)
 
         binding.hoursToWorkLayout.textInputLayout.hint = "Hours to work"
-        binding.hoursToWorkLayout.pickerButton.setOnClickListener {
+        binding.hoursToWorkLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.hoursToWorkLayout.textInputLayout)
         }
 
         binding.startAtLayout.textInputLayout.hint = "Hour to start working"
-        binding.startAtLayout.pickerButton.setOnClickListener {
+        binding.startAtLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.startAtLayout.textInputLayout)
         }
 
         binding.breakStartLayout.textInputLayout.hint = "Break start"
-        binding.breakStartLayout.pickerButton.setOnClickListener {
+        binding.breakStartLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.breakStartLayout.textInputLayout)
         }
 
         binding.breakEndLayout.textInputLayout.hint = "Break end"
-        binding.breakEndLayout.pickerButton.setOnClickListener {
+        binding.breakEndLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.breakEndLayout.textInputLayout)
         }
 
         binding.finishAtLayout.textInputLayout.hint = "Hour to finish working"
-        binding.finishAtLayout.pickerButton.setOnClickListener {
+        binding.finishAtLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.finishAtLayout.textInputLayout)
         }
 
