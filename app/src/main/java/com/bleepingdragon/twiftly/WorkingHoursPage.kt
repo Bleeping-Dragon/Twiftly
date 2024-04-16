@@ -8,6 +8,10 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.bleepingdragon.twiftly.databinding.FragmentHomePageBinding
 import com.bleepingdragon.twiftly.databinding.FragmentWorkingHoursPageBinding
+import com.google.android.material.textfield.TextInputLayout
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_CLOCK
+import com.google.android.material.timepicker.TimeFormat
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -39,10 +43,60 @@ class WorkingHoursPage : Fragment() {
         //Inflate the layout for this fragment
         _binding = FragmentWorkingHoursPageBinding.inflate(inflater, container, false)
 
+        binding.hoursToWorkLayout.pickerButton.setOnClickListener {
+            pickTimeForInput(binding.hoursToWorkLayout.textInputLayout)
+        }
 
+        binding.startAtLayout.pickerButton.setOnClickListener {
+            pickTimeForInput(binding.startAtLayout.textInputLayout)
+        }
+
+        binding.breakStartLayout.pickerButton.setOnClickListener {
+            pickTimeForInput(binding.breakStartLayout.textInputLayout)
+        }
+
+        binding.breakEndLayout.pickerButton.setOnClickListener {
+            pickTimeForInput(binding.breakEndLayout.textInputLayout)
+        }
+
+        binding.finishAtLayout.pickerButton.setOnClickListener {
+            pickTimeForInput(binding.finishAtLayout.textInputLayout)
+        }
 
         return binding.root
     }
+
+
+    private fun pickTimeForInput(textInput: TextInputLayout) {
+
+        val picker =
+            MaterialTimePicker.Builder()
+                .setTimeFormat(TimeFormat.CLOCK_12H)
+                .setHour(12)
+                .setMinute(10)
+                .setTitleText("Select an hour to start working")
+                .build()
+
+        MaterialTimePicker.Builder().setInputMode(INPUT_MODE_CLOCK)
+
+        picker.show(parentFragmentManager, "tag");
+
+        picker.addOnPositiveButtonClickListener {
+
+            var pickedTime = picker.hour.toString() + " : " + picker.minute.toString()
+            textInput.editText?.setText(pickedTime)
+        }
+        picker.addOnNegativeButtonClickListener {
+            // call back code
+        }
+        picker.addOnCancelListener {
+            // call back code
+        }
+        picker.addOnDismissListener {
+            // call back code
+        }
+    }
+
 
     companion object {
         /**

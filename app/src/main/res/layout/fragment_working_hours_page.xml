@@ -20,13 +20,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <include layout="@layout/hours_setting_layout"></include>
-        <include layout="@layout/hours_setting_layout"></include>
-        <include layout="@layout/hours_setting_layout"></include>
-        <include layout="@layout/hours_setting_layout"></include>
-        <include layout="@layout/hours_setting_layout"></include>
-        <include layout="@layout/hours_setting_layout"></include>
-        <include layout="@layout/hours_setting_layout"></include>
+        <include layout="@layout/hours_setting_layout"
+            android:id="@+id/hoursToWorkLayout"
+            android:hint="Hours to work">
+        </include>
+
+        <include layout="@layout/hours_setting_layout"
+            android:id="@+id/startAtLayout">
+        </include>
+
+        <include layout="@layout/hours_setting_layout"
+            android:id="@+id/breakStartLayout">
+        </include>
+
+        <include layout="@layout/hours_setting_layout"
+            android:id="@+id/breakEndLayout">
+        </include>
+
+        <include layout="@layout/hours_setting_layout"
+            android:id="@+id/finishAtLayout">
+        </include>
 
     </LinearLayout>
 
