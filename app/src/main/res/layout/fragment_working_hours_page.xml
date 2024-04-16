@@ -21,8 +21,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <include layout="@layout/hours_setting_layout"
-            android:id="@+id/hoursToWorkLayout"
-            android:hint="Hours to work">
+            android:id="@+id/hoursToWorkLayout">
         </include>
 
         <include layout="@layout/hours_setting_layout"

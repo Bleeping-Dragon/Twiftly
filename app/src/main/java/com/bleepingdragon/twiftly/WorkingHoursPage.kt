@@ -43,27 +43,37 @@ class WorkingHoursPage : Fragment() {
         //Inflate the layout for this fragment
         _binding = FragmentWorkingHoursPageBinding.inflate(inflater, container, false)
 
+        binding.hoursToWorkLayout.textInputLayout.hint = "Hours to work"
         binding.hoursToWorkLayout.pickerButton.setOnClickListener {
             pickTimeForInput(binding.hoursToWorkLayout.textInputLayout)
         }
 
+        binding.startAtLayout.textInputLayout.hint = "Hour to start working"
         binding.startAtLayout.pickerButton.setOnClickListener {
             pickTimeForInput(binding.startAtLayout.textInputLayout)
         }
 
+        binding.breakStartLayout.textInputLayout.hint = "Break start"
         binding.breakStartLayout.pickerButton.setOnClickListener {
             pickTimeForInput(binding.breakStartLayout.textInputLayout)
         }
 
+        binding.breakEndLayout.textInputLayout.hint = "Break end"
         binding.breakEndLayout.pickerButton.setOnClickListener {
             pickTimeForInput(binding.breakEndLayout.textInputLayout)
         }
 
+        binding.finishAtLayout.textInputLayout.hint = "Hour to finish working"
         binding.finishAtLayout.pickerButton.setOnClickListener {
             pickTimeForInput(binding.finishAtLayout.textInputLayout)
         }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
 
