@@ -99,8 +99,12 @@ class WorkingHoursPage : Fragment() {
 
         picker.addOnPositiveButtonClickListener {
 
-            var pickedTime = picker.hour.toString() + " : " + picker.minute.toString()
+            var hours = if (picker.hour.toString().length == 1) "0" + picker.hour.toString() else picker.hour.toString()
+            var minutes = if (picker.minute.toString().length == 1) "0" + picker.minute.toString() else picker.minute.toString()
+
+            var pickedTime = "$hours : $minutes"
             textInput.editText?.setText(pickedTime)
+            calculateExitHour()
         }
         picker.addOnNegativeButtonClickListener {
             // call back code
@@ -111,6 +115,10 @@ class WorkingHoursPage : Fragment() {
         picker.addOnDismissListener {
             // call back code
         }
+    }
+
+    private fun calculateExitHour() {
+        
     }
 
 
