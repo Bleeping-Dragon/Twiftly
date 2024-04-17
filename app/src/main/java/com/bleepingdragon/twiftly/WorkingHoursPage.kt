@@ -87,7 +87,7 @@ class WorkingHoursPage : Fragment() {
 
         val picker =
             MaterialTimePicker.Builder()
-                .setTimeFormat(TimeFormat.CLOCK_12H)
+                .setTimeFormat(TimeFormat.CLOCK_24H)
                 .setHour(12)
                 .setMinute(10)
                 .setTitleText("Select an hour to start working")
@@ -118,7 +118,7 @@ class WorkingHoursPage : Fragment() {
     }
 
     private fun calculateExitHour() {
-        
+
     }
 
 
