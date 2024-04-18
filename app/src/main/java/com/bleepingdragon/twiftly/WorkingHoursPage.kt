@@ -6,13 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
-import com.bleepingdragon.twiftly.databinding.FragmentHomePageBinding
 import com.bleepingdragon.twiftly.databinding.FragmentWorkingHoursPageBinding
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_CLOCK
 import com.google.android.material.timepicker.TimeFormat
+import java.time.LocalDateTime
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -68,12 +67,6 @@ class WorkingHoursPage : Fragment() {
             pickTimeForInput(binding.breakEndLayout.textInputLayout)
         }
 
-        binding.finishAtLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
-        binding.finishAtLayout.textInputLayout.hint = "Hour to finish working"
-        binding.finishAtLayout.textInputLayout.setEndIconOnClickListener {
-            pickTimeForInput(binding.finishAtLayout.textInputLayout)
-        }
-
         return binding.root
     }
 
@@ -87,10 +80,10 @@ class WorkingHoursPage : Fragment() {
 
         val picker =
             MaterialTimePicker.Builder()
-                .setTimeFormat(TimeFormat.CLOCK_24H)
+                .setTimeFormat(TimeFormat.CLOCK_12H)
                 .setHour(12)
                 .setMinute(10)
-                .setTitleText("Select an hour to start working")
+                .setTitleText("Select an hour")
                 .build()
 
         MaterialTimePicker.Builder().setInputMode(INPUT_MODE_CLOCK)
@@ -102,9 +95,26 @@ class WorkingHoursPage : Fragment() {
             var hours = if (picker.hour.toString().length == 1) "0" + picker.hour.toString() else picker.hour.toString()
             var minutes = if (picker.minute.toString().length == 1) "0" + picker.minute.toString() else picker.minute.toString()
 
-            var pickedTime = "$hours : $minutes"
+            var pickedTime = "$hours:$minutes"
             textInput.editText?.setText(pickedTime)
-            calculateExitHour()
+
+            var calculatedExit = tryCalculateExitHour()
+
+            if (calculatedExit != null) {
+
+                var calculatedHours = if (calculatedExit.hour.toString().length == 1) "0" + calculatedExit.hour.toString()
+                                      else calculatedExit.hour.toString()
+
+                var calculatedMinutes = if (calculatedExit.minute.toString().length == 1) "0" + calculatedExit.minute.toString()
+                                        else calculatedExit.minute.toString()
+
+                binding.calculatedDateTextView.text = "$calculatedHours:$calculatedMinutes"
+            }
+            else {
+                binding.calculatedDateTextView.text = ""
+            }
+
+
         }
         picker.addOnNegativeButtonClickListener {
             // call back code
@@ -117,8 +127,49 @@ class WorkingHoursPage : Fragment() {
         }
     }
 
-    private fun calculateExitHour() {
+    private fun tryCalculateExitHour(): LocalDateTime? {
 
+        var anyFieldsEmpty = false
+
+        val toWorkText = binding.hoursToWorkLayout.textInputLayout.editText?.text
+        if (toWorkText.isNullOrBlank())
+            return null
+
+        val toWorkHours = (toWorkText[0].toString() + toWorkText[1].toString()).toInt()
+        val toWorkMinutes = (toWorkText[3].toString() + toWorkText[4].toString()).toInt()
+        val hoursToWork = LocalDateTime.now().withHour(toWorkHours).withMinute(toWorkMinutes)
+
+        val startAtText = binding.startAtLayout.textInputLayout.editText?.text
+        if (startAtText.isNullOrBlank())
+            return null
+
+        val startAtHours = (startAtText[0].toString() + startAtText[1].toString()).toInt()
+        val startAtMinutes = (startAtText[3].toString() + startAtText[4].toString()).toInt()
+        val startAt = LocalDateTime.now().withHour(startAtHours).withMinute(startAtMinutes)
+
+        val breakStartText = binding.breakStartLayout.textInputLayout.editText?.text
+        if (breakStartText.isNullOrBlank())
+            return null
+
+        val breakStartHours = (breakStartText[0].toString() + breakStartText[1].toString()).toInt()
+        val breakStartMinutes = (breakStartText[3].toString() + breakStartText[4].toString()).toInt()
+        val breakStart = LocalDateTime.now().withHour(breakStartHours).withMinute(breakStartMinutes)
+
+        val breakEndText = binding.breakEndLayout.textInputLayout.editText?.text
+        if (breakEndText.isNullOrBlank())
+            return null
+
+        val breakEndHours = (breakEndText[0].toString() + breakEndText[1].toString()).toInt()
+        val breakEndMinutes = (breakEndText[3].toString() + breakEndText[4].toString()).toInt()
+        val breakEnd = LocalDateTime.now().withHour(breakEndHours).withMinute(breakEndMinutes)
+
+        //Add work hours to the starting hour
+        var finishHour = startAt
+            .plusHours(hoursToWork.hour.toLong()).plusMinutes(hoursToWork.minute.toLong())
+            .plusHours(breakEnd.hour.toLong()).plusMinutes(breakEnd.minute.toLong())
+            .minusHours(breakStart.hour.toLong()).minusHours(breakStart.minute.toLong())
+
+        return finishHour
     }
 
 
