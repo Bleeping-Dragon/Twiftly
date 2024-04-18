@@ -80,13 +80,12 @@ class WorkingHoursPage : Fragment() {
 
         val picker =
             MaterialTimePicker.Builder()
-                .setTimeFormat(TimeFormat.CLOCK_12H)
+                .setTimeFormat(TimeFormat.CLOCK_24H)
                 .setHour(12)
                 .setMinute(10)
                 .setTitleText("Select an hour")
+                .setInputMode(INPUT_MODE_CLOCK)
                 .build()
-
-        MaterialTimePicker.Builder().setInputMode(INPUT_MODE_CLOCK)
 
         picker.show(parentFragmentManager, "tag");
 
