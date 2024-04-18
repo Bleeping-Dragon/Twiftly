@@ -129,8 +129,6 @@ class WorkingHoursPage : Fragment() {
 
     private fun tryCalculateExitHour(): LocalDateTime? {
 
-        var anyFieldsEmpty = false
-
         val toWorkText = binding.hoursToWorkLayout.textInputLayout.editText?.text
         if (toWorkText.isNullOrBlank())
             return null
@@ -163,11 +161,11 @@ class WorkingHoursPage : Fragment() {
         val breakEndMinutes = (breakEndText[3].toString() + breakEndText[4].toString()).toInt()
         val breakEnd = LocalDateTime.now().withHour(breakEndHours).withMinute(breakEndMinutes)
 
+        var breakLengthInHours = breakEnd.minusHours(breakStart.hour.toLong()).minusMinutes(breakStart.minute.toLong())
+
         //Add work hours to the starting hour
-        var finishHour = startAt
-            .plusHours(hoursToWork.hour.toLong()).plusMinutes(hoursToWork.minute.toLong())
-            .plusHours(breakEnd.hour.toLong()).plusMinutes(breakEnd.minute.toLong())
-            .minusHours(breakStart.hour.toLong()).minusHours(breakStart.minute.toLong())
+        var finishHour = startAt.plusHours(hoursToWork.hour.toLong()).plusMinutes(hoursToWork.minute.toLong())
+        finishHour = finishHour.plusHours(breakLengthInHours.hour.toLong()).plusMinutes(breakLengthInHours.minute.toLong())
 
         return finishHour
     }
