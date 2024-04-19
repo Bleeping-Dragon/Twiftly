@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.bleepingdragon.twiftly.databinding.FragmentWorkingHoursPageBinding
+import com.bleepingdragon.twiftly.services.LocalDB
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_CLOCK
@@ -43,24 +44,28 @@ class WorkingHoursPage : Fragment() {
         //Inflate the layout for this fragment
         _binding = FragmentWorkingHoursPageBinding.inflate(inflater, container, false)
 
+        //Hours to work
         binding.hoursToWorkLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.hoursToWorkLayout.textInputLayout.hint = "Hours to work"
         binding.hoursToWorkLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.hoursToWorkLayout.textInputLayout)
         }
 
+        //Start at
         binding.startAtLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.startAtLayout.textInputLayout.hint = "Hour to start working"
         binding.startAtLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.startAtLayout.textInputLayout)
         }
 
+        //Break start
         binding.breakStartLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.breakStartLayout.textInputLayout.hint = "Break start"
         binding.breakStartLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.breakStartLayout.textInputLayout)
         }
 
+        //Break end
         binding.breakEndLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.breakEndLayout.textInputLayout.hint = "Break end"
         binding.breakEndLayout.textInputLayout.setEndIconOnClickListener {
@@ -73,8 +78,36 @@ class WorkingHoursPage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-    }
+        //Try to restore last saved values from the db
+        binding.hoursToWorkLayout.textInputLayout.editText?.setText(
+            if (LocalDB.getString("hoursToWork", requireActivity()) != null)
+                LocalDB.getString("hoursToWork", requireActivity())
+            else ""
+        )
 
+        binding.startAtLayout.textInputLayout.editText?.setText(
+            if (LocalDB.getString("startAt", requireActivity()) != null)
+                LocalDB.getString("startAt", requireActivity())
+            else ""
+        )
+
+        binding.breakStartLayout.textInputLayout.editText?.setText(
+            if (LocalDB.getString("breakStart", requireActivity()) != null)
+                LocalDB.getString("breakStart", requireActivity())
+            else ""
+        )
+
+        binding.breakEndLayout.textInputLayout.editText?.setText(
+            if (LocalDB.getString("breakEnd", requireActivity()) != null)
+                LocalDB.getString("breakEnd", requireActivity())
+            else ""
+        )
+
+        binding.calculatedDateTextView.text =
+            if (LocalDB.getString("calculatedExit", requireActivity()) != null)
+                LocalDB.getString("calculatedExit", requireActivity())
+            else ""
+    }
 
     private fun pickTimeForInput(textInput: TextInputLayout) {
 
@@ -113,7 +146,7 @@ class WorkingHoursPage : Fragment() {
                 binding.calculatedDateTextView.text = ""
             }
 
-
+            saveAllValues()
         }
         picker.addOnNegativeButtonClickListener {
             // call back code
@@ -169,6 +202,14 @@ class WorkingHoursPage : Fragment() {
         return finishHour
     }
 
+
+    private fun saveAllValues() {
+        LocalDB.setString("hoursToWork", binding.hoursToWorkLayout.textInputLayout.editText?.text.toString(), requireActivity())
+        LocalDB.setString("startAt", binding.startAtLayout.textInputLayout.editText?.text.toString(), requireActivity())
+        LocalDB.setString("breakStart", binding.breakStartLayout.textInputLayout.editText?.text.toString(), requireActivity())
+        LocalDB.setString("breakEnd", binding.breakEndLayout.textInputLayout.editText?.text.toString(), requireActivity())
+        LocalDB.setString("calculatedExit", binding.calculatedDateTextView.text.toString(), requireActivity())
+    }
 
     companion object {
         /**
