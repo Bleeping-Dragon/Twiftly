@@ -21,6 +21,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="Working hours"
+            android:textSize="34sp" />
+
         <include
             android:id="@+id/hoursToWorkLayout"
             layout="@layout/hours_setting_layout"></include>
