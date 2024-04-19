@@ -1,6 +1,7 @@
 package com.bleepingdragon.twiftly
 
 import android.content.Intent
+import android.opengl.Visibility
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.text.InputType
@@ -45,6 +46,10 @@ class WorkingHoursPage : Fragment() {
     ): View {
         //Inflate the layout for this fragment
         _binding = FragmentWorkingHoursPageBinding.inflate(inflater, container, false)
+
+        //Hide by default the calculated hour and set alarm buttons
+        binding.calculatedDateTextView.visibility = View.GONE
+        binding.setAlarmButton.visibility = View.GONE
 
         //Hours to work
         binding.hoursToWorkLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
@@ -114,6 +119,11 @@ class WorkingHoursPage : Fragment() {
             if (LocalDB.getString("calculatedExit", requireActivity()) != null)
                 LocalDB.getString("calculatedExit", requireActivity())
             else ""
+
+        if (binding.calculatedDateTextView.text.toString().isNotBlank()) {
+            binding.calculatedDateTextView.visibility = View.VISIBLE
+            binding.setAlarmButton.visibility = View.VISIBLE
+        }
     }
 
     private fun pickTimeForInput(textInput: TextInputLayout) {
@@ -148,9 +158,13 @@ class WorkingHoursPage : Fragment() {
                                         else calculatedExit.minute.toString()
 
                 binding.calculatedDateTextView.text = "$calculatedHours:$calculatedMinutes"
+                binding.calculatedDateTextView.visibility = View.VISIBLE
+                binding.setAlarmButton.visibility = View.VISIBLE
             }
             else {
                 binding.calculatedDateTextView.text = ""
+                binding.calculatedDateTextView.visibility = View.GONE
+                binding.setAlarmButton.visibility = View.GONE
             }
 
             saveAllValues()
