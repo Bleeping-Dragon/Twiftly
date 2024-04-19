@@ -1,6 +1,8 @@
 package com.bleepingdragon.twiftly
 
+import android.content.Intent
 import android.os.Bundle
+import android.provider.AlarmClock
 import android.text.InputType
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -71,6 +73,11 @@ class WorkingHoursPage : Fragment() {
         binding.breakEndLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.breakEndLayout.textInputLayout)
         }
+
+        binding.setAlarmButton.setOnClickListener {
+            trySetAlarm()
+        }
+
 
         return binding.root
     }
@@ -202,13 +209,30 @@ class WorkingHoursPage : Fragment() {
         return finishHour
     }
 
-
     private fun saveAllValues() {
         LocalDB.setString("hoursToWork", binding.hoursToWorkLayout.textInputLayout.editText?.text.toString(), requireActivity())
         LocalDB.setString("startAt", binding.startAtLayout.textInputLayout.editText?.text.toString(), requireActivity())
         LocalDB.setString("breakStart", binding.breakStartLayout.textInputLayout.editText?.text.toString(), requireActivity())
         LocalDB.setString("breakEnd", binding.breakEndLayout.textInputLayout.editText?.text.toString(), requireActivity())
         LocalDB.setString("calculatedExit", binding.calculatedDateTextView.text.toString(), requireActivity())
+    }
+
+    private fun trySetAlarm() {
+
+        if (binding.calculatedDateTextView.text.toString().isBlank())
+            return
+
+        var hours = binding.calculatedDateTextView.text.toString().take(2)
+        var minutes = binding.calculatedDateTextView.text.toString().takeLast(2)
+
+        val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
+            putExtra(AlarmClock.EXTRA_MESSAGE, "Work exit hour")
+            putExtra(AlarmClock.EXTRA_HOUR, hours.toInt())
+            putExtra(AlarmClock.EXTRA_MINUTES, minutes.toInt())
+        }
+        if (intent.resolveActivity(requireActivity().packageManager) != null) {
+            startActivity(intent)
+        }
     }
 
     companion object {
