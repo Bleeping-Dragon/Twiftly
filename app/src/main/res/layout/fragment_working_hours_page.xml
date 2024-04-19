@@ -10,39 +10,47 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <include layout="@layout/hours_setting_layout"
-            android:id="@+id/hoursToWorkLayout">
-        </include>
+        <include
+            android:id="@+id/hoursToWorkLayout"
+            layout="@layout/hours_setting_layout"></include>
 
-        <include layout="@layout/hours_setting_layout"
-            android:id="@+id/startAtLayout">
-        </include>
+        <include
+            android:id="@+id/startAtLayout"
+            layout="@layout/hours_setting_layout"></include>
 
-        <include layout="@layout/hours_setting_layout"
-            android:id="@+id/breakStartLayout">
-        </include>
+        <include
+            android:id="@+id/breakStartLayout"
+            layout="@layout/hours_setting_layout"></include>
 
-        <include layout="@layout/hours_setting_layout"
-            android:id="@+id/breakEndLayout">
-        </include>
+        <include
+            android:id="@+id/breakEndLayout"
+            layout="@layout/hours_setting_layout"></include>
 
         <TextView
             android:id="@+id/calculatedDateTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:gravity="center"
             android:textSize="60sp" />
+
+        <Button
+            android:id="@+id/setAlarmButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set alarm" />
 
     </LinearLayout>
 
