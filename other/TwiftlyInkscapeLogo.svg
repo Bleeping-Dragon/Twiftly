@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="1920"
-   height="1920"
-   viewBox="0 0 508 508"
+   width="2000"
+   height="2000"
+   viewBox="0 0 529.16667 529.16667"
    version="1.1"
    id="svg1"
    inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
@@ -23,44 +23,106 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#303030"
      inkscape:document-units="mm"
-     inkscape:zoom="0.25354609"
-     inkscape:cx="143.95805"
-     inkscape:cy="514.69932"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="999.84899"
+     inkscape:cy="816.00123"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer3" />
+     inkscape:current-layer="layer1" />
   <defs
-     id="defs1" />
+     id="defs1">
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect12"
+       is_visible="true"
+       lpeversion="1.3"
+       scale_width="1"
+       interpolator_type="CubicBezierJohan"
+       interpolator_beta="0.2"
+       start_linecap_type="zerowidth"
+       end_linecap_type="zerowidth"
+       offset_points="0,24.757472"
+       linejoin_type="extrp_arc"
+       miter_limit="4"
+       not_jump="false"
+       sort_points="true"
+       message="&lt;b&gt;Ctrl + clic&lt;/b&gt; sobre un nodo existente y muévalo" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect11"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="powerstroke"
+       id="path-effect6"
+       is_visible="true"
+       lpeversion="1.3"
+       scale_width="1"
+       interpolator_type="CubicBezierJohan"
+       interpolator_beta="0.2"
+       start_linecap_type="zerowidth"
+       end_linecap_type="zerowidth"
+       offset_points="1.4163639,-10.879109"
+       linejoin_type="extrp_arc"
+       miter_limit="4"
+       not_jump="false"
+       sort_points="true"
+       message="&lt;b&gt;Ctrl + clic&lt;/b&gt; sobre un nodo existente y muévalo" />
+    <inkscape:path-effect
+       effect="fill_between_many"
+       method="bsplinespiro"
+       autoreverse="false"
+       close="false"
+       join="false"
+       linkedpaths="#path11,0,1"
+       id="path-effect13"
+       is_visible="true"
+       lpeversion="0" />
+  </defs>
   <g
-     inkscape:label="Logo"
+     inkscape:label="Logo Blanco y negro"
      inkscape:groupmode="layer"
      id="layer1">
     <g
        inkscape:groupmode="layer"
        id="layer3"
        inkscape:label="Twiftly">
-      <rect
-         style="fill:#000000;stroke-width:0.264583"
-         id="rect1"
-         width="52.916668"
-         height="481.54166"
-         x="0"
-         y="26.458344"
-         ry="26.458334"
-         inkscape:label="BarraIzquierda" />
-      <rect
-         style="fill:#000000;stroke-width:0.264583"
-         id="rect1-2"
-         width="52.916668"
-         height="481.54166"
-         x="455.08334"
-         y="-481.54166"
-         transform="rotate(90)"
-         ry="26.458334"
-         inkscape:label="BarraAbajo" />
+      <g
+         id="g1"
+         transform="translate(-37.733515,82.134655)">
+        <g
+           id="g2">
+          <path
+             style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:18.52083333;stroke-dasharray:none;stroke-opacity:1"
+             d="m 481.42847,173.78815 c 0,0 -23.90579,6.43784 -23.90579,6.43784 3.36283,12.48727 4.09017,28.51294 -1.47061,44.70526 -4.53066,13.19274 -13.44593,26.60625 -26.72227,36.4173 -11.70549,8.65021 -26.95862,14.46232 -43.34782,14.94224 -15.03945,0.44039 -31.11323,-3.70645 -44.89489,-12.72894 -11.27551,-7.29899 -21.31072,-17.92237 -30.89205,-31.22292 -9.59075,-13.31627 -16.94062,-26.48268 -26.92226,-42.50191 -9.15518,-14.69363 -19.82802,-30.47252 -33.61039,-43.98491 -6.86571,-6.73331 -14.6072,-12.95362 -23.13465,-18.08643 -8.47865,-5.10344 -17.78385,-9.16036 -27.77974,-11.52871 -17.03314,-3.95293 -34.99387,-2.64337 -51.03543,3.42528 -16.04856,6.07157 -29.95785,16.81362 -39.83988,30.26084 -9.975767,13.57515 -15.743409,29.73719 -16.92428,45.93899 -1.203368,16.51282 2.346321,32.90179 9.56406,46.9789 8.18805,16.10281 21.02931,29.02688 35.54599,37.77796 15.14817,9.13117 32.12898,13.8404 48.54195,14.92924 17.10087,1.38737 33.89874,-1.13048 49.4979,-6.20645 16.15009,-5.25525 31.1502,-13.29004 44.26632,-22.85416 13.63264,-9.94106 25.49783,-21.52125 35.912,-33.71038 10.91792,-12.77872 20.42695,-26.44813 28.77356,-39.93448 16.76001,-27.08071 33.85138,-62.29979 46.61089,-86.05777 3.1018,-6.27836 6.03873,-11.824736 8.72003,-16.514691 -2.68286,4.692674 -5.89423,10.074681 -9.51651,16.078651 -13.37328,23.97008 -30.72152,58.07201 -48.24169,84.95199 -8.60871,13.20769 -18.34166,26.48063 -29.41646,38.78433 -10.56519,11.73754 -22.46296,22.71939 -35.96105,31.99959 -12.96475,8.91321 -27.60937,16.20926 -43.15616,20.76893 -15.02145,4.40559 -30.87211,6.24895 -46.70017,4.47615 -15.19083,-1.94593 -30.28576,-7.27477 -43.18146,-16.24084 -12.36773,-8.59963 -22.5808,-20.5449 -28.50098,-34.45195 -5.13255,-12.19447 -6.91732,-25.81285 -4.9405,-38.8595 1.94118,-12.80997 7.504,-24.99744 15.8501,-34.64992 8.27457,-9.56933 19.24882,-16.6097 31.07866,-20.03009 11.83601,-3.42181 24.49611,-3.22365 35.79189,0.37926 6.63789,2.06509 12.96425,5.31186 18.89653,9.45388 5.9793,4.17484 11.52108,9.23419 16.50986,14.82523 10.20607,11.43228 18.34791,25.07316 26.17001,39.62633 7.93183,14.75638 15.81026,30.95391 25.42728,46.21758 10.12566,16.06854 22.61159,31.7323 38.92249,43.75298 20.37493,14.90178 44.76767,22.62506 68.57411,23.05715 25.90793,0.47023 50.51629,-7.57506 70.11293,-20.86998 22.1891,-15.05374 37.44875,-36.16026 45.64223,-58.02435 9.97464,-26.61709 9.25366,-53.14191 3.59204,-74.16536 z"
+             id="path11"
+             inkscape:path-effect="#path-effect11;#path-effect12"
+             inkscape:original-d="M 481.42847,173.78815 C 438.4789,130.63639 270.98071,337.68544 329.25002,280.45735 395.93587,214.96312 144.06994,120.03983 195.11739,129.85691 c 51.04744,9.81708 -61.47537,115.37955 -88.00785,109.88211 -23.811633,-4.93369 251.5017,-103.16126 282.1533,-133.1721 40.10395,-39.265587 -1.54125,7.54693 9.11827,-16.296671"
+             inkscape:linked-fill="path13"
+             sodipodi:nodetypes="cssssc" />
+        </g>
+      </g>
+      <path
+         sodipodi:type="star"
+         style="fill:#000000;stroke-width:0.264583;stroke:#000000;stroke-opacity:1"
+         id="path1"
+         inkscape:flatsided="false"
+         sodipodi:sides="3"
+         sodipodi:cx="327.7063"
+         sodipodi:cy="114.08608"
+         sodipodi:r1="89.470444"
+         sodipodi:r2="44.735222"
+         sodipodi:arg1="1.5707963"
+         sodipodi:arg2="2.6179939"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         d="m 327.7063,203.55653 -38.74184,-67.10284 -38.74184,-67.102827 77.48368,-2e-6 77.48367,-2e-6 -38.74183,67.102831 z"
+         inkscape:transform-center-x="21.338917"
+         inkscape:transform-center-y="-8.7250889"
+         transform="matrix(0.63115804,-0.36439926,0.36439926,0.63115804,134.00127,185.29754)" />
     </g>
   </g>
 </svg>
