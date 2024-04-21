@@ -23,19 +23,44 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#303030"
      inkscape:document-units="mm"
-     inkscape:zoom="0.35856832"
-     inkscape:cx="499.20751"
-     inkscape:cy="818.53299"
+     inkscape:zoom="0.25354609"
+     inkscape:cx="143.95805"
+     inkscape:cy="514.69932"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:current-layer="layer3" />
   <defs
      id="defs1" />
   <g
-     inkscape:label="Capa 1"
+     inkscape:label="Logo"
      inkscape:groupmode="layer"
-     id="layer1" />
+     id="layer1">
+    <g
+       inkscape:groupmode="layer"
+       id="layer3"
+       inkscape:label="Twiftly">
+      <rect
+         style="fill:#000000;stroke-width:0.264583"
+         id="rect1"
+         width="52.916668"
+         height="481.54166"
+         x="0"
+         y="26.458344"
+         ry="26.458334"
+         inkscape:label="BarraIzquierda" />
+      <rect
+         style="fill:#000000;stroke-width:0.264583"
+         id="rect1-2"
+         width="52.916668"
+         height="481.54166"
+         x="455.08334"
+         y="-481.54166"
+         transform="rotate(90)"
+         ry="26.458334"
+         inkscape:label="BarraAbajo" />
+    </g>
+  </g>
 </svg>
