@@ -430,7 +430,7 @@
        inkscape:label="Background"
        style="display:inline">
       <rect
-         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0;opacity:1"
+         style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
          id="rect3"
          width="217.83844"
          height="352.47003"
@@ -439,7 +439,7 @@
          ry="108.91922"
          transform="rotate(45)" />
       <rect
-         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0;opacity:1"
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
          id="rect4"
          width="217.83844"
          height="352.47003"
@@ -448,7 +448,7 @@
          ry="108.91922"
          transform="rotate(135)" />
       <rect
-         style="display:inline;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:6.61458;stroke-dasharray:none;stroke-dashoffset:0;opacity:1"
+         style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:6.61458;stroke-dasharray:none;stroke-dashoffset:0"
          id="rect6"
          width="217.83844"
          height="352.47003"
@@ -504,7 +504,7 @@
      inkscape:groupmode="layer"
      id="g37"
      inkscape:label="Iteración-FinalMonocroma"
-     style="display:none"
+     style="display:inline"
      transform="translate(-84.379568,-84.379564)">
     <rect
        style="display:inline;fill:#9c609c;fill-opacity:0;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
@@ -533,16 +533,10 @@
        y="-550.41235"
        ry="108.91922"
        transform="rotate(90,-187.08867,77.494662)" />
-    <text
-       xml:space="preserve"
-       style="font-size:117.198px;display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:22.4896;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       x="226.20099"
-       y="310.34915"
-       id="text37"><tspan
-         sodipodi:role="line"
-         id="tspan37"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;stroke-width:22.4896;stroke-dasharray:none"
-         x="226.20099"
-         y="310.34915">T</tspan></text>
+    <path
+       style="font-size:117.198px;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;fill:none;stroke:#000000;stroke-width:22.4896"
+       d="m 264.52473,310.34915 c 2.57836,0 4.57073,-1.99236 4.57073,-4.57072 v -78.63986 h 27.89312 c 2.46116,0 4.21913,-1.75797 4.21913,-4.10193 0,-2.46115 -1.75797,-4.21912 -4.21913,-4.21912 h -64.81049 c -2.46116,0 -4.21913,1.75797 -4.21913,4.21912 0,2.34396 1.75797,4.10193 4.21913,4.10193 h 27.77592 v 78.63986 c 0,2.57836 2.10957,4.57072 4.57072,4.57072 z"
+       id="text37"
+       aria-label="T" />
   </g>
 </svg>
