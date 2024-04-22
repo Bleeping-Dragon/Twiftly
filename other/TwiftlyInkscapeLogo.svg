@@ -25,15 +25,71 @@
      inkscape:document-units="mm"
      inkscape:zoom="0.35355339"
      inkscape:cx="685.89358"
-     inkscape:cy="668.92302"
+     inkscape:cy="895.19719"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g16" />
+     inkscape:current-layer="g27" />
   <defs
      id="defs1">
+    <inkscape:path-effect
+       effect="vonkoch"
+       id="path-effect19"
+       is_visible="true"
+       lpeversion="1"
+       ref_path="M 265.25812,0 H 483.09656"
+       generator="m 265.25812,176.23502 h 72.61281 m 72.61281,0 h 72.61282"
+       similar_only="false"
+       nbgenerations="1"
+       drawall="true"
+       maxComplexity="1000" />
+    <inkscape:path-effect
+       effect="vonkoch"
+       id="path-effect18"
+       is_visible="true"
+       lpeversion="1"
+       ref_path="M -108.91922,-374.17734 H 108.91922"
+       generator="m -108.91922,-197.94232 h 72.612813 m 72.612814,0 h 72.612813"
+       similar_only="false"
+       nbgenerations="1"
+       drawall="true"
+       maxComplexity="1000" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect17"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1"
+       radius="647"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect16"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1"
+       radius="647"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
     <inkscape:path-effect
        effect="bool_op"
        operand-path=""
@@ -297,23 +353,23 @@
   </g>
   <g
      inkscape:groupmode="layer"
-     id="g16"
+     id="g20"
      inkscape:label="Iteración-4"
      style="display:inline">
     <text
        xml:space="preserve"
-       style="font-size:117.198px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:12.8205;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="font-size:117.198px;display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:23.8125;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        x="226.20099"
        y="310.34915"
-       id="text15"><tspan
+       id="text19"><tspan
          sodipodi:role="line"
-         id="tspan15"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;stroke-width:12.8205;stroke-dasharray:none"
+         id="tspan19"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;stroke-width:23.8125;stroke-dasharray:none"
          x="226.20099"
          y="310.34915">T</tspan></text>
     <rect
-       style="fill:none;stroke:#000000;stroke-width:9.26042;stroke-dasharray:none"
-       id="rect15"
+       style="display:inline;fill:none;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect19"
        width="217.83844"
        height="352.47003"
        x="265.25812"
@@ -321,13 +377,92 @@
        ry="108.91922"
        transform="rotate(45)" />
     <rect
-       style="fill:none;stroke:#000000;stroke-width:9.26042;stroke-dasharray:none"
-       id="rect16"
+       style="fill:none;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect20"
        width="217.83844"
        height="352.47003"
        x="-108.91922"
        y="-550.41235"
        ry="108.91922"
        transform="rotate(135)" />
+    <g
+       id="g22"
+       transform="rotate(-45,264.58333,264.58333)">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect21"
+         width="217.83844"
+         height="352.47003"
+         x="265.25812"
+         y="-176.23502"
+         ry="108.91922"
+         transform="rotate(45)" />
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect22"
+         width="217.83844"
+         height="352.47003"
+         x="-108.91922"
+         y="-550.41235"
+         ry="108.91922"
+         transform="rotate(135)" />
+    </g>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="g27"
+     inkscape:label="Iteración-5"
+     style="display:inline">
+    <text
+       xml:space="preserve"
+       style="font-size:117.198px;display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:23.8125;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       x="226.20099"
+       y="310.34915"
+       id="text22"><tspan
+         sodipodi:role="line"
+         id="tspan22"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;stroke-width:23.8125;stroke-dasharray:none"
+         x="226.20099"
+         y="310.34915">T</tspan></text>
+    <rect
+       style="display:inline;fill:none;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect23"
+       width="217.83844"
+       height="352.47003"
+       x="265.25812"
+       y="-176.23502"
+       ry="108.91922"
+       transform="rotate(45)" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect24"
+       width="217.83844"
+       height="352.47003"
+       x="-108.91922"
+       y="-550.41235"
+       ry="108.91922"
+       transform="rotate(135)" />
+    <g
+       id="g26"
+       transform="rotate(-45,264.58333,264.58333)">
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect25"
+         width="217.83844"
+         height="352.47003"
+         x="265.25812"
+         y="-176.23502"
+         ry="108.91922"
+         transform="rotate(45)" />
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect26"
+         width="217.83844"
+         height="352.47003"
+         x="-108.91922"
+         y="-550.41235"
+         ry="108.91922"
+         transform="rotate(135)" />
+    </g>
   </g>
 </svg>
