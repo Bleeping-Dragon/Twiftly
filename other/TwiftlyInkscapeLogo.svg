@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#303030"
      inkscape:document-units="mm"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="685.89358"
-     inkscape:cy="895.19719"
+     inkscape:zoom="0.25"
+     inkscape:cx="-262"
+     inkscape:cy="834"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -442,13 +442,13 @@
        transform="rotate(90,-187.08867,77.494662)" />
     <text
        xml:space="preserve"
-       style="display:inline;font-size:117.198px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:23.8125;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="display:inline;font-size:117.198px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:22.48958333;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        x="226.20099"
        y="310.34915"
        id="text22"><tspan
          sodipodi:role="line"
          id="tspan22"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;stroke-width:23.8125;stroke-dasharray:none"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;stroke-width:22.48958333;stroke-dasharray:none"
          x="226.20099"
          y="310.34915">T</tspan></text>
   </g>
