@@ -14,6 +14,7 @@ import com.bleepingdragon.twiftly.services.LocalDB
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_CLOCK
+import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_KEYBOARD
 import com.google.android.material.timepicker.TimeFormat
 import java.time.LocalDateTime
 
@@ -55,28 +56,28 @@ class WorkingHoursPage : Fragment() {
         binding.hoursToWorkLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.hoursToWorkLayout.textInputLayout.hint = "Hours to work"
         binding.hoursToWorkLayout.textInputLayout.setEndIconOnClickListener {
-            pickTimeForInput(binding.hoursToWorkLayout.textInputLayout)
+            pickTimeForInput(binding.hoursToWorkLayout.textInputLayout, false)
         }
 
         //Start at
         binding.startAtLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.startAtLayout.textInputLayout.hint = "Hour to start working"
         binding.startAtLayout.textInputLayout.setEndIconOnClickListener {
-            pickTimeForInput(binding.startAtLayout.textInputLayout)
+            pickTimeForInput(binding.startAtLayout.textInputLayout, true)
         }
 
         //Break start
         binding.breakStartLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.breakStartLayout.textInputLayout.hint = "Break start"
         binding.breakStartLayout.textInputLayout.setEndIconOnClickListener {
-            pickTimeForInput(binding.breakStartLayout.textInputLayout)
+            pickTimeForInput(binding.breakStartLayout.textInputLayout, true)
         }
 
         //Break end
         binding.breakEndLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
         binding.breakEndLayout.textInputLayout.hint = "Break end"
         binding.breakEndLayout.textInputLayout.setEndIconOnClickListener {
-            pickTimeForInput(binding.breakEndLayout.textInputLayout)
+            pickTimeForInput(binding.breakEndLayout.textInputLayout, true)
         }
 
         binding.setAlarmButton.setOnClickListener {
@@ -126,15 +127,30 @@ class WorkingHoursPage : Fragment() {
         }
     }
 
-    private fun pickTimeForInput(textInput: TextInputLayout) {
+    private fun pickTimeForInput(textInput: TextInputLayout, isClockMode: Boolean) {
+
+        var previousHours =
+            if (textInput.editText?.text.toString().take(2).isNotEmpty())
+                textInput.editText?.text.toString().take(2).toInt()
+            else 12
+
+        var previousMinutes =
+            if (textInput.editText?.text.toString().takeLast(2).isNotEmpty())
+                textInput.editText?.text.toString().takeLast(2).toInt()
+            else 0
 
         val picker =
             MaterialTimePicker.Builder()
                 .setTimeFormat(TimeFormat.CLOCK_24H)
-                .setHour(12)
-                .setMinute(10)
+                .setHour(previousHours)
+                .setMinute(previousMinutes)
                 .setTitleText("Select an hour")
-                .setInputMode(INPUT_MODE_CLOCK)
+                .setInputMode(
+                    if (isClockMode)
+                        INPUT_MODE_CLOCK
+                    else
+                        INPUT_MODE_KEYBOARD
+                )
                 .build()
 
         picker.show(parentFragmentManager, "tag");
