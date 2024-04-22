@@ -7,235 +7,16 @@
    viewBox="0 0 360.40753 360.40753"
    version="1.1"
    id="svg1"
-   inkscape:version="1.3.2 (091e20ef0f, 2023-11-25)"
-   sodipodi:docname="TwiftlyInkscapeLogo.svg"
-   inkscape:export-filename="TwiftlyContrastIcon.svg"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#bfb5a4"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#303030"
-     inkscape:document-units="mm"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="564.27121"
-     inkscape:cy="629.32504"
-     inkscape:window-width="1920"
-     inkscape:window-height="1011"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="g37" />
   <defs
-     id="defs1">
-    <inkscape:path-effect
-       effect="vonkoch"
-       id="path-effect19"
-       is_visible="true"
-       lpeversion="1"
-       ref_path="M 265.25812,0 H 483.09656"
-       generator="m 265.25812,176.23502 h 72.61281 m 72.61281,0 h 72.61282"
-       similar_only="false"
-       nbgenerations="1"
-       drawall="true"
-       maxComplexity="1000" />
-    <inkscape:path-effect
-       effect="vonkoch"
-       id="path-effect18"
-       is_visible="true"
-       lpeversion="1"
-       ref_path="M -108.91922,-374.17734 H 108.91922"
-       generator="m -108.91922,-197.94232 h 72.612813 m 72.612814,0 h 72.612813"
-       similar_only="false"
-       nbgenerations="1"
-       drawall="true"
-       maxComplexity="1000" />
-    <inkscape:path-effect
-       effect="fillet_chamfer"
-       id="path-effect17"
-       is_visible="true"
-       lpeversion="1"
-       nodesatellites_param="F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1"
-       radius="647"
-       unit="px"
-       method="auto"
-       mode="IF"
-       chamfer_steps="1"
-       flexible="false"
-       use_knot_distance="true"
-       apply_no_radius="true"
-       apply_with_radius="true"
-       only_selected="false"
-       hide_knots="false" />
-    <inkscape:path-effect
-       effect="fillet_chamfer"
-       id="path-effect16"
-       is_visible="true"
-       lpeversion="1"
-       nodesatellites_param="F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1 @ F,0,0,1,0,171.18542,0,1"
-       radius="647"
-       unit="px"
-       method="auto"
-       mode="IF"
-       chamfer_steps="1"
-       flexible="false"
-       use_knot_distance="true"
-       apply_no_radius="true"
-       apply_with_radius="true"
-       only_selected="false"
-       hide_knots="false" />
-    <inkscape:path-effect
-       effect="bool_op"
-       operand-path=""
-       id="path-effect15"
-       is_visible="true"
-       lpeversion="1"
-       operation="union"
-       swap-operands="false"
-       filltype-this="from-curve"
-       filter=""
-       filltype-operand="from-curve" />
-    <filter
-       id="selectable_hidder_filter"
-       width="1"
-       height="1"
-       x="0"
-       y="0"
-       style="color-interpolation-filters:sRGB"
-       inkscape:label="LPE boolean visibility">
-      <feComposite
-         id="boolops_hidder_primitive"
-         result="composite1"
-         operator="arithmetic"
-         in2="SourceGraphic"
-         in="BackgroundImage"
-         k1="0"
-         k2="0"
-         k3="0"
-         k4="0" />
-    </filter>
-    <inkscape:path-effect
-       effect="bool_op"
-       operand-path=""
-       id="path-effect14"
-       is_visible="true"
-       lpeversion="1"
-       operation="cut"
-       swap-operands="false"
-       filltype-this="from-curve"
-       filter=""
-       filltype-operand="from-curve" />
-    <inkscape:path-effect
-       effect="mirror_symmetry"
-       start_point="264.58333,259.87948"
-       end_point="264.58333,391.64076"
-       center_point="264.58333,325.76012"
-       id="path-effect1"
-       is_visible="true"
-       lpeversion="1.2"
-       lpesatellites=""
-       mode="X"
-       discard_orig_path="false"
-       fuse_paths="true"
-       oposite_fuse="true"
-       split_items="false"
-       split_open="false"
-       link_styles="false" />
-    <inkscape:perspective
-       sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="-508.55131 : 119.97447 : 1"
-       inkscape:vp_y="-5.5447514e-13 : 3018.422 : 0"
-       inkscape:vp_z="-131.30802 : 725.80267 : 1"
-       inkscape:persp3d-origin="290.07293 : -146.2336 : 1"
-       id="perspective10" />
-    <inkscape:path-effect
-       effect="powerstroke"
-       id="path-effect10"
-       is_visible="true"
-       lpeversion="1.3"
-       scale_width="1"
-       interpolator_type="CubicBezierJohan"
-       interpolator_beta="0.2"
-       start_linecap_type="zerowidth"
-       end_linecap_type="zerowidth"
-       offset_points="0,24.757472"
-       linejoin_type="extrp_arc"
-       miter_limit="4"
-       not_jump="false"
-       sort_points="true"
-       message="&lt;b&gt;Ctrl + clic&lt;/b&gt; sobre un nodo existente y muévalo" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect8"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="powerstroke"
-       id="path-effect12"
-       is_visible="true"
-       lpeversion="1.3"
-       scale_width="1"
-       interpolator_type="CubicBezierJohan"
-       interpolator_beta="0.2"
-       start_linecap_type="zerowidth"
-       end_linecap_type="zerowidth"
-       offset_points="0,24.757472"
-       linejoin_type="extrp_arc"
-       miter_limit="4"
-       not_jump="false"
-       sort_points="true"
-       message="&lt;b&gt;Ctrl + clic&lt;/b&gt; sobre un nodo existente y muévalo" />
-    <inkscape:path-effect
-       effect="spiro"
-       id="path-effect11"
-       is_visible="true"
-       lpeversion="1" />
-    <inkscape:path-effect
-       effect="powerstroke"
-       id="path-effect6"
-       is_visible="true"
-       lpeversion="1.3"
-       scale_width="1"
-       interpolator_type="CubicBezierJohan"
-       interpolator_beta="0.2"
-       start_linecap_type="zerowidth"
-       end_linecap_type="zerowidth"
-       offset_points="1.4163639,-10.879109"
-       linejoin_type="extrp_arc"
-       miter_limit="4"
-       not_jump="false"
-       sort_points="true"
-       message="&lt;b&gt;Ctrl + clic&lt;/b&gt; sobre un nodo existente y muévalo" />
-    <inkscape:path-effect
-       effect="fill_between_many"
-       method="bsplinespiro"
-       autoreverse="false"
-       close="false"
-       join="false"
-       linkedpaths="#path11,0,1"
-       id="path-effect13"
-       is_visible="true"
-       lpeversion="0" />
-  </defs>
+     id="defs1" />
   <g
-     inkscape:label="Iteración-1"
-     inkscape:groupmode="layer"
      id="layer1"
      style="display:none"
      transform="translate(-84.379568,-84.379564)">
     <g
-       inkscape:groupmode="layer"
-       id="layer3"
-       inkscape:label="Twiftly">
+       id="layer3">
       <g
          id="g1"
          transform="translate(-37.733515,82.134655)">
@@ -244,37 +25,18 @@
           <path
              style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:18.5208;stroke-dasharray:none;stroke-opacity:1"
              d="m 481.42847,173.78815 c 0,0 -23.90579,6.43784 -23.90579,6.43784 3.36283,12.48727 4.09017,28.51294 -1.47061,44.70526 -4.53066,13.19274 -13.44593,26.60625 -26.72227,36.4173 -11.70549,8.65021 -26.95862,14.46232 -43.34782,14.94224 -15.03945,0.44039 -31.11323,-3.70645 -44.89489,-12.72894 -11.27551,-7.29899 -21.31072,-17.92237 -30.89205,-31.22292 -9.59075,-13.31627 -16.94062,-26.48268 -26.92226,-42.50191 -9.15518,-14.69363 -19.82802,-30.47252 -33.61039,-43.98491 -6.86571,-6.73331 -14.6072,-12.95362 -23.13465,-18.08643 -8.47865,-5.10344 -17.78385,-9.16036 -27.77974,-11.52871 -17.03314,-3.95293 -34.99387,-2.64337 -51.03543,3.42528 -16.04856,6.07157 -29.95785,16.81362 -39.83988,30.26084 -9.975767,13.57515 -15.743409,29.73719 -16.92428,45.93899 -1.203368,16.51282 2.346321,32.90179 9.56406,46.9789 8.18805,16.10281 21.02931,29.02688 35.54599,37.77796 15.14817,9.13117 32.12898,13.8404 48.54195,14.92924 17.10087,1.38737 33.89874,-1.13048 49.4979,-6.20645 16.15009,-5.25525 31.1502,-13.29004 44.26632,-22.85416 13.63264,-9.94106 25.49783,-21.52125 35.912,-33.71038 10.91792,-12.77872 20.42695,-26.44813 28.77356,-39.93448 16.76001,-27.08071 33.85138,-62.29979 46.61089,-86.05777 3.1018,-6.27836 6.03873,-11.824736 8.72003,-16.514691 -2.68286,4.692674 -5.89423,10.074681 -9.51651,16.078651 -13.37328,23.97008 -30.72152,58.07201 -48.24169,84.95199 -8.60871,13.20769 -18.34166,26.48063 -29.41646,38.78433 -10.56519,11.73754 -22.46296,22.71939 -35.96105,31.99959 -12.96475,8.91321 -27.60937,16.20926 -43.15616,20.76893 -15.02145,4.40559 -30.87211,6.24895 -46.70017,4.47615 -15.19083,-1.94593 -30.28576,-7.27477 -43.18146,-16.24084 -12.36773,-8.59963 -22.5808,-20.5449 -28.50098,-34.45195 -5.13255,-12.19447 -6.91732,-25.81285 -4.9405,-38.8595 1.94118,-12.80997 7.504,-24.99744 15.8501,-34.64992 8.27457,-9.56933 19.24882,-16.6097 31.07866,-20.03009 11.83601,-3.42181 24.49611,-3.22365 35.79189,0.37926 6.63789,2.06509 12.96425,5.31186 18.89653,9.45388 5.9793,4.17484 11.52108,9.23419 16.50986,14.82523 10.20607,11.43228 18.34791,25.07316 26.17001,39.62633 7.93183,14.75638 15.81026,30.95391 25.42728,46.21758 10.12566,16.06854 22.61159,31.7323 38.92249,43.75298 20.37493,14.90178 44.76767,22.62506 68.57411,23.05715 25.90793,0.47023 50.51629,-7.57506 70.11293,-20.86998 22.1891,-15.05374 37.44875,-36.16026 45.64223,-58.02435 9.97464,-26.61709 9.25366,-53.14191 3.59204,-74.16536 z"
-             id="path11"
-             inkscape:path-effect="#path-effect11;#path-effect12"
-             inkscape:original-d="M 481.42847,173.78815 C 438.4789,130.63639 270.98071,337.68544 329.25002,280.45735 395.93587,214.96312 144.06994,120.03983 195.11739,129.85691 c 51.04744,9.81708 -61.47537,115.37955 -88.00785,109.88211 -23.811633,-4.93369 251.5017,-103.16126 282.1533,-133.1721 40.10395,-39.265587 -1.54125,7.54693 9.11827,-16.296671"
-             inkscape:linked-fill="path13"
-             sodipodi:nodetypes="cssssc" />
+             id="path11" />
         </g>
       </g>
       <path
-         sodipodi:type="star"
          style="fill:#000000;stroke:#000000;stroke-width:0.264583;stroke-opacity:1"
          id="path1"
-         inkscape:flatsided="false"
-         sodipodi:sides="3"
-         sodipodi:cx="327.7063"
-         sodipodi:cy="114.08608"
-         sodipodi:r1="89.470444"
-         sodipodi:r2="44.735222"
-         sodipodi:arg1="1.5707963"
-         sodipodi:arg2="2.6179939"
-         inkscape:rounded="0"
-         inkscape:randomized="0"
          d="m 327.7063,203.55653 -38.74184,-67.10284 -38.74184,-67.102827 77.48368,-2e-6 77.48367,-2e-6 -38.74183,67.102831 z"
-         inkscape:transform-center-x="21.338917"
-         inkscape:transform-center-y="-8.7250889"
          transform="matrix(0.63115804,-0.36439926,0.36439926,0.63115804,134.00127,185.29754)" />
     </g>
   </g>
   <g
-     inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Iteración-2"
      style="display:none"
      transform="translate(-84.379568,-84.379564)">
     <text
@@ -283,7 +45,6 @@
        x="226.20099"
        y="310.34915"
        id="text24"><tspan
-         sodipodi:role="line"
          id="tspan24"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;stroke-width:12.8205;stroke-dasharray:none"
          x="226.20099"
@@ -326,9 +87,7 @@
        transform="rotate(135)" />
   </g>
   <g
-     inkscape:groupmode="layer"
      id="g8"
-     inkscape:label="Iteración-3"
      style="display:none"
      transform="translate(-84.379568,-84.379564)">
     <text
@@ -337,7 +96,6 @@
        x="226.20099"
        y="310.34915"
        id="text5"><tspan
-         sodipodi:role="line"
          id="tspan5"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;stroke-width:12.8205;stroke-dasharray:none"
          x="226.20099"
@@ -362,9 +120,7 @@
        transform="rotate(135)" />
   </g>
   <g
-     inkscape:groupmode="layer"
      id="g20"
-     inkscape:label="Iteración-4"
      style="display:none"
      transform="translate(-84.379568,-84.379564)">
     <text
@@ -373,7 +129,6 @@
        x="226.20099"
        y="310.34915"
        id="text19"><tspan
-         sodipodi:role="line"
          id="tspan19"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;stroke-width:23.8125;stroke-dasharray:none"
          x="226.20099"
@@ -420,10 +175,8 @@
     </g>
   </g>
   <g
-     inkscape:groupmode="layer"
      id="g27"
-     inkscape:label="Iteración-Final"
-     style="display:inline"
+     style="display:none"
      transform="translate(-84.379568,-84.379564)">
     <rect
        style="display:inline;fill:#ce3737;fill-opacity:0.342075;stroke:#000000;stroke-width:7.9375;stroke-dasharray:none;stroke-dashoffset:0"
@@ -458,16 +211,13 @@
        x="226.20099"
        y="310.34915"
        id="text22"><tspan
-         sodipodi:role="line"
          id="tspan22"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;stroke-width:22.4896;stroke-dasharray:none"
          x="226.20099"
          y="310.34915">T</tspan></text>
   </g>
   <g
-     inkscape:groupmode="layer"
      id="g37"
-     inkscape:label="Iteración-FinalMonocroma"
      style="display:inline"
      transform="translate(-84.379568,-84.379564)">
     <rect
@@ -503,7 +253,6 @@
        x="226.20099"
        y="310.34915"
        id="text37"><tspan
-         sodipodi:role="line"
          id="tspan37"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Comfortaa;-inkscape-font-specification:Comfortaa;stroke-width:22.4896;stroke-dasharray:none"
          x="226.20099"
