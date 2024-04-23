@@ -12,9 +12,9 @@
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            style="?attr/collapsingToolbarLayoutMediumStyle"
+            style="?attr/collapsingToolbarLayoutLargeStyle"
             android:layout_width="match_parent"
-            android:layout_height="?attr/collapsingToolbarLayoutMediumSize"
+            android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
             app:title="Work exit hour">
 
             <com.google.android.material.appbar.MaterialToolbar
