@@ -7,17 +7,26 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            style="?attr/collapsingToolbarLayoutMediumStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            app:title="Work exit hour"
-            app:navigationIcon="@drawable/baseline_arrow_back_24">
+            android:layout_height="?attr/collapsingToolbarLayoutMediumSize">
 
-        </com.google.android.material.appbar.MaterialToolbar>
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:elevation="0dp"
+                app:title="Work exit hour"
+                app:navigationIcon="@drawable/baseline_arrow_back_24"
+                app:layout_collapseMode="pin">
+            </com.google.android.material.appbar.MaterialToolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
 
     </com.google.android.material.appbar.AppBarLayout>
 
