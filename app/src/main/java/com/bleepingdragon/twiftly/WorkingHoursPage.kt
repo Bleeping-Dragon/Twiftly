@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.bleepingdragon.twiftly.databinding.FragmentWorkingHoursPageBinding
 import com.bleepingdragon.twiftly.services.LocalDB
 import com.google.android.material.textfield.TextInputLayout
@@ -47,6 +49,10 @@ class WorkingHoursPage : Fragment() {
     ): View {
         //Inflate the layout for this fragment
         _binding = FragmentWorkingHoursPageBinding.inflate(inflater, container, false)
+
+        //Setup the toolbar
+        val navController = findNavController()
+        binding.toolbar.setupWithNavController(navController)
 
         //Hide by default the calculated hour and set alarm buttons
         binding.calculatedDateTextView.visibility = View.GONE
