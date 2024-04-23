@@ -56,12 +56,6 @@ class WorkingHoursPage : Fragment() {
         val navController = findNavController()
         binding.toolbar.setupWithNavController(navController)
 
-        val carroisGothic = ResourcesCompat.getFont(requireContext(), R.font.carrois_gothic_sc)
-        binding.collapsingToolbar.apply {
-            setCollapsedTitleTypeface(Typeface.DEFAULT)
-            setExpandedTitleTypeface(carroisGothic)
-        }
-
         //Hide by default the calculated hour and set alarm buttons
         binding.calculatedDateTextView.visibility = View.GONE
         binding.setAlarmButton.visibility = View.GONE

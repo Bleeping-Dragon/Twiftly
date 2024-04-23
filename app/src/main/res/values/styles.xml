@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Top Bar -->
+    <style name="collapsed_app_bar" parent="@android:style/TextAppearance">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#f0f</item>
+    </style>
+
+    <style name="expanded_app_bar" parent="@android:style/TextAppearance">
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/carrois_gothic_sc</item>
+    </style>
+
+</resources>
