@@ -1,14 +1,15 @@
 package com.bleepingdragon.twiftly
 
 import android.content.Intent
-import android.opengl.Visibility
+import android.graphics.Typeface
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.text.InputType
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bleepingdragon.twiftly.databinding.FragmentWorkingHoursPageBinding
@@ -19,6 +20,7 @@ import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_CLOC
 import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_KEYBOARD
 import com.google.android.material.timepicker.TimeFormat
 import java.time.LocalDateTime
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,6 +55,12 @@ class WorkingHoursPage : Fragment() {
         //Setup the toolbar
         val navController = findNavController()
         binding.toolbar.setupWithNavController(navController)
+
+        val carroisGothic = ResourcesCompat.getFont(requireContext(), R.font.carrois_gothic_sc)
+        binding.collapsingToolbar.apply {
+            setCollapsedTitleTypeface(Typeface.DEFAULT)
+            setExpandedTitleTypeface(carroisGothic)
+        }
 
         //Hide by default the calculated hour and set alarm buttons
         binding.calculatedDateTextView.visibility = View.GONE

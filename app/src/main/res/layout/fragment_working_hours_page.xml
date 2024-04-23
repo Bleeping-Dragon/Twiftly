@@ -11,6 +11,7 @@
         android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             style="?attr/collapsingToolbarLayoutLargeStyle"
             android:layout_width="match_parent"
