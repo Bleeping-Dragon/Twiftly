@@ -1,67 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout2"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".WorkingHoursPage">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:orientation="vertical"
-        android:animateLayoutChanges="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textView3"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:fontFamily="sans-serif-smallcaps"
-            android:text="Work exit hour"
-            android:textSize="34sp" />
+            android:minHeight="?attr/actionBarSize"
+            app:title="Work exit hour"
+            app:navigationIcon="@drawable/baseline_arrow_back_24">
 
-        <include
-            android:id="@+id/hoursToWorkLayout"
-            layout="@layout/hours_setting_layout"></include>
+        </com.google.android.material.appbar.MaterialToolbar>
 
-        <include
-            android:id="@+id/startAtLayout"
-            layout="@layout/hours_setting_layout"></include>
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <include
-            android:id="@+id/breakStartLayout"
-            layout="@layout/hours_setting_layout"></include>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <include
-            android:id="@+id/breakEndLayout"
-            layout="@layout/hours_setting_layout"></include>
-
-        <TextView
-            android:id="@+id/calculatedDateTextView"
+        <!-- View Content here -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/frameLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center"
-            android:textSize="60sp" />
+            android:layout_height="match_parent"
+            tools:context=".WorkingHoursPage">
 
-        <Button
-            android:id="@+id/setAlarmButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Set alarm" />
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginBottom="32dp"
+                android:orientation="vertical"
+                android:animateLayoutChanges="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </LinearLayout>
+                <include
+                    android:id="@+id/hoursToWorkLayout"
+                    layout="@layout/hours_setting_layout"></include>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <include
+                    android:id="@+id/startAtLayout"
+                    layout="@layout/hours_setting_layout"></include>
+
+                <include
+                    android:id="@+id/breakStartLayout"
+                    layout="@layout/hours_setting_layout"></include>
+
+                <include
+                    android:id="@+id/breakEndLayout"
+                    layout="@layout/hours_setting_layout"></include>
+
+                <TextView
+                    android:id="@+id/calculatedDateTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="center"
+                    android:textSize="60sp" />
+
+                <Button
+                    android:id="@+id/setAlarmButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Set alarm" />
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
