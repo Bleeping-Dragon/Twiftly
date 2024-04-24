@@ -1,9 +1,18 @@
 package com.bleepingdragon.twiftly
 
+import android.annotation.SuppressLint
+import android.content.Context
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.RotateAnimation
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -15,7 +24,7 @@ import com.bleepingdragon.twiftly.databinding.FragmentCompassPageBinding
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class CompassPage : Fragment() {
+class CompassPage : Fragment(), SensorEventListener {
 
     //Fragment binding
     private var _binding: FragmentCompassPageBinding? = null
@@ -25,12 +34,26 @@ class CompassPage : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    //Sensors
+    private lateinit var sensorManager: SensorManager
+    private lateinit var orientationSensor: Sensor
+
+    //Values
+    private var newRotationSensorValue: Float = 0.0F
+    private var previousRotationValue: Float = 0.0F
+
+    //Variables
+    private var isDegreesShown: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        //Get the sensor manager
+        sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
     }
 
     override fun onCreateView(
@@ -52,6 +75,74 @@ class CompassPage : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    //When the sensor changes it's information, update the compass
+    @SuppressLint("SetTextI18n")
+    override fun onSensorChanged(event: SensorEvent?) {
+
+        //Switch (depending on the sensor type, update it's values)
+        when (event!!.sensor.type) {
+            Sensor.TYPE_ORIENTATION -> newRotationSensorValue = event.values[0]
+        }
+
+        if (!isDegreesShown) {
+            binding.degreesTextView.visibility = View.VISIBLE
+            isDegreesShown = true
+        }
+
+        try {
+            val rotationAnimation = RotateAnimation(
+                previousRotationValue,
+                -newRotationSensorValue,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f
+            )
+
+            rotationAnimation.duration = 150
+            binding.compassImageView.startAnimation(rotationAnimation)
+            binding.detailsImageView.startAnimation(rotationAnimation)
+            previousRotationValue = -newRotationSensorValue
+
+            binding.degreesTextView.text = " " + newRotationSensorValue.toInt() + "º"
+        }
+        catch(error: Exception){
+            Log.e("SensorsError", error.toString())
+        }
+    }
+
+    //When the accuracy of any sensor has changed
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+        //
+    }
+
+
+    //When resuming fragment (and app), register the compass sensor if not registered before
+    override fun onResume() {
+        super.onResume()
+
+        binding.degreesTextView.visibility = View.GONE
+        isDegreesShown = false
+
+        orientationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION)!!
+
+        //"this" is the listener from the main activity SensorEventListener interface
+        sensorManager.registerListener(this, orientationSensor, SensorManager.SENSOR_DELAY_GAME)
+    }
+
+
+    //When the fragment (and app) is on pause, unregister the sensors
+    override fun onPause() {
+        super.onPause()
+
+        sensorManager.unregisterListener(this)
+    }
+
+
+    //Delete the bindings
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {
