@@ -1,14 +1,12 @@
 package com.bleepingdragon.twiftly
 
 import android.content.Intent
-import android.graphics.Typeface
 import android.os.Bundle
 import android.provider.AlarmClock
 import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController

@@ -17,10 +17,22 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homePage_to_compassPage"
+            app:destination="@id/compassPage"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
         android:id="@+id/workingHoursPage"
         android:name="com.bleepingdragon.twiftly.WorkingHoursPage"
         android:label="fragment_working_hours_page"
         tools:layout="@layout/fragment_working_hours_page" />
+    <fragment
+        android:id="@+id/compassPage"
+        android:name="com.bleepingdragon.twiftly.CompassPage"
+        android:label="fragment_compass_page"
+        tools:layout="@layout/fragment_compass_page" />
 </navigation>

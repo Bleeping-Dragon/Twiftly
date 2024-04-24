@@ -5,9 +5,22 @@
     android:layout_height="match_parent"
     tools:context=".HomePage">
 
-    <Button
-        android:id="@+id/workingHoursButton"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Work exit hour" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/workingHoursButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Work exit hour" />
+
+        <Button
+            android:id="@+id/compassButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Compass" />
+    </LinearLayout>
+
 </FrameLayout>
