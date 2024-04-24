@@ -68,7 +68,7 @@ class CompassPage : Fragment(), SensorEventListener {
         binding.toolbar.setupWithNavController(navController)
 
         //Hide by default the degrees until the sensor picks up values
-        binding.degreesTextView.visibility = View.GONE
+        binding.compassContainerFrameLayout.visibility = View.GONE
 
         return binding.root
     }
@@ -87,7 +87,7 @@ class CompassPage : Fragment(), SensorEventListener {
         }
 
         if (!isDegreesShown) {
-            binding.degreesTextView.visibility = View.VISIBLE
+            binding.compassContainerFrameLayout.visibility = View.VISIBLE
             isDegreesShown = true
         }
 
@@ -121,7 +121,7 @@ class CompassPage : Fragment(), SensorEventListener {
     override fun onResume() {
         super.onResume()
 
-        binding.degreesTextView.visibility = View.GONE
+        binding.compassContainerFrameLayout.visibility = View.GONE
         isDegreesShown = false
 
         orientationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION)!!

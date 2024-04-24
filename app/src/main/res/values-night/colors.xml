@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Old API Night colors -->
+<resources>
+    <color name="background">#191C1E</color>
+    <color name="bottom_nav">#2A3136</color>
+    <color name="nav_item">#374955</color>
+    <color name="nav_ripple">#4E616C</color>
+
+    <!-- Switch -->
+    <color name="switch_track_enabled">#76D1FF</color>
+    <color name="switch_thumb_enabled">#003549</color>
+    <color name="switch_track_disabled">#40484D</color>
+    <color name="switch_thumb_disabled">#8A9297</color>
+    <color name="switch_track_border_disabled">#8A9297</color>
+
+    <color name="primary">#4BB6E8</color>
+    <color name="primary_compass">#003549</color>
+    <color name="secondary">#9AAEBB</color>
+    <color name="tertiary">#AEA6CE</color>
+</resources>

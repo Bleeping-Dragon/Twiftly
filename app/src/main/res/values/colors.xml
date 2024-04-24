@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Old API Day colors -->
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="background">#FCFCFF</color>
+    <color name="bottom_nav">#EBF1F8</color>
+    <color name="nav_item">#D1E5F4</color>
+    <color name="nav_ripple">#9AAEBB</color>
+
+    <!-- Switch -->
+    <color name="switch_track_enabled">#00668B</color>
+    <color name="switch_thumb_enabled">#E0F3FF</color>
+    <color name="switch_track_disabled">#C1E8FF</color>
+    <color name="switch_thumb_disabled">#70777C</color>
+    <color name="switch_track_border_disabled">#70777C</color>
+
+    <color name="primary">#007FAC</color>
+    <color name="primary_compass">#004C69</color>
+    <color name="secondary">#657985</color>
+    <color name="tertiary">#787296</color>
 </resources>

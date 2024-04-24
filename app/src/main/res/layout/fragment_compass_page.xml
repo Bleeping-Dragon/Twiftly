@@ -62,30 +62,37 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <FrameLayout
+                    android:id="@+id/compassContainerFrameLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="300dp">
 
                     <ImageView
                         android:id="@+id/compassImageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center_horizontal"
-                        app:srcCompat="@drawable/simple_compass" />
+                        android:tintMode="multiply"
+                        app:srcCompat="@drawable/simple_compass"
+                        app:tint="@color/primary" />
 
                     <ImageView
                         android:id="@+id/detailsImageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        app:srcCompat="@drawable/compass_details" />
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:tintMode="multiply"
+                        app:srcCompat="@drawable/compass_details"
+                        app:tint="@color/primary" />
 
                     <TextView
                         android:id="@+id/degreesTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_gravity="center"
+                        android:gravity="center"
                         android:text="000º"
-                        android:textSize="32sp" />
+                        android:textColor="@color/primary_compass"
+                        android:textSize="42sp" />
 
                 </FrameLayout>
 
