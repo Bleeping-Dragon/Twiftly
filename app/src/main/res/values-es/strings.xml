@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="compass">Brújula</string>
+    <string name="work_exit_hour">Salida del trabajo</string>
+    <string name="set_alarm">Establecer alarma</string>
+    <string name="pick_an_hour">Selecciona una hora...</string>
+    <string name="hours_to_work">Horas de trabajo</string>
+    <string name="hour_to_start_working">Hora a la que empezar a trabajar</string>
+    <string name="break_start">Inicio del descanso</string>
+    <string name="break_end">Final del descanso</string>
+</resources>

@@ -16,7 +16,7 @@
             style="?attr/collapsingToolbarLayoutLargeStyle"
             android:layout_width="match_parent"
             android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
-            app:title="Work exit hour"
+            app:title="@string/work_exit_hour"
             app:expandedTitleMarginStart="30dp"
             app:collapsedTitleTextAppearance="@style/collapsed_app_bar"
             app:expandedTitleTextAppearance="@style/expanded_app_bar">
@@ -90,7 +90,7 @@
                     android:id="@+id/setAlarmButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Set alarm" />
+                    android:text="@string/set_alarm" />
 
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

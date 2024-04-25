@@ -1,6 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Twiftly</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="compass">Compass</string>
     <string name="work_exit_hour">Work exit hour</string>
     <string name="set_alarm">Set alarm</string>

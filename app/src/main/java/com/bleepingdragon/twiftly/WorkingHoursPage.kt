@@ -60,28 +60,28 @@ class WorkingHoursPage : Fragment() {
 
         //Hours to work
         binding.hoursToWorkLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
-        binding.hoursToWorkLayout.textInputLayout.hint = "Hours to work"
+        binding.hoursToWorkLayout.textInputLayout.hint = getString(R.string.hours_to_work)
         binding.hoursToWorkLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.hoursToWorkLayout.textInputLayout, false)
         }
 
         //Start at
         binding.startAtLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
-        binding.startAtLayout.textInputLayout.hint = "Hour to start working"
+        binding.startAtLayout.textInputLayout.hint = getString(R.string.hour_to_start_working)
         binding.startAtLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.startAtLayout.textInputLayout, true)
         }
 
         //Break start
         binding.breakStartLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
-        binding.breakStartLayout.textInputLayout.hint = "Break start"
+        binding.breakStartLayout.textInputLayout.hint = getString(R.string.break_start)
         binding.breakStartLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.breakStartLayout.textInputLayout, true)
         }
 
         //Break end
         binding.breakEndLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
-        binding.breakEndLayout.textInputLayout.hint = "Break end"
+        binding.breakEndLayout.textInputLayout.hint = getString(R.string.break_end)
         binding.breakEndLayout.textInputLayout.setEndIconOnClickListener {
             pickTimeForInput(binding.breakEndLayout.textInputLayout, true)
         }
@@ -150,7 +150,7 @@ class WorkingHoursPage : Fragment() {
                 .setTimeFormat(TimeFormat.CLOCK_24H)
                 .setHour(previousHours)
                 .setMinute(previousMinutes)
-                .setTitleText("Select an hour")
+                .setTitleText(getString(R.string.pick_an_hour))
                 .setInputMode(
                     if (isClockMode)
                         INPUT_MODE_CLOCK
@@ -262,7 +262,7 @@ class WorkingHoursPage : Fragment() {
         var minutes = binding.calculatedDateTextView.text.toString().takeLast(2)
 
         val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
-            putExtra(AlarmClock.EXTRA_MESSAGE, "Work exit hour")
+            putExtra(AlarmClock.EXTRA_MESSAGE, getString(R.string.work_exit_hour))
             putExtra(AlarmClock.EXTRA_HOUR, hours.toInt())
             putExtra(AlarmClock.EXTRA_MINUTES, minutes.toInt())
         }
