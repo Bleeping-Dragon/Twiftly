@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.RotateAnimation
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -124,10 +125,14 @@ class CompassPage : Fragment(), SensorEventListener {
         binding.compassContainerFrameLayout.visibility = View.GONE
         isDegreesShown = false
 
-        orientationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION)!!
+        //Check if the sensor is null to avoid crashes
+        if (sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION) != null) {
 
-        //"this" is the listener from the main activity SensorEventListener interface
-        sensorManager.registerListener(this, orientationSensor, SensorManager.SENSOR_DELAY_GAME)
+            orientationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION)!!
+            sensorManager.registerListener(this, orientationSensor, SensorManager.SENSOR_DELAY_GAME)
+        } else {
+            Toast.makeText(requireContext(), "Compass is not supported on your device", Toast.LENGTH_LONG).show()
+        }
     }
 
 
