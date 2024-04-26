@@ -140,10 +140,10 @@ class CompassPage : Fragment(), SensorEventListener {
             isSensorErrorShown = true
 
             MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Compass not supported")
-                .setMessage("Your device has no support for compass sensor")
+                .setTitle(getString(R.string.compass_not_supported))
+                .setMessage(getString(R.string.your_device_has_no_support_for_compass_sensor))
                 .setCancelable(false)
-                .setPositiveButton("Take me back") { dialog, which ->
+                .setPositiveButton(getString(R.string.take_me_back)) { dialog, which ->
                     findNavController().popBackStack()
                 }
                 .show()

@@ -8,4 +8,7 @@
     <string name="hour_to_start_working">Hora a la que empezar a trabajar</string>
     <string name="break_start">Inicio del descanso</string>
     <string name="break_end">Final del descanso</string>
+    <string name="compass_not_supported">Brújula no disponible</string>
+    <string name="your_device_has_no_support_for_compass_sensor">El dispositivo no tiene soporte para el sensor de brújula</string>
+    <string name="take_me_back">Volver atrás</string>
 </resources>

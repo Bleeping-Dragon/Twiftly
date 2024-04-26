@@ -9,4 +9,7 @@
     <string name="hour_to_start_working">Hour to start working</string>
     <string name="break_start">Break start</string>
     <string name="break_end">Break end</string>
+    <string name="compass_not_supported">Compass not supported</string>
+    <string name="your_device_has_no_support_for_compass_sensor">Your device has no support for compass sensor</string>
+    <string name="take_me_back">Take me back</string>
 </resources>
