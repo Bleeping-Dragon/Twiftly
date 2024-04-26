@@ -48,6 +48,7 @@ class CompassPage : Fragment(), SensorEventListener {
 
     //Variables
     private var isDegreesShown: Boolean = false
+    private var isSensorErrorShown: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -133,11 +134,15 @@ class CompassPage : Fragment(), SensorEventListener {
 
             orientationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION)!!
             sensorManager.registerListener(this, orientationSensor, SensorManager.SENSOR_DELAY_GAME)
-        } else {
+
+        //Avoid showing the dialog twice
+        } else if (!isSensorErrorShown) {
+            isSensorErrorShown = true
 
             MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Compass not supported")
                 .setMessage("Your device has no support for compass sensor")
+                .setCancelable(false)
                 .setPositiveButton("Take me back") { dialog, which ->
                     findNavController().popBackStack()
                 }
