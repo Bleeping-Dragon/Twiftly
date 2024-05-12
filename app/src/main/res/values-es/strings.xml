@@ -12,4 +12,5 @@
     <string name="your_device_has_no_support_for_compass_sensor">El dispositivo no tiene soporte para el sensor de brújula</string>
     <string name="take_me_back">Volver atrás</string>
     <string name="heads_or_tails">Cara o Cruz</string>
+    <string name="flip_coin">Lanzar moneda</string>
 </resources>
