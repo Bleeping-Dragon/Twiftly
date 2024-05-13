@@ -26,32 +26,28 @@
         motion:constraintSetStart="@+id/start"
         motion:constraintSetEnd="@+id/end"
         motion:duration="1000"
-        motion:autoTransition="animateToEnd" >
+        motion:autoTransition="none" >
         <KeyFrameSet >
             <KeyAttribute
                 motion:motionTarget="@+id/headsImageView"
                 motion:framePosition="0"
-                android:rotationY="0" />
+                android:rotationX="0" />
             <KeyAttribute
-                android:rotationY="-90"
                 motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="20" />
+                motion:framePosition="25"
+                android:rotationX="90" />
             <KeyAttribute
-                android:rotationY="-180"
                 motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="40" />
+                motion:framePosition="50"
+                android:rotationX="180" />
             <KeyAttribute
-                android:rotationY="-270"
                 motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="60" />
+                motion:framePosition="75"
+                android:rotationX="270" />
             <KeyAttribute
-                android:rotationY="-360"
                 motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="80" />
-            <KeyAttribute
-                android:rotationY="-360"
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="100" />
+                motion:framePosition="100"
+                android:rotationX="360" />
         </KeyFrameSet>
     </Transition>
 </MotionScene>

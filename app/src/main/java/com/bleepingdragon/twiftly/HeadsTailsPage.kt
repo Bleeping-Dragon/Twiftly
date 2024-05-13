@@ -51,8 +51,9 @@ class HeadsTailsPage : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.flipCoinButton.setOnClickListener {
-            binding.motionLayout.coinFlipMotionLayout.transitionToEnd()
             binding.motionLayout.coinFlipMotionLayout.transitionToStart()
+            binding.motionLayout.coinFlipMotionLayout.transitionToEnd()
+
         }
     }
 
