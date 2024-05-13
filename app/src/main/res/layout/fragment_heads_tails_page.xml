@@ -40,7 +40,6 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <!-- View Content here -->
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/frameLayout2"
             android:layout_width="match_parent"
@@ -62,7 +61,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <include layout="@layout/coin_flip_motion_layout" />
+                <include android:id="@+id/motionLayout" layout="@layout/coin_flip_motion_layout" />
 
                 <Button
                     android:id="@+id/flipCoinButton"

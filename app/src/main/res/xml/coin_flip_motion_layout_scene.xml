@@ -6,7 +6,8 @@
     <Transition
         motion:constraintSetEnd="@+id/onAir"
         motion:constraintSetStart="@id/start"
-        motion:duration="1000">
+        motion:duration="1000"
+        motion:autoTransition="none">
        <KeyFrameSet>
        </KeyFrameSet>
     </Transition>
@@ -38,7 +39,7 @@
             android:layout_height="wrap_content"
             motion:layout_constraintBottom_toBottomOf="parent"
             motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintStart_toStartOf="parent" />
+            motion:layout_constraintStart_toStartOf="parent"/>
         <Constraint
             android:id="@+id/tailsImageView"
             motion:layout_constraintEnd_toEndOf="parent"
@@ -74,5 +75,6 @@
     <Transition
         motion:constraintSetStart="@+id/onAir"
         motion:constraintSetEnd="@+id/end"
-        motion:duration="1000"/>
+        motion:duration="1000"
+        motion:autoTransition="animateToEnd" />
 </MotionScene>
