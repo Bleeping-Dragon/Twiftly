@@ -3,15 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
-    <Transition
-        motion:constraintSetEnd="@+id/onAir"
-        motion:constraintSetStart="@id/start"
-        motion:duration="1000"
-        motion:autoTransition="none">
-       <KeyFrameSet>
-       </KeyFrameSet>
-    </Transition>
-
     <ConstraintSet android:id="@+id/start">
         <Constraint
             android:id="@+id/headsImageView"
@@ -30,53 +21,37 @@
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>
-
-    <ConstraintSet android:id="@+id/end">
-        <Constraint
-            android:id="@+id/headsImageView"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            android:rotationY="360" />
-        <Constraint
-            android:id="@+id/tailsImageView"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            android:rotationY="360" />
-    </ConstraintSet>
-    <ConstraintSet android:id="@+id/onAir" >
-        <Constraint
-            android:id="@+id/headsImageView"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintVertical_bias="0.3" android:rotationY="180"
-            android:rotationX="0"
-            android:rotation="0" />
-        <Constraint
-            android:id="@+id/tailsImageView"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintVertical_bias="0.31" android:rotationY="180" android:rotationX="0"
-            android:rotation="0" />
-    </ConstraintSet>
+    <ConstraintSet android:id="@+id/end"></ConstraintSet>
     <Transition
-        motion:constraintSetStart="@+id/onAir"
+        motion:constraintSetStart="@+id/start"
         motion:constraintSetEnd="@+id/end"
         motion:duration="1000"
-        motion:autoTransition="animateToEnd" />
+        motion:autoTransition="animateToEnd" >
+        <KeyFrameSet >
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="0"
+                android:rotationY="0" />
+            <KeyAttribute
+                android:rotationY="-90"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="20" />
+            <KeyAttribute
+                android:rotationY="-180"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="40" />
+            <KeyAttribute
+                android:rotationY="-270"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="60" />
+            <KeyAttribute
+                android:rotationY="-360"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="80" />
+            <KeyAttribute
+                android:rotationY="-360"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="100" />
+        </KeyFrameSet>
+    </Transition>
 </MotionScene>
