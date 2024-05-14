@@ -15,7 +15,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/twotone_heads_240" />
+        app:srcCompat="@drawable/twotone_heads_240"
+        app:tint="@color/primary"
+        android:tintMode="multiply"/>
 
 <!--    <ImageView-->
 <!--        android:id="@+id/tailsImageView"-->
