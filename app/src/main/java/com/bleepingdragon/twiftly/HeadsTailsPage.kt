@@ -85,20 +85,30 @@ class HeadsTailsPage : Fragment() {
             binding.motionLayout.coinFlipMotionLayout.jumpToState(R.id.start)
             binding.motionLayout.coinFlipMotionLayout.transitionToState(R.id.end)
 
-            delay(250L)
+            delay(1090L)
 
             println("World")
 
             //Switch after delay, Heads = 0, Tails = 1
             if (random == 0) {
-                binding.motionLayout.headsImageView.setVisibilityOfMotionChild(View.VISIBLE)
-                binding.motionLayout.tailsImageView.setVisibilityOfMotionChild(View.INVISIBLE)
+
+                binding.motionLayout.headsImageView.visibility = View.VISIBLE
+                binding.motionLayout.tailsImageView.visibility = View.INVISIBLE
+
+//                binding.motionLayout.headsImageView.setVisibilityOfMotionChild(View.VISIBLE)
+//                binding.motionLayout.tailsImageView.setVisibilityOfMotionChild(View.INVISIBLE)
+
 //                startConstraintSet.setVisibilityMode(R.id.headsImageView, View.VISIBLE)
 //                startConstraintSet.setVisibilityMode(R.id.tailsImageView, View.INVISIBLE)
             }
             else {
-                binding.motionLayout.tailsImageView.setVisibilityOfMotionChild(View.VISIBLE)
-                binding.motionLayout.headsImageView.setVisibilityOfMotionChild(View.INVISIBLE)
+
+                binding.motionLayout.tailsImageView.visibility = View.VISIBLE
+                binding.motionLayout.headsImageView.visibility = View.INVISIBLE
+
+//                binding.motionLayout.tailsImageView.setVisibilityOfMotionChild(View.VISIBLE)
+//                binding.motionLayout.headsImageView.setVisibilityOfMotionChild(View.INVISIBLE)
+
 //                startConstraintSet.setVisibilityMode(R.id.tailsImageView, View.VISIBLE)
 //                startConstraintSet.setVisibilityMode(R.id.headsImageView, View.INVISIBLE)
             }
