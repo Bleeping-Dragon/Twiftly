@@ -48,7 +48,16 @@
         motion:constraintSetEnd="@+id/end"
         motion:duration="1000"
         motion:autoTransition="none" >
-        <KeyFrameSet ></KeyFrameSet>
+        <KeyFrameSet >
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="0"
+                android:rotation="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="100"
+                android:rotation="45" />
+        </KeyFrameSet>
     </Transition>
     <Transition
         motion:constraintSetStart="@+id/end"
