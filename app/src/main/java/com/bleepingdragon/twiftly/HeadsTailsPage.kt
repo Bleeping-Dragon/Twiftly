@@ -4,11 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bleepingdragon.twiftly.databinding.FragmentHeadsTailsPageBinding
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -73,24 +76,45 @@ class HeadsTailsPage : Fragment() {
 
     private fun chooseCoinSide(inPageLoad: Boolean) {
 
-        var random = (0..1).random()
+        lifecycleScope.launch {
 
-        if (!inPageLoad) {
+            println("Hello")
+
+            var random = (0..1).random()
+
             binding.motionLayout.coinFlipMotionLayout.jumpToState(R.id.start)
             binding.motionLayout.coinFlipMotionLayout.transitionToState(R.id.end)
 
-        } else {
+            delay(250L)
+
+            println("World")
+
+            //Switch after delay, Heads = 0, Tails = 1
+            if (random == 0) {
+                binding.motionLayout.headsImageView.setVisibilityOfMotionChild(View.VISIBLE)
+                binding.motionLayout.tailsImageView.setVisibilityOfMotionChild(View.INVISIBLE)
+//                startConstraintSet.setVisibilityMode(R.id.headsImageView, View.VISIBLE)
+//                startConstraintSet.setVisibilityMode(R.id.tailsImageView, View.INVISIBLE)
+            }
+            else {
+                binding.motionLayout.tailsImageView.setVisibilityOfMotionChild(View.VISIBLE)
+                binding.motionLayout.headsImageView.setVisibilityOfMotionChild(View.INVISIBLE)
+//                startConstraintSet.setVisibilityMode(R.id.tailsImageView, View.VISIBLE)
+//                startConstraintSet.setVisibilityMode(R.id.headsImageView, View.INVISIBLE)
+            }
 
         }
 
-        //Switch after delay, Heads = 0, Tails = 1
-        if (random == 0) {
-            startConstraintSet.setVisibility(R.id.headsImageView, View.VISIBLE)
-            startConstraintSet.setVisibility(R.id.tailsImageView, View.GONE)
-        }
-        else {
-            startConstraintSet.setVisibility(R.id.tailsImageView, View.VISIBLE)
-            startConstraintSet.setVisibility(R.id.headsImageView, View.GONE)
+
+    }
+
+    private fun View.setVisibilityOfMotionChild(visibility: Int) {
+
+        val motionLayout = parent as MotionLayout
+        motionLayout.constraintSetIds.forEach {
+            val constraintSet = motionLayout.getConstraintSet(it) ?: return@forEach
+            constraintSet.setVisibility(this.id, visibility)
+            constraintSet.applyTo(motionLayout)
         }
     }
 

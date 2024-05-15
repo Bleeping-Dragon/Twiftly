@@ -48,6 +48,26 @@
                 motion:motionTarget="@+id/headsImageView"
                 motion:framePosition="100"
                 android:rotationX="360" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="0"
+                android:rotationX="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="25"
+                android:rotationX="90" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="50"
+                android:rotationX="180" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="75"
+                android:rotationX="270" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="100"
+                android:rotationX="360" />
         </KeyFrameSet>
     </Transition>
 </MotionScene>
