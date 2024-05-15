@@ -114,4 +114,10 @@
                 android:alpha="0" />
         </KeyFrameSet>
     </Transition>
+    <Transition
+        motion:constraintSetStart="@+id/end"
+        motion:constraintSetEnd="@+id/show_heads" />
+    <Transition
+        motion:constraintSetStart="@+id/end"
+        motion:constraintSetEnd="@+id/show_tails" />
 </MotionScene>

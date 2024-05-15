@@ -92,8 +92,8 @@ class HeadsTailsPage : Fragment() {
             //Switch after delay, Heads = 0, Tails = 1
             if (random == 0) {
 
-                binding.motionLayout.headsImageView.visibility = View.VISIBLE
-                binding.motionLayout.tailsImageView.visibility = View.INVISIBLE
+//                binding.motionLayout.headsImageView.visibility = View.VISIBLE
+//                binding.motionLayout.tailsImageView.visibility = View.INVISIBLE
 
 //                binding.motionLayout.headsImageView.setVisibilityOfMotionChild(View.VISIBLE)
 //                binding.motionLayout.tailsImageView.setVisibilityOfMotionChild(View.INVISIBLE)
@@ -103,8 +103,8 @@ class HeadsTailsPage : Fragment() {
             }
             else {
 
-                binding.motionLayout.tailsImageView.visibility = View.VISIBLE
-                binding.motionLayout.headsImageView.visibility = View.INVISIBLE
+//                binding.motionLayout.tailsImageView.visibility = View.VISIBLE
+//                binding.motionLayout.headsImageView.visibility = View.INVISIBLE
 
 //                binding.motionLayout.tailsImageView.setVisibilityOfMotionChild(View.VISIBLE)
 //                binding.motionLayout.headsImageView.setVisibilityOfMotionChild(View.INVISIBLE)
