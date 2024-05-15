@@ -21,7 +21,24 @@
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>
-    <ConstraintSet android:id="@+id/end"></ConstraintSet>
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/headsImageView"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+        <Constraint
+            android:id="@+id/tailsImageView"
+            motion:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
 
     <ConstraintSet android:id="@+id/show_heads"></ConstraintSet>
     <ConstraintSet android:id="@+id/show_tails"></ConstraintSet>
@@ -31,88 +48,7 @@
         motion:constraintSetEnd="@+id/end"
         motion:duration="1000"
         motion:autoTransition="none" >
-        <KeyFrameSet >
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="0"
-                android:rotationX="0" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="25"
-                android:rotationX="90" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="50"
-                android:rotationX="180" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="75"
-                android:rotationX="270" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="100"
-                android:rotationX="360" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="0"
-                android:rotationX="0" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="25"
-                android:rotationX="90" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="50"
-                android:rotationX="180" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="75"
-                android:rotationX="270" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="100"
-                android:rotationX="360" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="0"
-                android:alpha="1" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="25"
-                android:alpha="0" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="50"
-                android:alpha="0" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="75"
-                android:alpha="0" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="100"
-                android:alpha="1" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="0"
-                android:alpha="0" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="25"
-                android:alpha="0" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="50"
-                android:alpha="1" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="75"
-                android:alpha="0" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="100"
-                android:alpha="0" />
-        </KeyFrameSet>
+        <KeyFrameSet ></KeyFrameSet>
     </Transition>
     <Transition
         motion:constraintSetStart="@+id/end"
