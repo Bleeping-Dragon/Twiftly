@@ -4,10 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bleepingdragon.twiftly.databinding.FragmentHeadsTailsPageBinding
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import java.util.logging.LogManager
+import kotlin.concurrent.thread
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -24,6 +30,10 @@ class HeadsTailsPage : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    //Motionlayout references
+    private lateinit var startConstraintSet: ConstraintSet
+    private lateinit var endConstraintSet: ConstraintSet
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -50,11 +60,40 @@ class HeadsTailsPage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Initialize views
+        startConstraintSet = binding.motionLayout.coinFlipMotionLayout.getConstraintSet(R.id.start)
+        endConstraintSet = binding.motionLayout.coinFlipMotionLayout.getConstraintSet(R.id.end)
+
+        chooseCoinSide(true)
+
         binding.flipCoinButton.setOnClickListener {
-            binding.motionLayout.coinFlipMotionLayout.jumpToState(R.id.start)
-            binding.motionLayout.coinFlipMotionLayout.transitionToState(R.id.end)
+            chooseCoinSide(false)
         }
     }
+
+    private fun chooseCoinSide(inPageLoad: Boolean) {
+
+        var random = (0..1).random()
+
+        if (!inPageLoad) {
+            binding.motionLayout.coinFlipMotionLayout.jumpToState(R.id.start)
+            binding.motionLayout.coinFlipMotionLayout.transitionToState(R.id.end)
+
+        } else {
+
+        }
+
+        //Switch after delay, Heads = 0, Tails = 1
+        if (random == 0) {
+            startConstraintSet.setVisibility(R.id.headsImageView, View.VISIBLE)
+            startConstraintSet.setVisibility(R.id.tailsImageView, View.GONE)
+        }
+        else {
+            startConstraintSet.setVisibility(R.id.tailsImageView, View.VISIBLE)
+            startConstraintSet.setVisibility(R.id.headsImageView, View.GONE)
+        }
+    }
+
 
     companion object {
         /**

@@ -19,14 +19,16 @@
         app:tint="@color/primary"
         android:tintMode="multiply"/>
 
-<!--    <ImageView-->
-<!--        android:id="@+id/tailsImageView"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:srcCompat="@drawable/twotone_tails_240" />-->
+    <ImageView
+        android:id="@+id/tailsImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/twotone_tails_240"
+        app:tint="@color/primary"
+        android:tintMode="multiply"/>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
