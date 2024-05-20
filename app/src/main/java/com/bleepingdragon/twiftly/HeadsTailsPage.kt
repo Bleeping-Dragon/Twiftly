@@ -65,7 +65,7 @@ class HeadsTailsPage : Fragment() {
 
         //Initialize views
         startConstraintSet = binding.motionLayout.coinFlipMotionLayout.getConstraintSet(R.id.start)
-        endConstraintSet = binding.motionLayout.coinFlipMotionLayout.getConstraintSet(R.id.end)
+        endConstraintSet = binding.motionLayout.coinFlipMotionLayout.getConstraintSet(R.id.end_heads)
 
         chooseCoinSide(true)
 
@@ -83,7 +83,7 @@ class HeadsTailsPage : Fragment() {
             var random = (0..1).random()
 
             binding.motionLayout.coinFlipMotionLayout.jumpToState(R.id.start)
-            binding.motionLayout.coinFlipMotionLayout.transitionToState(R.id.end)
+            binding.motionLayout.coinFlipMotionLayout.transitionToState(R.id.end_heads, 1000)
 
             delay(1090L)
 
