@@ -31,11 +31,11 @@
         <KeyFrameSet >
             <KeyAttribute
                 motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="1"
+                motion:framePosition="0"
                 android:rotationX="0" />
             <KeyAttribute
                 motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="1"
+                motion:framePosition="0"
                 android:rotationX="0" />
             <KeyAttribute
                 motion:motionTarget="@+id/headsImageView"
@@ -102,6 +102,30 @@
                 motion:motionTarget="@+id/tailsImageView"
                 motion:framePosition="100"
                 android:rotationX="720" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="0"
+                android:elevation="20dp" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="20"
+                android:elevation="-20dp" />
+            <KeyAttribute
+                android:elevation="20dp"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="40" />
+            <KeyAttribute
+                android:elevation="-20dp"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="60" />
+            <KeyAttribute
+                android:elevation="20dp"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="80" />
+            <KeyAttribute
+                android:elevation="20dp"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="100" />
 
         </KeyFrameSet>
     </Transition>
