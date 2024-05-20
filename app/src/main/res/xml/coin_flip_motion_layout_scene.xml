@@ -21,48 +21,13 @@
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>
-    <ConstraintSet android:id="@+id/end">
-        <Constraint
-            android:id="@+id/headsImageView"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintStart_toStartOf="parent" />
-        <Constraint
-            android:id="@+id/tailsImageView"
-            motion:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintStart_toStartOf="parent" />
-    </ConstraintSet>
 
-    <ConstraintSet android:id="@+id/show_heads"></ConstraintSet>
-    <ConstraintSet android:id="@+id/show_tails"></ConstraintSet>
-
+    <ConstraintSet android:id="@+id/end_heads" />
+    <ConstraintSet android:id="@+id/end_tails" />
     <Transition
         motion:constraintSetStart="@+id/start"
-        motion:constraintSetEnd="@+id/end"
-        motion:duration="1000"
-        motion:autoTransition="none" >
-        <KeyFrameSet >
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="0"
-                android:rotation="0" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="100"
-                android:rotation="45" />
-        </KeyFrameSet>
-    </Transition>
+        motion:constraintSetEnd="@+id/end_heads" />
     <Transition
-        motion:constraintSetStart="@+id/end"
-        motion:constraintSetEnd="@+id/show_heads" />
-    <Transition
-        motion:constraintSetStart="@+id/end"
-        motion:constraintSetEnd="@+id/show_tails" />
+        motion:constraintSetStart="@+id/start"
+        motion:constraintSetEnd="@+id/end_tails" />
 </MotionScene>
