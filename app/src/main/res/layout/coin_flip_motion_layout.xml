@@ -4,31 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coinFlipMotionLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="400dp"
     app:layoutDescription="@xml/coin_flip_motion_layout_scene">
 
     <ImageView
         android:id="@+id/headsImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:tintMode="multiply"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_heads_240"
-        app:tint="@color/primary"
-        android:tintMode="multiply"/>
+        app:tint="@color/primary" />
 
     <ImageView
         android:id="@+id/tailsImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:tintMode="multiply"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/twotone_tails_240"
-        app:tint="@color/primary"
-        android:tintMode="multiply"/>
+        app:tint="@color/primary" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

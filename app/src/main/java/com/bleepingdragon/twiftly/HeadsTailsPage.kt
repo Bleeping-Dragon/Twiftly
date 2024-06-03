@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
@@ -83,35 +84,22 @@ class HeadsTailsPage : Fragment() {
             var random = (0..1).random()
 
             binding.motionLayout.coinFlipMotionLayout.jumpToState(R.id.start)
-            binding.motionLayout.coinFlipMotionLayout.transitionToState(R.id.end_heads, 1000)
+
+            //Transition to a random state, Heads = 0, Tails = 1
+            if (random == 0)
+                binding.motionLayout.coinFlipMotionLayout.transitionToState(R.id.end_heads, 1000)
+            else
+                binding.motionLayout.coinFlipMotionLayout.transitionToState(R.id.end_tails, 1000)
 
             delay(1090L)
 
-            println("World")
+            //Show a toast with the result
+            if (random == 0)
+                Toast.makeText(requireContext(), "Heads", Toast.LENGTH_SHORT).show()
+            else
+                Toast.makeText(requireContext(), "Tails", Toast.LENGTH_SHORT).show()
 
-            //Switch after delay, Heads = 0, Tails = 1
-            if (random == 0) {
 
-//                binding.motionLayout.headsImageView.visibility = View.VISIBLE
-//                binding.motionLayout.tailsImageView.visibility = View.INVISIBLE
-
-//                binding.motionLayout.headsImageView.setVisibilityOfMotionChild(View.VISIBLE)
-//                binding.motionLayout.tailsImageView.setVisibilityOfMotionChild(View.INVISIBLE)
-
-//                startConstraintSet.setVisibilityMode(R.id.headsImageView, View.VISIBLE)
-//                startConstraintSet.setVisibilityMode(R.id.tailsImageView, View.INVISIBLE)
-            }
-            else {
-
-//                binding.motionLayout.tailsImageView.visibility = View.VISIBLE
-//                binding.motionLayout.headsImageView.visibility = View.INVISIBLE
-
-//                binding.motionLayout.tailsImageView.setVisibilityOfMotionChild(View.VISIBLE)
-//                binding.motionLayout.headsImageView.setVisibilityOfMotionChild(View.INVISIBLE)
-
-//                startConstraintSet.setVisibilityMode(R.id.tailsImageView, View.VISIBLE)
-//                startConstraintSet.setVisibilityMode(R.id.headsImageView, View.INVISIBLE)
-            }
 
         }
 

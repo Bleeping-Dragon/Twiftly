@@ -131,5 +131,107 @@
     </Transition>
     <Transition
         motion:constraintSetStart="@+id/start"
-        motion:constraintSetEnd="@+id/end_tails" />
+        motion:constraintSetEnd="@+id/end_tails"
+        motion:motionInterpolator="linear">
+        <KeyFrameSet >
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="0"
+                android:rotationX="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="0"
+                android:rotationX="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="10"
+                android:rotationX="90" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="10"
+                android:rotationX="90" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="20"
+                android:rotationX="180" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="20"
+                android:rotationX="180" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="30"
+                android:rotationX="270" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="30"
+                android:rotationX="270" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="40"
+                android:rotationX="360" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="40"
+                android:rotationX="360" />
+
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="50"
+                android:rotationX="450" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="50"
+                android:rotationX="450" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="60"
+                android:rotationX="540" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="60"
+                android:rotationX="540" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="70"
+                android:rotationX="630" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="70"
+                android:rotationX="630" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="100"
+                android:rotationX="720" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="100"
+                android:rotationX="720" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="0"
+                android:elevation="20dp" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="20"
+                android:elevation="-20dp" />
+            <KeyAttribute
+                android:elevation="20dp"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="40" />
+            <KeyAttribute
+                android:elevation="-20dp"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="60" />
+            <KeyAttribute
+                android:elevation="20dp"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="80" />
+            <KeyAttribute
+                android:elevation="20dp"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="100" />
+
+        </KeyFrameSet>
+    </Transition>
 </MotionScene>
