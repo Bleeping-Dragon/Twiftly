@@ -13,4 +13,6 @@
     <string name="take_me_back">Volver atrás</string>
     <string name="heads_or_tails">Cara o Cruz</string>
     <string name="flip_coin">Lanzar moneda</string>
+    <string name="heads">Cara</string>
+    <string name="tails">Cruz</string>
 </resources>

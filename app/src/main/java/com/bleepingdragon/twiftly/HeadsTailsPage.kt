@@ -105,9 +105,9 @@ class HeadsTailsPage : Fragment() {
             previousState = random;
 
             if (random == 0)
-                Toast.makeText(requireContext(), "Heads", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.heads), Toast.LENGTH_SHORT).show()
             else
-                Toast.makeText(requireContext(), "Tails", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.tails), Toast.LENGTH_SHORT).show()
 
             binding.flipCoinButton.isEnabled = true
         }

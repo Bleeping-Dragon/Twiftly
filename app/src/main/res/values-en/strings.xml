@@ -13,4 +13,6 @@
     <string name="take_me_back">Take me back</string>
     <string name="heads_or_tails">Heads or Tails</string>
     <string name="flip_coin">Flip coin</string>
+    <string name="heads">Heads</string>
+    <string name="tails">Tails</string>
 </resources>
