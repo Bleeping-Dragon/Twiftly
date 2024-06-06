@@ -82,11 +82,7 @@ class HeadsTailsPage : Fragment() {
 
         lifecycleScope.launch {
 
-            println("Hello")
-
-            var random = (0..1).random()
-
-            //binding.motionLayout.coinFlipMotionLayout.jumpToState(R.id.start)
+            binding.flipCoinButton.isEnabled = false
 
             //If previous state was tails, reset the coin with an animation before launching it
             if (previousState == 1) {
@@ -97,6 +93,7 @@ class HeadsTailsPage : Fragment() {
             binding.motionLayout.coinFlipMotionLayout.jumpToState(R.id.start)
 
             //Transition to a random state, Heads = 0, Tails = 1
+            var random = (0..1).random()
             if (random == 0)
                 binding.motionLayout.coinFlipMotionLayout.transitionToState(R.id.end_heads, 1000)
             else
@@ -111,6 +108,8 @@ class HeadsTailsPage : Fragment() {
                 Toast.makeText(requireContext(), "Heads", Toast.LENGTH_SHORT).show()
             else
                 Toast.makeText(requireContext(), "Tails", Toast.LENGTH_SHORT).show()
+
+            binding.flipCoinButton.isEnabled = true
         }
 
 
