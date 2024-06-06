@@ -214,4 +214,48 @@
 
         </KeyFrameSet>
     </Transition>
+    <ConstraintSet android:id="@+id/reset_to_heads" />
+    <Transition
+        motion:constraintSetStart="@+id/end_tails"
+        motion:constraintSetEnd="@+id/reset_to_heads" >
+        <KeyFrameSet >
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="0"
+                android:rotationX="180" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="0"
+                android:rotationX="180" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="50"
+                android:rotationX="270" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="50"
+                android:rotationX="270" />
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="100"
+                android:rotationX="360" />
+            <KeyAttribute
+                motion:motionTarget="@+id/tailsImageView"
+                motion:framePosition="100"
+                android:rotationX="360" />
+
+            <KeyAttribute
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="0"
+                android:elevation="-20dp" />
+            <KeyAttribute
+                android:elevation="20dp"
+                motion:motionTarget="@+id/headsImageView"
+                motion:framePosition="100" />
+        </KeyFrameSet>
+    </Transition>
+    <Transition
+        motion:constraintSetStart="@+id/reset_to_heads"
+        motion:constraintSetEnd="@+id/start"
+        motion:autoTransition="jumpToEnd" />
 </MotionScene>

@@ -39,6 +39,9 @@ class HeadsTailsPage : Fragment() {
     private lateinit var startConstraintSet: ConstraintSet
     private lateinit var endConstraintSet: ConstraintSet
 
+    //Variables
+    private var previousState: Int = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -83,6 +86,14 @@ class HeadsTailsPage : Fragment() {
 
             var random = (0..1).random()
 
+            //binding.motionLayout.coinFlipMotionLayout.jumpToState(R.id.start)
+
+            //If previous state was tails, reset the coin with an animation before launching it
+            if (previousState == 1) {
+                binding.motionLayout.coinFlipMotionLayout.transitionToState(R.id.reset_to_heads, 1000)
+                delay(1090L)
+            }
+
             binding.motionLayout.coinFlipMotionLayout.jumpToState(R.id.start)
 
             //Transition to a random state, Heads = 0, Tails = 1
@@ -93,14 +104,13 @@ class HeadsTailsPage : Fragment() {
 
             delay(1090L)
 
-            //Show a toast with the result
+            //Show a toast with the result and save it as the previous state
+            previousState = random;
+
             if (random == 0)
                 Toast.makeText(requireContext(), "Heads", Toast.LENGTH_SHORT).show()
             else
                 Toast.makeText(requireContext(), "Tails", Toast.LENGTH_SHORT).show()
-
-
-
         }
 
 
