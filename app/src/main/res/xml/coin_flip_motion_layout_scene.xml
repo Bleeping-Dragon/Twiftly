@@ -185,28 +185,12 @@
                 android:rotationX="450" />
             <KeyAttribute
                 motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="60"
+                motion:framePosition="100"
                 android:rotationX="540" />
             <KeyAttribute
                 motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="60"
+                motion:framePosition="100"
                 android:rotationX="540" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="70"
-                android:rotationX="630" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="70"
-                android:rotationX="630" />
-            <KeyAttribute
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="100"
-                android:rotationX="720" />
-            <KeyAttribute
-                motion:motionTarget="@+id/tailsImageView"
-                motion:framePosition="100"
-                android:rotationX="720" />
             <KeyAttribute
                 motion:motionTarget="@+id/headsImageView"
                 motion:framePosition="0"
@@ -224,11 +208,7 @@
                 motion:motionTarget="@+id/headsImageView"
                 motion:framePosition="60" />
             <KeyAttribute
-                android:elevation="20dp"
-                motion:motionTarget="@+id/headsImageView"
-                motion:framePosition="80" />
-            <KeyAttribute
-                android:elevation="20dp"
+                android:elevation="-20dp"
                 motion:motionTarget="@+id/headsImageView"
                 motion:framePosition="100" />
 
