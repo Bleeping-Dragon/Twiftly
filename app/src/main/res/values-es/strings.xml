@@ -15,4 +15,5 @@
     <string name="flip_coin">Lanzar moneda</string>
     <string name="heads">Cara</string>
     <string name="tails">Cruz</string>
+    <string name="utilities">Utilidades</string>
 </resources>
