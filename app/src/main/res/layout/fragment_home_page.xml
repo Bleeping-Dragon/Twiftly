@@ -48,42 +48,46 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
+                    android:layout_margin="25dp"
                     android:columnCount="2"
                     android:gravity="center"
                     android:rowCount="5">
 
                     <Button
                         android:id="@+id/workingHoursButton"
-                        android:text="Work exit hour"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_margin="7dp"/>
+                        android:layout_margin="7dp"
+                        android:text="Work exit hour" />
 
                     <Button
                         android:id="@+id/compassButton"
-                        android:text="Compass"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_margin="7dp"/>
+                        android:layout_margin="7dp"
+                        android:text="Compass" />
 
                     <Button
                         android:id="@+id/headsTailsButton"
-                        android:text="HeadsTails"
                         android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_margin="7dp"/>
+                        android:layout_margin="7dp"
+                        android:text="HeadsTails" />
 
                 </GridLayout>
             </LinearLayout>
