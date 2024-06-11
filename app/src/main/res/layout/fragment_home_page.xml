@@ -68,8 +68,8 @@
                         android:layout_height="50dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_margin="7dp"
-                        android:text="Work exit hour" />
+                        android:layout_margin="2dp"
+                        android:text="@string/work_exit_hour" />
 
                     <Button
                         android:id="@+id/compassButton"
@@ -77,8 +77,8 @@
                         android:layout_height="50dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_margin="7dp"
-                        android:text="Compass" />
+                        android:layout_margin="2dp"
+                        android:text="@string/compass" />
 
                     <Button
                         android:id="@+id/headsTailsButton"
@@ -86,8 +86,8 @@
                         android:layout_height="50dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill_horizontal"
-                        android:layout_margin="7dp"
-                        android:text="HeadsTails" />
+                        android:layout_margin="2dp"
+                        android:text="@string/heads_or_tails" />
 
                 </GridLayout>
             </LinearLayout>
