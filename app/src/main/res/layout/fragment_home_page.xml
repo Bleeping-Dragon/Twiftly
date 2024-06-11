@@ -45,10 +45,17 @@
             android:layout_height="wrap_content"
             tools:context=".FragmentHomePage">
 
-                <LinearLayout
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
                     <Button
                         android:id="@+id/workingHoursButton"
@@ -61,13 +68,27 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Compass" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
                     <Button
                         android:id="@+id/headsTailsButton"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="HeadsTails" />
-                </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </TableLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
