@@ -70,13 +70,17 @@
                         android:id="@+id/flashlightOnImageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/round_flashlight_on_480" />
+                        android:src="@drawable/round_flashlight_on_480"
+                        android:tintMode="multiply"
+                        app:tint="@color/primary" />
 
                     <ImageView
                         android:id="@+id/flashlightOffImageView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/round_flashlight_off_480" />
+                        android:src="@drawable/round_flashlight_off_480"
+                        android:tintMode="multiply"
+                        app:tint="@color/primary"/>
                 </FrameLayout>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -68,6 +68,7 @@ class FlashlightPage : Fragment() {
 
         //Turn off the flash
         alternateFlash()
+        alternateImages()
 
         //Initialize views
         binding.flashlightFrameView.setOnClickListener {
