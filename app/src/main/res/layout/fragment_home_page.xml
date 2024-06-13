@@ -92,6 +92,16 @@
                         android:layout_margin="4dp"
                         android:text="@string/heads_or_tails" />
 
+                    <Button
+                        android:id="@+id/flashlightButton"
+                        app:icon="@drawable/round_flashlight_on_24"
+                        android:layout_width="0dp"
+                        android:layout_height="65dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill_horizontal|fill_vertical"
+                        android:layout_margin="4dp"
+                        android:text="@string/flashlight" />
+
                 </GridLayout>
 
 <!--                <GridLayout-->

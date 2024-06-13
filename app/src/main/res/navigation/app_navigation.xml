@@ -31,6 +31,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homePage_to_flashlightPage"
+            app:destination="@id/flashlightPage"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -48,4 +55,9 @@
         android:name="com.bleepingdragon.twiftly.HeadsTailsPage"
         android:label="fragment_heads_tails_page"
         tools:layout="@layout/fragment_heads_tails_page" />
+    <fragment
+        android:id="@+id/flashlightPage"
+        android:name="com.bleepingdragon.twiftly.FlashlightPage"
+        android:label="fragment_flashlight_page"
+        tools:layout="@layout/fragment_flashlight_page" />
 </navigation>

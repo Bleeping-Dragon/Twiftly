@@ -111,18 +111,6 @@ class HeadsTailsPage : Fragment() {
 
             binding.flipCoinButton.isEnabled = true
         }
-
-
-    }
-
-    private fun View.setVisibilityOfMotionChild(visibility: Int) {
-
-        val motionLayout = parent as MotionLayout
-        motionLayout.constraintSetIds.forEach {
-            val constraintSet = motionLayout.getConstraintSet(it) ?: return@forEach
-            constraintSet.setVisibility(this.id, visibility)
-            constraintSet.applyTo(motionLayout)
-        }
     }
 
 
@@ -133,7 +121,7 @@ class HeadsTailsPage : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment WorkingHoursPage.
+         * @return A new instance of fragment HeadsTailsPage.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
