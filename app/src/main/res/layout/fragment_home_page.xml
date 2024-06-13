@@ -94,25 +94,25 @@
 
                 </GridLayout>
 
-                <GridLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="25dp"
-                    android:columnCount="2"
-                    android:gravity="center"
-                    android:rowCount="5">
+<!--                <GridLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_margin="25dp"-->
+<!--                    android:columnCount="2"-->
+<!--                    android:gravity="center"-->
+<!--                    android:rowCount="5">-->
 
-                    <Button
-                        android:id="@+id/requestToolButton"
-                        style="@style/Widget.Material3.Button.TextButton"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_columnWeight="1"
-                        android:layout_gravity="fill_horizontal|fill_vertical"
-                        android:layout_margin="2dp"
-                        android:text="@string/request_a_tool" />
+<!--                    <Button-->
+<!--                        android:id="@+id/requestToolButton"-->
+<!--                        style="@style/Widget.Material3.Button.TextButton"-->
+<!--                        android:layout_width="0dp"-->
+<!--                        android:layout_height="50dp"-->
+<!--                        android:layout_columnWeight="1"-->
+<!--                        android:layout_gravity="fill_horizontal|fill_vertical"-->
+<!--                        android:layout_margin="2dp"-->
+<!--                        android:text="@string/request_a_tool" />-->
 
-                </GridLayout>
+<!--                </GridLayout>-->
 
             </LinearLayout>
 
