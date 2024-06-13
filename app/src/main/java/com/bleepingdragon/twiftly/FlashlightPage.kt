@@ -1,5 +1,7 @@
 package com.bleepingdragon.twiftly
 
+import android.content.Context
+import android.hardware.camera2.CameraManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -37,7 +39,7 @@ class FlashlightPage : Fragment() {
     private var param2: String? = null
 
     //Variables
-    private var previousState: Int = -1
+    private var currentState: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,7 +66,39 @@ class FlashlightPage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Turn off the flash
+        alternateFlash()
+
         //Initialize views
+        binding.flashlightFrameView.setOnClickListener {
+            alternateFlash()
+            alternateImages()
+        }
+    }
+
+    //Alternate physical torch state
+    private fun alternateFlash() {
+
+        currentState = !currentState
+
+        var cameraManager: CameraManager? = null
+        cameraManager = requireActivity().getSystemService(Context.CAMERA_SERVICE) as CameraManager
+        cameraManager.setTorchMode("0", currentState)
+    }
+
+    //Alternate physical torch state
+    private fun alternateImages() {
+
+        //ON
+        if (currentState) {
+            binding.flashlightOnImageView.visibility = View.VISIBLE
+            binding.flashlightOffImageView.visibility = View.GONE
+        }
+        //OFF
+        else {
+            binding.flashlightOnImageView.visibility = View.GONE
+            binding.flashlightOffImageView.visibility = View.VISIBLE
+        }
     }
 
 
