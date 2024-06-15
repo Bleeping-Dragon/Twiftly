@@ -55,8 +55,8 @@ class WorkingHoursPage : Fragment() {
         binding.toolbar.setupWithNavController(navController)
 
         //Hide by default the calculated hour and set alarm buttons
-        binding.calculatedDateTextView.visibility = View.GONE
-        binding.setAlarmButton.visibility = View.GONE
+        binding.calculatedDateTextView.visibility = View.INVISIBLE
+        binding.setAlarmButton.isEnabled = false
 
         //Hours to work
         binding.hoursToWorkLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
@@ -129,7 +129,7 @@ class WorkingHoursPage : Fragment() {
 
         if (binding.calculatedDateTextView.text.toString().isNotBlank()) {
             binding.calculatedDateTextView.visibility = View.VISIBLE
-            binding.setAlarmButton.visibility = View.VISIBLE
+            binding.setAlarmButton.isEnabled = true
         }
     }
 
@@ -181,12 +181,12 @@ class WorkingHoursPage : Fragment() {
 
                 binding.calculatedDateTextView.text = "$calculatedHours:$calculatedMinutes"
                 binding.calculatedDateTextView.visibility = View.VISIBLE
-                binding.setAlarmButton.visibility = View.VISIBLE
+                binding.setAlarmButton.isEnabled = true
             }
             else {
                 binding.calculatedDateTextView.text = ""
-                binding.calculatedDateTextView.visibility = View.GONE
-                binding.setAlarmButton.visibility = View.GONE
+                binding.calculatedDateTextView.visibility = View.INVISIBLE
+                binding.setAlarmButton.isEnabled = false
             }
 
             saveAllValues()
