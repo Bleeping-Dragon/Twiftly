@@ -1,9 +1,6 @@
 package com.bleepingdragon.twiftly
 
-import android.content.Intent
 import android.os.Bundle
-import android.provider.AlarmClock
-import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,14 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bleepingdragon.twiftly.databinding.FragmentMapPageBinding
-import com.bleepingdragon.twiftly.databinding.FragmentWorkingHoursPageBinding
 import com.bleepingdragon.twiftly.services.LocalDB
-import com.google.android.material.textfield.TextInputLayout
-import com.google.android.material.timepicker.MaterialTimePicker
-import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_CLOCK
-import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_KEYBOARD
-import com.google.android.material.timepicker.TimeFormat
-import java.time.LocalDateTime
+import org.osmdroid.config.Configuration.*
+import org.osmdroid.tileprovider.tilesource.TileSourceFactory
+import org.osmdroid.views.MapView
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -35,6 +28,9 @@ class MapPage : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    //References
+    private lateinit var map: MapView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +51,10 @@ class MapPage : Fragment() {
         val navController = findNavController()
         binding.toolbar.setupWithNavController(navController)
 
-
+        //Setup the map view
+        getInstance().load(requireContext(), LocalDB.getActivityPreferences(requireActivity()))
+        map = binding.mapView
+        map.setTileSource(TileSourceFactory.MAPNIK)
 
         return binding.root
     }

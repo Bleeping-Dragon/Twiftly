@@ -2,10 +2,15 @@ package com.bleepingdragon.twiftly.services
 
 import android.app.Activity
 import android.content.Context
+import android.content.SharedPreferences
 
 class LocalDB {
 
     companion object {
+
+        public fun getActivityPreferences(activity: Activity): SharedPreferences {
+            return activity.getPreferences(Context.MODE_PRIVATE)
+        }
 
         public fun getString(name: String, activity: Activity): String? {
             val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
