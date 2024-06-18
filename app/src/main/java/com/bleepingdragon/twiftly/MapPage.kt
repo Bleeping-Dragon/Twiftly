@@ -1,30 +1,40 @@
 package com.bleepingdragon.twiftly
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.provider.AlarmClock
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.commit
-import androidx.navigation.findNavController
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.bleepingdragon.twiftly.databinding.FragmentHomePageBinding
+import androidx.navigation.ui.setupWithNavController
+import com.bleepingdragon.twiftly.databinding.FragmentMapPageBinding
+import com.bleepingdragon.twiftly.databinding.FragmentWorkingHoursPageBinding
+import com.bleepingdragon.twiftly.services.LocalDB
+import com.google.android.material.textfield.TextInputLayout
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_CLOCK
+import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_KEYBOARD
+import com.google.android.material.timepicker.TimeFormat
+import java.time.LocalDateTime
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class HomePage : Fragment() {
+class MapPage : Fragment() {
 
     //Fragment binding
-    private var _binding: FragmentHomePageBinding? = null
+    private var _binding: FragmentMapPageBinding? = null
     private val binding get() = _binding!!
 
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,36 +48,20 @@ class HomePage : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         //Inflate the layout for this fragment
-        _binding = FragmentHomePageBinding.inflate(inflater, container, false)
+        _binding = FragmentMapPageBinding.inflate(inflater, container, false)
 
-        //Go to Working hours fragment
-        binding.workingHoursButton.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_homePage_to_workingHoursPage) //Use app_navigation.xml action
-        }
+        //Setup the toolbar
+        val navController = findNavController()
+        binding.toolbar.setupWithNavController(navController)
 
-        //Go to Compass fragment
-        binding.compassButton.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_homePage_to_compassPage) //Use app_navigation.xml action
-        }
 
-        //Go to Heads Tails fragment
-        binding.headsTailsButton.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_homePage_to_headsTailsPage) //Use app_navigation.xml action
-        }
-
-        //Go to Flashlight fragment
-        binding.flashlightButton.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_homePage_to_flashlightPage) //Use app_navigation.xml action
-        }
-
-        //Go to Map fragment
-        binding.mapButton.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_homePage_to_mapPage) //Use app_navigation.xml action
-        }
 
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     companion object {
@@ -77,12 +71,12 @@ class HomePage : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment HomePage.
+         * @return A new instance of fragment MapPage.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            HomePage().apply {
+            MapPage().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)

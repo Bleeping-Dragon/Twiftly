@@ -38,6 +38,13 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_homePage_to_mapPage"
+            app:destination="@id/mapPage"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -60,4 +67,9 @@
         android:name="com.bleepingdragon.twiftly.FlashlightPage"
         android:label="fragment_flashlight_page"
         tools:layout="@layout/fragment_flashlight_page" />
+    <fragment
+        android:id="@+id/mapPage"
+        android:name="com.bleepingdragon.twiftly.MapPage"
+        android:label="fragment_map_page"
+        tools:layout="@layout/fragment_map_page" />
 </navigation>
