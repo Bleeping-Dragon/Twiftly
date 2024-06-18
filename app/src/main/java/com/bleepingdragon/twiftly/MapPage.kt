@@ -1,9 +1,18 @@
 package com.bleepingdragon.twiftly
 
+import android.Manifest
+import android.annotation.SuppressLint
+import android.content.Context
+import android.location.Location
+import android.location.LocationManager
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewOverlay
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -13,6 +22,8 @@ import org.osmdroid.config.Configuration.*
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
+import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
+import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -32,6 +43,9 @@ class MapPage : Fragment() {
 
     //References
     private lateinit var map: MapView
+    private lateinit var locationOverlay: MyLocationNewOverlay
+
+    private var userLocation: Location? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,17 +71,97 @@ class MapPage : Fragment() {
         map = binding.mapView
         map.setTileSource(TileSourceFactory.MAPNIK)
 
-        //Move to the default location
-        val mapController = map.controller
-        mapController.setZoom(9.5)
-        val startPoint = GeoPoint(36.719444, -4.420000);
-        mapController.setCenter(startPoint);
+        requestLocation()
+
+
+
+
+
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+
+    //Request location depending on android version
+    @SuppressLint("MissingPermission")
+    private fun getLocation() : Location? {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) { //API 31+
+            val locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            return locationManager.getLastKnownLocation(LocationManager.FUSED_PROVIDER)
+        }
+        else { //API 30-
+            val locationManager = requireContext().getSystemService(Context.LOCATION_SERVICE) as LocationManager
+
+            var foundLocation: Location?
+
+            //GPS (Precise)
+            foundLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+
+            //Network (Less precise)
+            if (foundLocation == null)
+                foundLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+
+            //Passive (Worst in precision)
+            if (foundLocation == null)
+                foundLocation = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+
+            return foundLocation
+        }
+
+    }
+
+    private fun requestLocation() {
+
+        //Get location permissions
+        val locationPermissionRequest = registerForActivityResult(
+            ActivityResultContracts.RequestMultiplePermissions()
+        ) { permissions ->
+            when {
+                permissions.getOrDefault(Manifest.permission.ACCESS_FINE_LOCATION, false) -> {
+                    userLocation = getLocation()
+                    decideStartingMapPoint()
+                }
+                permissions.getOrDefault(Manifest.permission.ACCESS_COARSE_LOCATION, false) -> {
+                    userLocation = getLocation()
+                    decideStartingMapPoint()
+                } else -> {
+
+                    //No location access granted
+                    decideStartingMapPoint()
+                    Toast.makeText(requireContext(), "Location could not be obtained.", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+
+        locationPermissionRequest.launch(arrayOf(
+            Manifest.permission.ACCESS_FINE_LOCATION,
+            Manifest.permission.ACCESS_COARSE_LOCATION)
+        )
+    }
+
+    private fun decideStartingMapPoint() {
+
+        //Move to a location
+        val mapController = map.controller
+        mapController.setZoom(9.5)
+
+        if (userLocation != null) {
+            val startPoint = GeoPoint(userLocation!!.latitude, userLocation!!.longitude);
+            mapController.setCenter(startPoint)
+
+            locationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(context), this.map)
+            locationOverlay.enableMyLocation()
+            map.overlays.add(locationOverlay)
+        }
+        else { //If location is null, move to Málaga City
+            val startPoint = GeoPoint(36.719444, -4.420000);
+            mapController.setCenter(startPoint)
+        }
     }
 
     companion object {
