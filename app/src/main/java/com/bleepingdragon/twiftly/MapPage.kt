@@ -11,6 +11,7 @@ import com.bleepingdragon.twiftly.databinding.FragmentMapPageBinding
 import com.bleepingdragon.twiftly.services.LocalDB
 import org.osmdroid.config.Configuration.*
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
+import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
 
 
@@ -55,6 +56,12 @@ class MapPage : Fragment() {
         getInstance().load(requireContext(), LocalDB.getActivityPreferences(requireActivity()))
         map = binding.mapView
         map.setTileSource(TileSourceFactory.MAPNIK)
+
+        //Move to the default location
+        val mapController = map.controller
+        mapController.setZoom(9.5)
+        val startPoint = GeoPoint(36.719444, -4.420000);
+        mapController.setCenter(startPoint);
 
         return binding.root
     }
