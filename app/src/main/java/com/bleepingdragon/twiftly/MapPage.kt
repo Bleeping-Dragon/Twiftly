@@ -3,6 +3,8 @@ package com.bleepingdragon.twiftly
 import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.location.Location
 import android.location.LocationManager
 import android.os.Build
@@ -13,6 +15,7 @@ import android.view.ViewGroup
 import android.view.ViewOverlay
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -162,12 +165,26 @@ class MapPage : Fragment() {
 
             locationOverlay = MyLocationNewOverlay(GpsMyLocationProvider(context), this.map)
             locationOverlay.enableMyLocation()
+            locationOverlay.setPersonIcon(getBitmapFromVectorDrawable(requireContext(), R.drawable.twotone_my_location_36))
+            locationOverlay.setPersonAnchor(0.5f,0.5f)
             map.overlays.add(locationOverlay)
         }
         else { //If location is null, move to Málaga City
             val startPoint = GeoPoint(36.719444, -4.420000);
             mapController.setCenter(startPoint)
         }
+    }
+
+    private fun getBitmapFromVectorDrawable(context: Context, drawableId: Int): Bitmap {
+        val drawable = ContextCompat.getDrawable(context, drawableId)
+        val bitmap = Bitmap.createBitmap(
+            drawable!!.intrinsicWidth,
+            drawable.intrinsicHeight, Bitmap.Config.ARGB_8888
+        )
+        val canvas = Canvas(bitmap)
+        drawable.setBounds(0, 0, canvas.width, canvas.height)
+        drawable.draw(canvas)
+        return bitmap
     }
 
     companion object {
