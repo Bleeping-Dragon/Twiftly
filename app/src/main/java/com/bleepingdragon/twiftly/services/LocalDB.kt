@@ -3,10 +3,15 @@ package com.bleepingdragon.twiftly.services
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
+import com.bleepingdragon.twiftly.model.CategoryOfMapPoints
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 class LocalDB {
 
     companion object {
+
+        //region General
 
         public fun getActivityPreferences(activity: Activity): SharedPreferences {
             return activity.getPreferences(Context.MODE_PRIVATE)
@@ -57,5 +62,32 @@ class LocalDB {
                 apply()
             }
         }
+
+        //endregion
+
+        //region Maps
+
+        public fun getAllCategoriesOfMapPoints(activity: Activity): MutableList<CategoryOfMapPoints> {
+            val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
+
+            val dataJson = sharedPref.getString("categoriesOfMapPoints", "")
+
+            return if (dataJson != null && dataJson != "") {
+                Json.decodeFromString<MutableList<CategoryOfMapPoints>>(dataJson)
+            } else {
+                mutableListOf()
+            }
+        }
+
+        public fun setAllCategoriesOfMapPoints(setTo: MutableList<CategoryOfMapPoints>, activity: Activity) {
+            val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
+
+            with (sharedPref.edit()) {
+                putString("categoriesOfMapPoints", Json.encodeToString(setTo))
+                apply()
+            }
+        }
+
+        //endregion
     }
 }

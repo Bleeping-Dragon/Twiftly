@@ -20,6 +20,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bleepingdragon.twiftly.databinding.FragmentMapPageBinding
+import com.bleepingdragon.twiftly.model.CategoryOfMapPoints
+import com.bleepingdragon.twiftly.model.MapPoint
 import com.bleepingdragon.twiftly.services.LocalDB
 import org.osmdroid.config.Configuration.*
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
@@ -84,6 +86,34 @@ class MapPage : Fragment() {
         map.overlays.add(rotationGestureOverlay)
 
 
+        var loadedCategoriesOfMapPoints = LocalDB.getAllCategoriesOfMapPoints(requireActivity())
+
+        if (loadedCategoriesOfMapPoints.isEmpty()) {
+
+            var point1 = MapPoint("Test1", 41.3818f, 2.1685f)
+            var point2 = MapPoint("Test2", 41.3805f, 2.1689f)
+            var point3 = MapPoint("Test3", 41.3927f, 2.1503f)
+            var point4 = MapPoint("Test4", 41.3727f, 2.1513f)
+
+            var category1 = CategoryOfMapPoints("Category1", mutableListOf(point1, point2))
+            var category2 = CategoryOfMapPoints("Category2", mutableListOf(point3, point4))
+
+            var allCategories = mutableListOf(category1, category2)
+            LocalDB.setAllCategoriesOfMapPoints(allCategories, requireActivity())
+        }
+        else {
+            for (category in loadedCategoriesOfMapPoints) {
+                for (mapPoint in category.listOfMapPoints) {
+
+                    var point = GeoPoint(mapPoint.latitude!!.toDouble(), mapPoint.longitude!!.toDouble())
+                    map.overlays.add(org.osmdroid.views.overlay.Marker(map).apply {
+                        position = point
+                        title = mapPoint.name
+                    })
+
+                }
+            }
+        }
 
 
 
