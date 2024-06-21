@@ -111,6 +111,7 @@ class MapPage : Fragment() {
                     var point = GeoPoint(mapPoint.latitude!!.toDouble(), mapPoint.longitude!!.toDouble())
 
                     var newMarker = org.osmdroid.views.overlay.Marker(map).apply {
+                        id = mapPoint.uuid
                         position = point
                         title = mapPoint.name
                         icon = ContextCompat.getDrawable(requireContext(), R.drawable.twotone_location_on_42)
