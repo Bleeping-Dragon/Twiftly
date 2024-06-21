@@ -22,6 +22,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.bleepingdragon.twiftly.databinding.FragmentMapPageBinding
 import com.bleepingdragon.twiftly.model.CategoryOfMapPoints
 import com.bleepingdragon.twiftly.model.MapPoint
+import com.bleepingdragon.twiftly.model.MarkerWindow
 import com.bleepingdragon.twiftly.services.LocalDB
 import com.bleepingdragon.twiftly.services.MiscTools
 import com.bleepingdragon.twiftly.services.MiscTools.Companion.getBitmapFromVectorDrawable
@@ -108,12 +109,17 @@ class MapPage : Fragment() {
                 for (mapPoint in category.listOfMapPoints) {
 
                     var point = GeoPoint(mapPoint.latitude!!.toDouble(), mapPoint.longitude!!.toDouble())
-                    map.overlays.add(org.osmdroid.views.overlay.Marker(map).apply {
+
+                    var newMarker = org.osmdroid.views.overlay.Marker(map).apply {
                         position = point
                         title = mapPoint.name
                         icon = ContextCompat.getDrawable(requireContext(), R.drawable.twotone_location_on_42)
-                    })
+                        infoWindow = MarkerWindow(map)
+                    }
 
+                    map.overlays.add(newMarker)
+
+                    //map.invalidate()
                 }
             }
         }
