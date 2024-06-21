@@ -23,6 +23,8 @@ import com.bleepingdragon.twiftly.databinding.FragmentMapPageBinding
 import com.bleepingdragon.twiftly.model.CategoryOfMapPoints
 import com.bleepingdragon.twiftly.model.MapPoint
 import com.bleepingdragon.twiftly.services.LocalDB
+import com.bleepingdragon.twiftly.services.MiscTools
+import com.bleepingdragon.twiftly.services.MiscTools.Companion.getBitmapFromVectorDrawable
 import org.osmdroid.config.Configuration.*
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
@@ -109,6 +111,7 @@ class MapPage : Fragment() {
                     map.overlays.add(org.osmdroid.views.overlay.Marker(map).apply {
                         position = point
                         title = mapPoint.name
+                        icon = ContextCompat.getDrawable(requireContext(), R.drawable.twotone_location_on_42)
                     })
 
                 }
@@ -203,18 +206,6 @@ class MapPage : Fragment() {
             val startPoint = GeoPoint(36.719444, -4.420000);
             mapController.setCenter(startPoint)
         }
-    }
-
-    private fun getBitmapFromVectorDrawable(context: Context, drawableId: Int): Bitmap {
-        val drawable = ContextCompat.getDrawable(context, drawableId)
-        val bitmap = Bitmap.createBitmap(
-            drawable!!.intrinsicWidth,
-            drawable.intrinsicHeight, Bitmap.Config.ARGB_8888
-        )
-        val canvas = Canvas(bitmap)
-        drawable.setBounds(0, 0, canvas.width, canvas.height)
-        drawable.draw(canvas)
-        return bitmap
     }
 
     companion object {
