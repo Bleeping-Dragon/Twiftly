@@ -21,5 +21,6 @@
     <string name="flashlight">Flashlight</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="map">Map</string>
+    <string name="delete">Delete</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
