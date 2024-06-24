@@ -3,9 +3,14 @@ package com.bleepingdragon.twiftly.services
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.core.content.ContextCompat
+import com.bleepingdragon.twiftly.R
 import com.bleepingdragon.twiftly.model.CategoryOfMapPoints
+import com.bleepingdragon.twiftly.model.MapPoint
+import com.bleepingdragon.twiftly.model.MarkerWindow
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import org.osmdroid.util.GeoPoint
 
 class LocalDB {
 
@@ -67,24 +72,52 @@ class LocalDB {
 
         //region Maps
 
-        public fun getAllCategoriesOfMapPoints(activity: Activity): MutableList<CategoryOfMapPoints> {
-            val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
+        private var loadedCategoriesOfMapPoints: MutableList<CategoryOfMapPoints>? = null
 
+        public fun getAllCategoriesOfMapPoints(activity: Activity): MutableList<CategoryOfMapPoints> {
+
+            //If the categories have already been loaded, don't parse them, get the object directly
+            if (loadedCategoriesOfMapPoints != null)
+                return loadedCategoriesOfMapPoints as MutableList<CategoryOfMapPoints>
+
+            //Else get them from the shared preferences
+            val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
             val dataJson = sharedPref.getString("categoriesOfMapPoints", "")
 
-            return if (dataJson != null && dataJson != "") {
-                Json.decodeFromString<MutableList<CategoryOfMapPoints>>(dataJson)
+            if (dataJson != null && dataJson != "") {
+                var result = Json.decodeFromString<MutableList<CategoryOfMapPoints>>(dataJson)
+                loadedCategoriesOfMapPoints = result
+                return result
+
             } else {
-                mutableListOf()
+                loadedCategoriesOfMapPoints = mutableListOf()
+                return mutableListOf()
             }
         }
 
         public fun setAllCategoriesOfMapPoints(setTo: MutableList<CategoryOfMapPoints>, activity: Activity) {
+
+            loadedCategoriesOfMapPoints = setTo
+
             val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
 
             with (sharedPref.edit()) {
                 putString("categoriesOfMapPoints", Json.encodeToString(setTo))
                 apply()
+            }
+        }
+
+        public fun deleteMapPointFromUuid(uuid: String, activity: Activity) {
+
+            for (category in loadedCategoriesOfMapPoints!!) {
+
+                for (mapPoint in category.listOfMapPoints) {
+
+                    if (mapPoint.uuid == uuid) {
+                        category.listOfMapPoints.remove(mapPoint)
+                        break
+                    }
+                }
             }
         }
 
