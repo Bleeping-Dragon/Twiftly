@@ -2,9 +2,8 @@ package com.bleepingdragon.twiftly
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.location.Location
 import android.location.LocationManager
 import android.os.Build
@@ -12,7 +11,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewOverlay
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -24,7 +22,6 @@ import com.bleepingdragon.twiftly.model.CategoryOfMapPoints
 import com.bleepingdragon.twiftly.model.MapPoint
 import com.bleepingdragon.twiftly.model.MarkerWindow
 import com.bleepingdragon.twiftly.services.LocalDB
-import com.bleepingdragon.twiftly.services.MiscTools
 import com.bleepingdragon.twiftly.services.MiscTools.Companion.getBitmapFromVectorDrawable
 import org.osmdroid.config.Configuration.*
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
@@ -51,6 +48,7 @@ class MapPage : Fragment() {
     private var param2: String? = null
 
     //References
+    private lateinit var activity: MainActivity
     private lateinit var map: MapView
     private lateinit var locationOverlay: MyLocationNewOverlay
 
@@ -68,6 +66,10 @@ class MapPage : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        //Save activity to pass it on markers
+        activity = requireActivity() as MainActivity
+
         //Inflate the layout for this fragment
         _binding = FragmentMapPageBinding.inflate(inflater, container, false)
 
@@ -115,7 +117,7 @@ class MapPage : Fragment() {
                         position = point
                         title = mapPoint.name
                         icon = ContextCompat.getDrawable(requireContext(), R.drawable.twotone_location_on_42)
-                        infoWindow = MarkerWindow(map)
+                        infoWindow = MarkerWindow(map, activity)
                     }
 
                     map.overlays.add(newMarker)

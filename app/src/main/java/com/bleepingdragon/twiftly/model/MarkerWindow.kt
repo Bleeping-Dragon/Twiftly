@@ -1,15 +1,16 @@
 package com.bleepingdragon.twiftly.model
 
+import android.app.Activity
 import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import com.bleepingdragon.twiftly.R
-import com.bleepingdragon.twiftly.databinding.MapMarkerWindowLayoutBinding
 import com.bleepingdragon.twiftly.services.LocalDB
 import org.osmdroid.views.MapView
 import org.osmdroid.views.overlay.Marker
 import org.osmdroid.views.overlay.infowindow.InfoWindow
 
-class MarkerWindow(private val mapView: MapView) :
+class MarkerWindow(private val mapView: MapView, private var activity: FragmentActivity) :
     InfoWindow(R.layout.map_marker_window_layout, mapView) {
 
     override fun onOpen(item: Any?) {
@@ -28,7 +29,7 @@ class MarkerWindow(private val mapView: MapView) :
         val deleteButton = mView.findViewById<Button>(R.id.deleteMarkerButton)
 
         deleteButton.setOnClickListener {
-            LocalDB.deleteMapPointFromUuid(marker.id, )
+            LocalDB.deleteMapPointFromUuid(marker.id, activity)
         }
     }
 
