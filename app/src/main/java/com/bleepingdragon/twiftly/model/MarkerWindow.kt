@@ -30,6 +30,8 @@ class MarkerWindow(private val mapView: MapView, private var activity: FragmentA
 
         deleteButton.setOnClickListener {
             LocalDB.deleteMapPointFromUuid(marker.id, activity)
+            mapView.overlays.remove(marker)
+            closeAllInfoWindowsOn(mapView)
         }
     }
 
