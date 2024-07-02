@@ -2,31 +2,39 @@ package com.bleepingdragon.twiftly
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.location.Location
 import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
+import android.text.InputType
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bleepingdragon.twiftly.databinding.FragmentMapPageBinding
+import com.bleepingdragon.twiftly.databinding.MapMarkerCreationAlertLayoutBinding
 import com.bleepingdragon.twiftly.model.CategoryOfMapPoints
 import com.bleepingdragon.twiftly.model.MapPoint
 import com.bleepingdragon.twiftly.model.MarkerWindow
 import com.bleepingdragon.twiftly.services.LocalDB
 import com.bleepingdragon.twiftly.services.MiscTools.Companion.getBitmapFromVectorDrawable
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.osmdroid.config.Configuration.*
+import org.osmdroid.events.MapEventsReceiver
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
+import org.osmdroid.views.overlay.MapEventsOverlay
 import org.osmdroid.views.overlay.gestures.RotationGestureOverlay
 import org.osmdroid.views.overlay.mylocation.GpsMyLocationProvider
 import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
@@ -53,6 +61,7 @@ class MapPage : Fragment() {
     private lateinit var locationOverlay: MyLocationNewOverlay
 
     private var userLocation: Location? = null
+    private var selectedCategoryOfMapPoints: CategoryOfMapPoints? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,50 +99,90 @@ class MapPage : Fragment() {
         map.setMultiTouchControls(true)
         map.overlays.add(rotationGestureOverlay)
 
+        //Show modal to register a new point on long press
+        val mapReceiver: MapEventsReceiver = object : MapEventsReceiver {
+            override fun singleTapConfirmedHelper(geoPoint: GeoPoint): Boolean {
+                return false
+            }
 
-        var loadedCategoriesOfMapPoints = LocalDB.getAllCategoriesOfMapPoints(requireActivity())
-
-        if (loadedCategoriesOfMapPoints.isEmpty()) {
-
-            var point1 = MapPoint("Test1", 41.3818f, 2.1685f)
-            var point2 = MapPoint("Test2", 41.3805f, 2.1689f)
-            var point3 = MapPoint("Test3", 41.3927f, 2.1503f)
-            var point4 = MapPoint("Test4", 41.3727f, 2.1513f)
-
-            var category1 = CategoryOfMapPoints("Category1", mutableListOf(point1, point2))
-            var category2 = CategoryOfMapPoints("Category2", mutableListOf(point3, point4))
-
-            var allCategories = mutableListOf(category1, category2)
-            LocalDB.setAllCategoriesOfMapPoints(allCategories, requireActivity())
-        }
-        else {
-            for (category in loadedCategoriesOfMapPoints) {
-                for (mapPoint in category.listOfMapPoints) {
-
-                    var point = GeoPoint(mapPoint.latitude!!.toDouble(), mapPoint.longitude!!.toDouble())
-
-                    var newMarker = org.osmdroid.views.overlay.Marker(map).apply {
-                        id = mapPoint.uuid
-                        position = point
-                        title = mapPoint.name
-                        icon = ContextCompat.getDrawable(requireContext(), R.drawable.twotone_location_on_42)
-                        infoWindow = MarkerWindow(map, activity)
-                    }
-
-                    map.overlays.add(newMarker)
-
-                    //map.invalidate()
-                }
+            override fun longPressHelper(geoPoint: GeoPoint): Boolean {
+                createMarkerDialog(geoPoint)
+                return false
             }
         }
 
+        val eventsOverlay = MapEventsOverlay(mapReceiver)
+        eventsOverlay.isEnabled = true
+        map.overlays.add(eventsOverlay)
 
+        //Load all categories, if there is none, create a default one
+        var loadedCategoriesOfMapPoints = LocalDB.getAllCategoriesOfMapPoints(requireActivity())
+
+        if (loadedCategoriesOfMapPoints.isEmpty()) {
+            var defaultCategory = CategoryOfMapPoints("My markers")
+            LocalDB.setAllCategoriesOfMapPoints(mutableListOf(defaultCategory), requireActivity())
+            loadedCategoriesOfMapPoints = LocalDB.getAllCategoriesOfMapPoints(requireActivity())
+        }
+
+        //Create all the markers
+        for (category in loadedCategoriesOfMapPoints) {
+            for (mapPoint in category.listOfMapPoints) {
+                createMarker(mapPoint)
+            }
+        }
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+
+    private fun createMarkerDialog(geoPoint: GeoPoint) {
+
+        //Inflate the custom layout and pass it in the setView, so the content can be accessed inside layout logic
+        val inflater = requireContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val binding = MapMarkerCreationAlertLayoutBinding.inflate(inflater)
+
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Create marker")
+            .setMessage("Create a marker in the selected location")
+            .setView(binding.root)
+            .setNeutralButton("Cancel") { dialog, which ->
+                // Respond to neutral button press
+            }
+            .setPositiveButton("Create") { dialog, which ->
+                // Respond to positive button press
+                var name = binding.textInputLayout.editText?.text.toString()
+                var newMapPoint = LocalDB.createMapPoint(name, geoPoint, getSelectedCategoryUuid(), requireActivity())
+                createMarker(newMapPoint)
+            }
+            .show()
+    }
+
+
+    private fun createMarker(mapPoint: MapPoint) {
+
+        var point = GeoPoint(mapPoint.latitude!!.toDouble(), mapPoint.longitude!!.toDouble())
+
+        var newMarker = org.osmdroid.views.overlay.Marker(map).apply {
+            id = mapPoint.uuid
+            position = point
+            title = mapPoint.name
+            icon = ContextCompat.getDrawable(requireContext(), R.drawable.twotone_location_on_42)
+            infoWindow = MarkerWindow(map, activity)
+        }
+
+        map.overlays.add(newMarker)
+        map.invalidate()
+    }
+
+
+    private fun getSelectedCategoryUuid() : String {
+        if (selectedCategoryOfMapPoints == null)
+            selectedCategoryOfMapPoints = LocalDB.getAllCategoriesOfMapPoints(requireActivity()).first()
+        return selectedCategoryOfMapPoints!!.uuid
     }
 
 

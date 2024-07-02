@@ -121,6 +121,19 @@ class LocalDB {
             }
         }
 
+        public fun createMapPoint(name: String, geoPoint: GeoPoint, categoryUuid: String, activity: Activity) : MapPoint {
+            val latitude4Digits = (Math.round(geoPoint.latitude * 10000.0) / 10000.0).toFloat()
+            val longitude4Digits = (Math.round(geoPoint.longitude * 10000.0) / 10000.0).toFloat()
+
+            var newMapPoint = MapPoint(name, latitude4Digits, longitude4Digits)
+            var foundCategory = getAllCategoriesOfMapPoints(activity).findLast { it.uuid == categoryUuid }
+
+            foundCategory?.listOfMapPoints?.add(newMapPoint)
+            loadedCategoriesOfMapPoints?.let { setAllCategoriesOfMapPoints(it, activity) }
+
+            return newMapPoint
+        }
+
         //endregion
     }
 }
