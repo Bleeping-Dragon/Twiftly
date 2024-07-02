@@ -146,13 +146,13 @@ class MapPage : Fragment() {
         val binding = MapMarkerCreationAlertLayoutBinding.inflate(inflater)
 
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle("Create marker")
-            .setMessage("Create a marker in the selected location")
+            .setTitle(getString(R.string.create_marker))
+            .setMessage(getString(R.string.create_a_marker_in_the_selected_location))
             .setView(binding.root)
-            .setNeutralButton("Cancel") { dialog, which ->
+            .setNeutralButton(getString(R.string.cancel)) { dialog, which ->
                 // Respond to neutral button press
             }
-            .setPositiveButton("Create") { dialog, which ->
+            .setPositiveButton(getString(R.string.create)) { dialog, which ->
                 // Respond to positive button press
                 var name = binding.textInputLayout.editText?.text.toString()
                 var newMapPoint = LocalDB.createMapPoint(name, geoPoint, getSelectedCategoryUuid(), requireActivity())

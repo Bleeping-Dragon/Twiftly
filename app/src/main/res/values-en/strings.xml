@@ -20,4 +20,9 @@
     <string name="flashlight">Flashlight</string>
     <string name="map">Map</string>
     <string name="delete">Delete</string>
+    <string name="enter_a_name_for_the_marker">Enter a name for the marker...</string>
+    <string name="create_marker">Create marker</string>
+    <string name="create_a_marker_in_the_selected_location">Create a marker in the selected location</string>
+    <string name="cancel">Cancel</string>
+    <string name="create">Create</string>
 </resources>

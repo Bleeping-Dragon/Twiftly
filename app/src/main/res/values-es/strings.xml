@@ -20,4 +20,9 @@
     <string name="flashlight">Linterna</string>
     <string name="map">Mapa</string>
     <string name="delete">Borrar</string>
+    <string name="enter_a_name_for_the_marker">Introduce un nombre...</string>
+    <string name="create_marker">Crear marcador</string>
+    <string name="create_a_marker_in_the_selected_location">Crear un marcador en la ubicación seleccionada</string>
+    <string name="cancel">Cancelar</string>
+    <string name="create">Crear</string>
 </resources>
