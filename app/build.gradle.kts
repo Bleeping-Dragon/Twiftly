@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.bleepingdragon.twiftly"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.bleepingdragon.twiftly"
@@ -43,7 +43,7 @@ dependencies {
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
-    implementation ("androidx.constraintlayout:constraintlayout:2.2.0-alpha13")
+    implementation ("androidx.constraintlayout:constraintlayout:2.2.0-alpha14")
     implementation ("org.osmdroid:osmdroid-android:6.1.18")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
     testImplementation("junit:junit:4.13.2")
