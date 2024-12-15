@@ -18,3 +18,6 @@ local.properties
 .idea/other.xml
 .idea/runConfigurations.xml
 .idea/gradle.xml
+.kotlin/sessions/kotlin-compiler-15585618243560159994.salive
+.idea/misc.xml
+.idea/compiler.xml
