@@ -20,9 +20,6 @@ class MarkerWindow(private val mapView: MapView, private var activity: FragmentA
         //Set up marker info
         var marker = item as Marker
 
-        val idTextView = mView.findViewById<TextView>(R.id.markerIdTextView)
-        idTextView.text = marker.id
-
         val titleTextView = mView.findViewById<TextView>(R.id.markerTitleTextView)
         titleTextView.text = marker.title
 

@@ -54,63 +54,99 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <GridLayout
+                <TextView
+                    android:id="@+id/ExploreTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="25dp"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/carrois_gothic_sc"
+                    android:text="@string/work_category"
+                    android:textAlignment="textStart"
+                    android:textSize="24sp" />
+
+                <GridLayout
+                    android:id="@+id/workGrid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginHorizontal="25dp"
                     android:columnCount="2"
                     android:gravity="center"
                     android:rowCount="5">
 
                     <Button
                         android:id="@+id/workingHoursButton"
-                        app:icon="@drawable/round_exit_to_app_24"
                         android:layout_width="0dp"
                         android:layout_height="65dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill_horizontal|fill_vertical"
                         android:layout_margin="4dp"
-                        android:text="@string/work_exit_hour" />
+                        android:text="@string/work_exit_hour"
+                        app:icon="@drawable/round_exit_to_app_24" />
+
+                </GridLayout>
+
+                <TextView
+                    android:id="@+id/WorkTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/carrois_gothic_sc"
+                    android:text="@string/work_category"
+                    android:textAlignment="textStart"
+                    android:textSize="24sp" />
+
+                <GridLayout
+                    android:id="@+id/exploreGrid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:columnCount="2"
+                    android:gravity="center"
+                    android:rowCount="5">
 
                     <Button
                         android:id="@+id/compassButton"
-                        app:icon="@drawable/round_explore_24"
                         android:layout_width="0dp"
                         android:layout_height="65dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill_horizontal|fill_vertical"
                         android:layout_margin="4dp"
-                        android:text="@string/compass" />
+                        android:text="@string/compass"
+                        app:icon="@drawable/round_explore_24" />
 
                     <Button
                         android:id="@+id/headsTailsButton"
-                        app:icon="@drawable/twotone_circle_24"
                         android:layout_width="0dp"
                         android:layout_height="65dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill_horizontal|fill_vertical"
                         android:layout_margin="4dp"
-                        android:text="@string/heads_or_tails" />
+                        android:text="@string/heads_or_tails"
+                        app:icon="@drawable/twotone_circle_24" />
 
                     <Button
                         android:id="@+id/flashlightButton"
-                        app:icon="@drawable/round_flashlight_on_24"
                         android:layout_width="0dp"
                         android:layout_height="65dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill_horizontal|fill_vertical"
                         android:layout_margin="4dp"
-                        android:text="@string/flashlight" />
+                        android:text="@string/flashlight"
+                        app:icon="@drawable/round_flashlight_on_24" />
 
                     <Button
                         android:id="@+id/mapButton"
-                        app:icon="@drawable/round_map_24"
                         android:layout_width="0dp"
                         android:layout_height="65dp"
                         android:layout_columnWeight="1"
                         android:layout_gravity="fill_horizontal|fill_vertical"
                         android:layout_margin="4dp"
-                        android:text="@string/map" />
+                        android:text="@string/map"
+                        app:icon="@drawable/round_map_24" />
 
                 </GridLayout>
 

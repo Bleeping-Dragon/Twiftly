@@ -27,5 +27,7 @@
     <string name="create_a_marker_in_the_selected_location">Create a marker in the selected location</string>
     <string name="cancel">Cancel</string>
     <string name="create">Create</string>
+    <string name="work_category">Work</string>
+    <string name="explore_category">Explore</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>
