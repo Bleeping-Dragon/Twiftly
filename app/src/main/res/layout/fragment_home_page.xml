@@ -95,7 +95,7 @@
                     android:layout_marginTop="24dp"
                     android:layout_marginBottom="6dp"
                     android:fontFamily="@font/carrois_gothic_sc"
-                    android:text="@string/work_category"
+                    android:text="@string/explore_category"
                     android:textAlignment="textStart"
                     android:textSize="24sp" />
 
