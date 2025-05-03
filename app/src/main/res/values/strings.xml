@@ -29,5 +29,7 @@
     <string name="create">Create</string>
     <string name="work_category">Work</string>
     <string name="explore_category">Explore</string>
+    <string name="plants_care">Plants Care</string>
+    <string name="care_category">Care</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

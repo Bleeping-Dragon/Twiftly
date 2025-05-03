@@ -27,4 +27,6 @@
     <string name="create">Crear</string>
     <string name="work_category">Trabajo</string>
     <string name="explore_category">Explorar</string>
+    <string name="plants_care">Cuidado de Plantas</string>
+    <string name="care_category">Cuidados</string>
 </resources>
