@@ -150,6 +150,39 @@
 
                 </GridLayout>
 
+                <TextView
+                    android:id="@+id/CareTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/carrois_gothic_sc"
+                    android:text="@string/care_category"
+                    android:textAlignment="textStart"
+                    android:textSize="24sp" />
+
+                <GridLayout
+                    android:id="@+id/careGrid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="25dp"
+                    android:columnCount="2"
+                    android:gravity="center"
+                    android:rowCount="5">
+
+                    <Button
+                        android:id="@+id/plantsCareButton"
+                        android:layout_width="0dp"
+                        android:layout_height="65dp"
+                        android:layout_columnWeight="1"
+                        android:layout_gravity="fill_horizontal|fill_vertical"
+                        android:layout_margin="4dp"
+                        android:text="@string/plants_care"
+                        app:icon="@drawable/potted_plant_24px" />
+
+                </GridLayout>
+
 <!--                <GridLayout-->
 <!--                    android:layout_width="match_parent"-->
 <!--                    android:layout_height="wrap_content"-->

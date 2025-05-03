@@ -1,13 +1,11 @@
 package com.bleepingdragon.twiftly
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.commit
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.bleepingdragon.twiftly.databinding.FragmentHomePageBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -65,6 +63,11 @@ class HomePage : Fragment() {
         //Go to Map fragment
         binding.mapButton.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_homePage_to_mapPage) //Use app_navigation.xml action
+        }
+
+        //Go to Plants Care fragment
+        binding.plantsCareButton.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_homePage_to_plantsCarePage) //Use app_navigation.xml action
         }
 
         return binding.root
