@@ -13,9 +13,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.bleepingdragon.twiftly.adapters.PlantsCareAdapater
 import com.bleepingdragon.twiftly.databinding.FragmentFlashlightPageBinding
 import com.bleepingdragon.twiftly.databinding.FragmentHeadsTailsPageBinding
 import com.bleepingdragon.twiftly.databinding.FragmentPlantsCarePageBinding
+import com.bleepingdragon.twiftly.model.PlantCareItem
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -30,6 +32,10 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class PlantsCarePage : Fragment() {
+
+    //Plant care items
+    private lateinit var plantsCareAdapter: PlantsCareAdapater
+    private lateinit var plantsCareList: MutableList<PlantCareItem>
 
     //Fragment binding
     private var _binding: FragmentPlantsCarePageBinding? = null

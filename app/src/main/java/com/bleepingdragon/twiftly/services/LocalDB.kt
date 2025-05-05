@@ -8,6 +8,7 @@ import com.bleepingdragon.twiftly.R
 import com.bleepingdragon.twiftly.model.CategoryOfMapPoints
 import com.bleepingdragon.twiftly.model.MapPoint
 import com.bleepingdragon.twiftly.model.MarkerWindow
+import com.bleepingdragon.twiftly.model.PlantCareItem
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.osmdroid.util.GeoPoint
@@ -132,6 +133,51 @@ class LocalDB {
             loadedCategoriesOfMapPoints?.let { setAllCategoriesOfMapPoints(it, activity) }
 
             return newMapPoint
+        }
+
+        //endregion
+
+        //region Plant Care Items
+
+        private var loadedPlantsCareItems: MutableList<PlantCareItem>? = null
+
+        public fun getAllPlantsCareItems(activity: Activity): MutableList<PlantCareItem> {
+
+            //If PlantsCareItems have already been loaded, don't parse them, get the object directly
+            if (loadedPlantsCareItems != null)
+                return loadedPlantsCareItems as MutableList<PlantCareItem>
+
+            //Else get them from the shared preferences
+            val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
+            val dataJson = sharedPref.getString("plantsCareItems", "")
+
+            if (dataJson != null && dataJson != "") {
+                val result = Json.decodeFromString<MutableList<PlantCareItem>>(dataJson)
+                loadedPlantsCareItems = result
+                return result
+
+            } else {
+                loadedPlantsCareItems = mutableListOf()
+                return mutableListOf()
+            }
+        }
+
+        public fun setAllPlantsCareItems(setTo: MutableList<PlantCareItem>, activity: Activity) {
+
+            loadedPlantsCareItems = setTo
+
+            val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
+
+            with (sharedPref.edit()) {
+                putString("PlantCareItems", Json.encodeToString(setTo))
+                apply()
+            }
+        }
+
+        //Delete and then save
+        public fun deletePlantsCareItemFromUuid(uuid: String, activity: Activity) {
+            loadedPlantsCareItems?.removeIf { it.uuid == uuid }
+            setAllPlantsCareItems(loadedPlantsCareItems as MutableList<PlantCareItem>, activity)
         }
 
         //endregion
