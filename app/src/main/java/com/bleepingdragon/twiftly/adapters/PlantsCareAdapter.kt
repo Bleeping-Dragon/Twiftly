@@ -11,8 +11,8 @@ import com.bleepingdragon.twiftly.databinding.PlantCareItemLayoutBinding
 import com.bleepingdragon.twiftly.model.PlantCareItem
 import com.bleepingdragon.twiftly.services.LocalDB
 
-class PlantsCareAdapater (var plantsCareList: MutableList<PlantCareItem>, var context: Context, var plantsCarePage: PlantsCarePage)
-    : RecyclerView.Adapter<PlantsCareAdapater.MyView>() {
+class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var context: Context, var plantsCarePage: PlantsCarePage)
+    : RecyclerView.Adapter<PlantsCareAdapter.MyView>() {
 
     inner class MyView(val itemBinding: PlantCareItemLayoutBinding): RecyclerView.ViewHolder(itemBinding.root) {
 
