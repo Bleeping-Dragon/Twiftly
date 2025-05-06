@@ -29,4 +29,5 @@
     <string name="explore_category">Explore</string>
     <string name="plants_care">Plants Care</string>
     <string name="care_category">Care</string>
+    <string name="register_new_plant">Register a new plant</string>
 </resources>

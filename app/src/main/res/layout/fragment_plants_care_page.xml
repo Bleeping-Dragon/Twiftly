@@ -63,14 +63,24 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/create_plant_care_item_floating_action_button"
+<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--        android:id="@+id/create_plant_care_item_floating_action_button"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="bottom|end"-->
+<!--        android:layout_margin="32dp"-->
+<!--        android:contentDescription="Register a new plant"-->
+<!--        app:srcCompat="@drawable/round_add_24" />-->
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/create2_plant_care_item_floating_action_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="32dp"
-        android:contentDescription="Register a new plant"
-        app:srcCompat="@drawable/round_add_24" />
+        android:layout_margin="48dp"
+        android:layout_gravity="bottom|center"
+        android:contentDescription="@string/register_new_plant"
+        android:text="@string/register_new_plant"
+        app:icon="@drawable/round_add_24"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

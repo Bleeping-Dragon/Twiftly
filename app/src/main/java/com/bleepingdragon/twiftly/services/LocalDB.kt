@@ -3,13 +3,9 @@ package com.bleepingdragon.twiftly.services
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.core.content.ContextCompat
-import com.bleepingdragon.twiftly.R
 import com.bleepingdragon.twiftly.model.CategoryOfMapPoints
 import com.bleepingdragon.twiftly.model.MapPoint
-import com.bleepingdragon.twiftly.model.MarkerWindow
 import com.bleepingdragon.twiftly.model.PlantCareItem
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import org.osmdroid.util.GeoPoint
 

@@ -1,29 +1,15 @@
 package com.bleepingdragon.twiftly
 
-import android.content.Context
-import android.hardware.camera2.CameraManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.constraintlayout.motion.widget.MotionLayout
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import com.bleepingdragon.twiftly.adapters.PlantsCareAdapater
-import com.bleepingdragon.twiftly.databinding.FragmentFlashlightPageBinding
-import com.bleepingdragon.twiftly.databinding.FragmentHeadsTailsPageBinding
+import com.bleepingdragon.twiftly.adapters.PlantsCareAdapter
 import com.bleepingdragon.twiftly.databinding.FragmentPlantsCarePageBinding
 import com.bleepingdragon.twiftly.model.PlantCareItem
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
-import java.util.logging.LogManager
-import kotlin.concurrent.thread
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -34,7 +20,7 @@ private const val ARG_PARAM2 = "param2"
 class PlantsCarePage : Fragment() {
 
     //Plant care items
-    private lateinit var plantsCareAdapter: PlantsCareAdapater
+    private lateinit var plantsCareAdapter: PlantsCareAdapter
     private lateinit var plantsCareList: MutableList<PlantCareItem>
 
     //Fragment binding
