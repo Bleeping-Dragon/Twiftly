@@ -30,4 +30,8 @@
     <string name="plants_care">Cuidado de Plantas</string>
     <string name="care_category">Cuidados</string>
     <string name="register_new_plant">Registrar nueva planta</string>
+    <string name="modal_plant_name">Nombre de la planta...</string>
+    <string name="modal_plant_notes">Notas sobre la planta (opcional)</string>
+    <string name="modal_watering_frequency">Frecuencia de riego (días)</string>
+    <string name="toast_plant_name_empty">El nombre de la planta no puede estar vacío</string>
 </resources>

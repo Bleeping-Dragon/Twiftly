@@ -73,7 +73,7 @@
 <!--        app:srcCompat="@drawable/round_add_24" />-->
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/create2_plant_care_item_floating_action_button"
+        android:id="@+id/create_plant_care_item_floating_action_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="48dp"

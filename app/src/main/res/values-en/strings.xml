@@ -30,4 +30,8 @@
     <string name="plants_care">Plants Care</string>
     <string name="care_category">Care</string>
     <string name="register_new_plant">Register a new plant</string>
+    <string name="modal_plant_name">Name of the plant...</string>
+    <string name="modal_plant_notes">Notes about the plant (optional)...</string>
+    <string name="modal_watering_frequency">Watering Frequency (days)</string>
+    <string name="toast_plant_name_empty">Plant name cannot be empty</string>
 </resources>
