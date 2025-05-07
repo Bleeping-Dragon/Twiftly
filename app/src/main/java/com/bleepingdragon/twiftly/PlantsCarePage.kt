@@ -127,6 +127,12 @@ class PlantsCarePage : Fragment() {
                     val wateringNumberEditText = dialog.findViewById<EditText>(R.id.wateringNumberEditText)
 
                     wateringNumberEditText?.doOnTextChanged { text, start, before, count ->
+
+                        //Prevent crashes if teh user modifies from the textbox directly, also clamp the number between 1 and 31
+                        if (text.isNullOrEmpty() || text.toString().toInt() < 1 || text.toString().toInt() > 31) {
+                            wateringNumberEditText.setText("7")
+                        }
+
                         decreaseButton?.isEnabled = text.toString().toInt() > 1
                         increaseButton?.isEnabled = text.toString().toInt() < 31
                     }

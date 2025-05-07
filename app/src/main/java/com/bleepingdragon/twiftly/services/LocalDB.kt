@@ -165,7 +165,7 @@ class LocalDB {
             val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
 
             with (sharedPref.edit()) {
-                putString("PlantCareItems", Json.encodeToString(setTo))
+                putString("plantsCareItems", Json.encodeToString(setTo))
                 apply()
             }
         }
