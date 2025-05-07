@@ -23,7 +23,7 @@ class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var con
     }
 
     override fun onBindViewHolder(holder: MyView, position: Int) {
-
+        holder.itemBinding.plantNameTextView.text = plantsCareList[position].name
     }
 
     private fun deletePlantsCareItem(item: PlantCareItem) {
