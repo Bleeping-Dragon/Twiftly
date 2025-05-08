@@ -56,6 +56,10 @@
                         android:orientation="horizontal">
 
                         <include
+                            android:id="@+id/plantCareItemDay0"
+                            layout="@layout/plant_care_calendar_day_item_layout">
+                        </include>
+                        <include
                             android:id="@+id/plantCareItemDay1"
                             layout="@layout/plant_care_calendar_day_item_layout">
                         </include>
@@ -79,10 +83,7 @@
                             android:id="@+id/plantCareItemDay6"
                             layout="@layout/plant_care_calendar_day_item_layout">
                         </include>
-                        <include
-                            android:id="@+id/plantCareItemDay7"
-                            layout="@layout/plant_care_calendar_day_item_layout">
-                        </include>
+
 
                     </LinearLayout>
 

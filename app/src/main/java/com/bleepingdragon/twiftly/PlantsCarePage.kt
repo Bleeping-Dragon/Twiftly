@@ -99,15 +99,17 @@ class PlantsCarePage : Fragment() {
 
                 val plantName = binding.plantNameInput.editText?.text.toString()
                 val plantNotes = binding.plantNotesInput.editText?.text.toString()
+                val wateringFrequency = binding.wateringNumberEditText.editableText?.toString()?.toInt()
 
-                if (plantName.isEmpty()) {
+                if (plantName.isEmpty() || wateringFrequency == null) {
                     Toast.makeText(requireContext(), R.string.toast_plant_name_empty, Toast.LENGTH_SHORT).show()
                     return@setPositiveButton
                 }
 
                 var newPlant = PlantCareItem(
                     name = plantName,
-                    notes = plantNotes
+                    notes = plantNotes,
+                    wateringFrequencyInDays = wateringFrequency
                 )
 
                 plantCareItemsList.add(newPlant)

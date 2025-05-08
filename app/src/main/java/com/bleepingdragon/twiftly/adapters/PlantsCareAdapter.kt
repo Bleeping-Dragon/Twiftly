@@ -3,13 +3,16 @@ package com.bleepingdragon.twiftly.adapters
 import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bleepingdragon.twiftly.PlantsCarePage
+import com.bleepingdragon.twiftly.R
 import com.bleepingdragon.twiftly.databinding.PlantCareItemLayoutBinding
 import com.bleepingdragon.twiftly.model.PlantCareItem
 import com.bleepingdragon.twiftly.services.LocalDB
+import java.time.LocalDate
 
 class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var context: Context, var plantsCarePage: PlantsCarePage)
     : RecyclerView.Adapter<PlantsCareAdapter.MyView>() {
@@ -24,6 +27,23 @@ class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var con
 
     override fun onBindViewHolder(holder: MyView, position: Int) {
         holder.itemBinding.plantNameTextView.text = plantsCareList[position].name
+
+        //Set the normal days and the days of watering
+        val dayViews = listOf(
+            holder.itemBinding.plantCareItemDay0,
+            holder.itemBinding.plantCareItemDay1,
+            holder.itemBinding.plantCareItemDay2,
+            holder.itemBinding.plantCareItemDay3,
+            holder.itemBinding.plantCareItemDay4,
+            holder.itemBinding.plantCareItemDay5,
+            holder.itemBinding.plantCareItemDay6,
+        )
+
+        var wateringDays = plantsCareList[position].getWateringSchedule(10)
+
+        dayViews.forEach {
+            it.dayTextView.text = wateringDays[dayViews.indexOf(it)].dayOfMonth.toString()
+        }
     }
 
     private fun deletePlantsCareItem(item: PlantCareItem) {
