@@ -16,82 +16,104 @@
         android:checkable="true"
         android:animateLayoutChanges="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="100dp"
-                android:layout_height="140dp"
-                android:background="#36979797"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:srcCompat="@drawable/rounded_animated_images_240" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="12dp">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/imageView3"
-                app:layout_constraintTop_toTopOf="parent">
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:background="#36979797"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearance="@style/PlantCardImageCorner"
+                    tools:srcCompat="@drawable/rounded_animated_images_240" />
 
-                <TextView
-                    android:id="@+id/plantNameTextView"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Really Long Example Plant Name" />
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="parent">
 
-                <HorizontalScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/plantNameTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Plant Name"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/plantNotesTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam elit, blandit eu finibus porta, faucibus sit amet mauris. Curabitur sed dui dui."
+                        android:textSize="16sp" />
 
-                        <include
-                            android:id="@+id/plantCareItemDay0"
-                            layout="@layout/plant_care_calendar_day_item_layout">
-                        </include>
-                        <include
-                            android:id="@+id/plantCareItemDay1"
-                            layout="@layout/plant_care_calendar_day_item_layout">
-                        </include>
-                        <include
-                            android:id="@+id/plantCareItemDay2"
-                            layout="@layout/plant_care_calendar_day_item_layout">
-                        </include>
-                        <include
-                            android:id="@+id/plantCareItemDay3"
-                            layout="@layout/plant_care_calendar_day_item_layout">
-                        </include>
-                        <include
-                            android:id="@+id/plantCareItemDay4"
-                            layout="@layout/plant_care_calendar_day_item_layout">
-                        </include>
-                        <include
-                            android:id="@+id/plantCareItemDay5"
-                            layout="@layout/plant_care_calendar_day_item_layout">
-                        </include>
-                        <include
-                            android:id="@+id/plantCareItemDay6"
-                            layout="@layout/plant_care_calendar_day_item_layout">
-                        </include>
+                </LinearLayout>
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    </LinearLayout>
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="8dp">
 
-                </HorizontalScrollView>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-            </LinearLayout>
+                    <include
+                        android:id="@+id/plantCareItemDay0"
+                        layout="@layout/plant_care_calendar_day_item_layout" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <include
+                        android:id="@+id/plantCareItemDay1"
+                        layout="@layout/plant_care_calendar_day_item_layout" />
+
+                    <include
+                        android:id="@+id/plantCareItemDay2"
+                        layout="@layout/plant_care_calendar_day_item_layout" />
+
+                    <include
+                        android:id="@+id/plantCareItemDay3"
+                        layout="@layout/plant_care_calendar_day_item_layout" />
+
+                    <include
+                        android:id="@+id/plantCareItemDay4"
+                        layout="@layout/plant_care_calendar_day_item_layout" />
+
+                    <include
+                        android:id="@+id/plantCareItemDay5"
+                        layout="@layout/plant_care_calendar_day_item_layout" />
+
+                    <include
+                        android:id="@+id/plantCareItemDay6"
+                        layout="@layout/plant_care_calendar_day_item_layout" />
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

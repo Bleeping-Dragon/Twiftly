@@ -26,7 +26,18 @@ class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var con
     }
 
     override fun onBindViewHolder(holder: MyView, position: Int) {
+
+        //Set the name and notes (hide the notes if there are none)
         holder.itemBinding.plantNameTextView.text = plantsCareList[position].name
+
+        val notes = plantsCareList[position].notes
+
+        if (notes.isEmpty()) {
+            holder.itemBinding.plantNotesTextView.visibility = View.GONE
+        } else {
+            holder.itemBinding.plantNotesTextView.visibility = View.VISIBLE
+            holder.itemBinding.plantNotesTextView.text = plantsCareList[position].notes
+        }
 
         //Set the normal days and the days of watering
         val dayViews = listOf(
