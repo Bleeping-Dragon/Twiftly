@@ -77,7 +77,6 @@
                         android:id="@+id/plantNotesTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
                         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse diam elit, blandit eu finibus porta, faucibus sit amet mauris. Curabitur sed dui dui."
                         android:textSize="16sp" />
 

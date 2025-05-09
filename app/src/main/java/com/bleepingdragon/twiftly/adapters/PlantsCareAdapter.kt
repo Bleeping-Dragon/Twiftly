@@ -52,7 +52,21 @@ class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var con
 
         var wateringDays = plantsCareList[position].getWateringSchedule(10)
 
+        var lastMonthLabel: String = ""
+
         dayViews.forEach {
+
+            var currentMonth = wateringDays[dayViews.indexOf(it)].month.toString()
+
+            //Only show the month indicator in the first displayed day of that month
+            if (lastMonthLabel == "" || currentMonth != lastMonthLabel) {
+                lastMonthLabel = currentMonth
+                it.monthTextView.text = currentMonth
+                it.monthTextView.visibility = View.VISIBLE
+            } else {
+                it.monthTextView.visibility = View.GONE
+            }
+
             it.dayTextView.text = wateringDays[dayViews.indexOf(it)].dayOfMonth.toString()
         }
     }
