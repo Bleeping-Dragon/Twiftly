@@ -48,6 +48,9 @@ class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var con
             holder.itemBinding.plantCareItemDay4,
             holder.itemBinding.plantCareItemDay5,
             holder.itemBinding.plantCareItemDay6,
+            holder.itemBinding.plantCareItemDay7,
+            holder.itemBinding.plantCareItemDay8,
+            holder.itemBinding.plantCareItemDay9,
         )
 
         var wateringDays = plantsCareList[position].getWateringSchedule(10)

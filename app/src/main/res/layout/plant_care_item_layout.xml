@@ -122,6 +122,18 @@
                         android:id="@+id/plantCareItemDay6"
                         layout="@layout/plant_care_calendar_day_item_layout" />
 
+                    <include
+                        android:id="@+id/plantCareItemDay7"
+                        layout="@layout/plant_care_calendar_day_item_layout" />
+
+                    <include
+                        android:id="@+id/plantCareItemDay8"
+                        layout="@layout/plant_care_calendar_day_item_layout" />
+
+                    <include
+                        android:id="@+id/plantCareItemDay9"
+                        layout="@layout/plant_care_calendar_day_item_layout" />
+
                 </LinearLayout>
 
             </HorizontalScrollView>
