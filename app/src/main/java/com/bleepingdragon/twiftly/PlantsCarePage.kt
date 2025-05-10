@@ -1,12 +1,18 @@
 package com.bleepingdragon.twiftly
 
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.FileProvider
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -19,6 +25,7 @@ import com.bleepingdragon.twiftly.model.PlantCareItem
 import com.bleepingdragon.twiftly.services.LocalDB
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import java.io.File
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -32,6 +39,12 @@ class PlantsCarePage : Fragment() {
     private lateinit var plantsCareAdapter: PlantsCareAdapter
     private lateinit var plantCareItemsList: MutableList<PlantCareItem>
 
+    //Items for photo taking contract
+    private lateinit var makePhotoContract: ActivityResultLauncher<Uri>
+    private lateinit var lastUsedImageUri: Uri
+    private lateinit var lastUsedUuid: String
+    private lateinit var lastUsedImageView: ImageView
+
     //Fragment binding
     private var _binding: FragmentPlantsCarePageBinding? = null
     private val binding get() = _binding!!
@@ -44,6 +57,15 @@ class PlantsCarePage : Fragment() {
         super.onCreate(savedInstanceState)
 
         plantCareItemsList = LocalDB.getAllPlantsCareItems(requireActivity())
+
+        //Contract for making a photo, and setting it back to the item on the adapter
+        makePhotoContract = registerForActivityResult(ActivityResultContracts.TakePicture()) { success ->
+            if (success) {
+                lastUsedImageView.setImageURI(lastUsedImageUri)
+            } else {
+                Log.e("PhotoCapture", "Capture failed")
+            }
+        }
 
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
@@ -159,6 +181,21 @@ class PlantsCarePage : Fragment() {
                 }
             }
             .show()
+    }
+
+    //Called from the adapter when an plant care photo frame item is touched
+    fun takePhoto(itemImage: ImageView, uuid: String) {
+
+        //Make sure the directory exists, if not, create it
+        val photoDir = File(requireContext().filesDir, "plants_care_photos")
+        if (!photoDir.exists()) photoDir.mkdirs()
+
+        lastUsedImageView = itemImage
+        lastUsedUuid = uuid
+
+        val imageFile = File(photoDir, "${uuid}.png")
+        lastUsedImageUri = FileProvider.getUriForFile(requireContext(), "com.bleepingdragon.twiftly.FileProvider", imageFile)
+        makePhotoContract.launch(lastUsedImageUri)
     }
 
 

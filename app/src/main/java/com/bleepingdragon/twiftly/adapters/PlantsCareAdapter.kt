@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bleepingdragon.twiftly.PlantsCarePage
-import com.bleepingdragon.twiftly.R
 import com.bleepingdragon.twiftly.databinding.PlantCareItemLayoutBinding
 import com.bleepingdragon.twiftly.model.PlantCareItem
 import com.bleepingdragon.twiftly.services.LocalDB
-import java.time.LocalDate
+import java.io.File
 
 class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var context: Context, var plantsCarePage: PlantsCarePage)
     : RecyclerView.Adapter<PlantsCareAdapter.MyView>() {
@@ -72,6 +72,23 @@ class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var con
 
             it.dayTextView.text = wateringDays[dayViews.indexOf(it)].dayOfMonth.toString()
         }
+
+        //Register camera icon or image tap to take a new photo of the plant
+        holder.itemBinding.plantImageFrameLayout.setOnClickListener {
+
+            //Calls a contract inside the fragment to take a photo, as it cannot be called from here
+            plantsCarePage.takePhoto(holder.itemBinding.plantImageView, plantsCareList[position].uuid)
+        }
+
+        //Set image if the item has an existing image in the path
+        val photo = File(context.filesDir, "plants_care_photos" + File.separator + plantsCareList[position].uuid + ".png")
+
+        if (photo.exists()) {
+            var temporalUri = FileProvider.getUriForFile(context, "com.bleepingdragon.twiftly.FileProvider", photo)
+            holder.itemBinding.plantImageView.setImageURI(temporalUri)
+            holder.itemBinding.cameraSymbolImageView.visibility = View.GONE
+        }
+
     }
 
     private fun deletePlantsCareItem(item: PlantCareItem) {

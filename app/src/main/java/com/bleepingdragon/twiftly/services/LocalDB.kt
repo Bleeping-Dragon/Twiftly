@@ -3,11 +3,13 @@ package com.bleepingdragon.twiftly.services
 import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
+import android.net.Uri
 import com.bleepingdragon.twiftly.model.CategoryOfMapPoints
 import com.bleepingdragon.twiftly.model.MapPoint
 import com.bleepingdragon.twiftly.model.PlantCareItem
 import kotlinx.serialization.json.Json
 import org.osmdroid.util.GeoPoint
+import androidx.core.content.edit
 
 class LocalDB {
 
@@ -164,9 +166,8 @@ class LocalDB {
 
             val sharedPref = activity.getPreferences(Context.MODE_PRIVATE)
 
-            with (sharedPref.edit()) {
+            sharedPref.edit {
                 putString("plantsCareItems", Json.encodeToString(setTo))
-                apply()
             }
         }
 
