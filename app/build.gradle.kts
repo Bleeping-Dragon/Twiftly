@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.bleepingdragon.twiftly"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.bleepingdragon.twiftly"
         minSdk = 30
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 6
         versionName = "0.1.4"
 
