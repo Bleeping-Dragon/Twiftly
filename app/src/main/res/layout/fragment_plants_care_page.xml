@@ -80,7 +80,8 @@
         android:layout_gravity="bottom|center"
         android:contentDescription="@string/register_new_plant"
         android:text="@string/register_new_plant"
-        app:icon="@drawable/round_add_24"/>
+        app:icon="@drawable/round_add_24"
+        />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

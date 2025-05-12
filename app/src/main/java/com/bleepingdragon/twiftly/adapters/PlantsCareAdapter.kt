@@ -9,10 +9,13 @@ import android.widget.Toast
 import androidx.core.content.FileProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.bleepingdragon.twiftly.PlantsCarePage
+import com.bleepingdragon.twiftly.R
 import com.bleepingdragon.twiftly.databinding.PlantCareItemLayoutBinding
 import com.bleepingdragon.twiftly.model.PlantCareItem
 import com.bleepingdragon.twiftly.services.LocalDB
+import com.google.android.material.snackbar.Snackbar
 import java.io.File
+import java.time.LocalDateTime
 
 class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var context: Context, var plantsCarePage: PlantsCarePage)
     : RecyclerView.Adapter<PlantsCareAdapter.MyView>() {
@@ -87,6 +90,24 @@ class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var con
             var temporalUri = FileProvider.getUriForFile(context, "com.bleepingdragon.twiftly.FileProvider", photo)
             holder.itemBinding.plantImageView.setImageURI(temporalUri)
             holder.itemBinding.cameraSymbolImageView.visibility = View.GONE
+        }
+
+        //Card buttons logic: delete, edit, water
+        holder.itemBinding.deletePlantButton.setOnClickListener {
+
+        }
+
+        holder.itemBinding.editPlantButton.setOnClickListener {
+
+        }
+
+        holder.itemBinding.waterPlantButton.setOnClickListener {
+
+            //Water the plant
+            plantsCareList[position].lastWateringDate = LocalDateTime.now().toString()
+
+            val message = context.getString(R.string.watered_plant, plantsCareList[position].name)
+            Snackbar.make(it, message, Snackbar.LENGTH_SHORT).show()
         }
 
     }

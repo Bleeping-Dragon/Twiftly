@@ -49,6 +49,7 @@
                         android:layout_width="140dp"
                         android:layout_height="140dp"
                         android:background="#36979797"
+                        android:scaleType="centerCrop"
                         app:shapeAppearance="@style/PlantCardImageCorner"/>
                 </FrameLayout>
 
@@ -137,6 +138,43 @@
                 </LinearLayout>
 
             </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/deletePlantButton"
+                    style="?attr/materialIconButtonOutlinedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Delete the plant"
+                    app:icon="@drawable/rounded_delete_24" />
+
+                <Button
+                    android:id="@+id/editPlantButton"
+                    style="?attr/materialIconButtonFilledTonalStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Edit the plant info"
+                    app:icon="@drawable/rounded_edit_24" />
+
+                <Space
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2" />
+
+                <Button
+                    android:id="@+id/waterPlantButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/water_plant" />
+            </LinearLayout>
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>

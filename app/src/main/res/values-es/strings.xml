@@ -34,4 +34,6 @@
     <string name="modal_plant_notes">Notas sobre la planta (opcional)</string>
     <string name="modal_watering_frequency">Frecuencia de riego (días)</string>
     <string name="toast_plant_name_empty">El nombre de la planta no puede estar vacío</string>
+    <string name="water_plant">Regar</string>
+    <string name="watered_plant">%1$s regada</string>
 </resources>

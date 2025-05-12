@@ -34,4 +34,6 @@
     <string name="modal_plant_notes">Notes about the plant (optional)...</string>
     <string name="modal_watering_frequency">Watering Frequency (days)</string>
     <string name="toast_plant_name_empty">Plant name cannot be empty</string>
+    <string name="water_plant">Water</string>
+    <string name="watered_plant">%1$s watered</string>
 </resources>
