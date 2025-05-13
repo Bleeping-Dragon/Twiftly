@@ -139,6 +139,10 @@ class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var con
             //Delete from the database
             LocalDB.deletePlantsCareItemFromUuid(item.uuid, context as Activity)
 
+            //Delete the associated image file if its exits
+            val photo = File(context.filesDir, "plants_care_photos" + File.separator + item.uuid + ".png")
+            if (photo.exists()) photo.delete()
+
             Toast.makeText(context, R.string.toast_plant_deleted, Toast.LENGTH_SHORT).show()
         }
     }
