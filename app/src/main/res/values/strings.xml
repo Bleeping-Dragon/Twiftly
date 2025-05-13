@@ -38,5 +38,8 @@
     <string name="toast_plant_name_empty">Plant name cannot be empty</string>
     <string name="water_plant">Water</string>
     <string name="watered_plant">%1$s watered</string>
+    <string name="modal_delete_plant_title">Delete the plant</string>
+    <string name="modal_delete_plant_description">Delete the plant %1$s and all it\'s info. This CANNOT be undone.</string>
+    <string name="toast_plant_deleted">Plant deleted</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

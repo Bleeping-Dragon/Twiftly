@@ -13,6 +13,7 @@ import com.bleepingdragon.twiftly.R
 import com.bleepingdragon.twiftly.databinding.PlantCareItemLayoutBinding
 import com.bleepingdragon.twiftly.model.PlantCareItem
 import com.bleepingdragon.twiftly.services.LocalDB
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
 import java.time.LocalDateTime
@@ -95,6 +96,16 @@ class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var con
         //Card buttons logic: delete, edit, water
         holder.itemBinding.deletePlantButton.setOnClickListener {
 
+            MaterialAlertDialogBuilder(context)
+                .setTitle(context.getString(R.string.modal_delete_plant_title))
+                .setMessage(context.getString(R.string.modal_delete_plant_description, plantsCareList[position].name))
+                .setNeutralButton(context.getString(R.string.cancel)) { dialog, which ->
+                }
+                .setPositiveButton(context.getString(R.string.delete)) { dialog, which ->
+                    deletePlantsCareItem(plantsCareList[position])
+                }
+                .show()
+
         }
 
         holder.itemBinding.editPlantButton.setOnClickListener {
@@ -128,7 +139,7 @@ class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var con
             //Delete from the database
             LocalDB.deletePlantsCareItemFromUuid(item.uuid, context as Activity)
 
-            Toast.makeText(context, "Plant care item deleted", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, R.string.toast_plant_deleted, Toast.LENGTH_SHORT).show()
         }
     }
 
