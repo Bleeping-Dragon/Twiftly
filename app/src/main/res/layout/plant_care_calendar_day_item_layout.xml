@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|top"
-        app:srcCompat="@drawable/baseline_circle_48_mid" />
+        app:srcCompat="@drawable/plant_care_day_circle" />
 
     <!-- Day text centered horizontally near the top -->
     <TextView
