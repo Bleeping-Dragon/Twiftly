@@ -39,4 +39,5 @@
     <string name="modal_delete_plant_title">Borrar la planta</string>
     <string name="modal_delete_plant_description">Borrar la planta %1$s y todos sus datos. Esta acción NO se puede deshacer.</string>
     <string name="toast_plant_deleted">Planta borrada</string>
+    <string name="already_watered">Ya regada hoy</string>
 </resources>

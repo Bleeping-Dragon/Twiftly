@@ -16,6 +16,7 @@ import com.bleepingdragon.twiftly.services.LocalDB
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import java.io.File
+import java.time.LocalDate
 import java.time.LocalDateTime
 
 class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var context: Context, var plantsCarePage: PlantsCarePage)
@@ -119,6 +120,26 @@ class PlantsCareAdapter (var plantsCareList: MutableList<PlantCareItem>, var con
 
             val message = context.getString(R.string.watered_plant, plantsCareList[position].name)
             Snackbar.make(it, message, Snackbar.LENGTH_SHORT).show()
+
+            disableIfWatered(plantsCareList[position], holder.itemBinding)
+        }
+
+        disableIfWatered(plantsCareList[position], holder.itemBinding)
+    }
+
+    //Disable the watering button if the plant has been already watered the day
+    private fun disableIfWatered(plantObject: PlantCareItem, layoutBinding: PlantCareItemLayoutBinding) {
+
+        var dateNow: LocalDate = LocalDateTime.now().toLocalDate()
+        var dateLastWatered: LocalDate = LocalDateTime.parse(plantObject.lastWateringDate).toLocalDate()
+
+        //Check only the day, month and years, not hours, minutes, etc...
+        if (dateNow == dateLastWatered) {
+            layoutBinding.waterPlantButton.isEnabled = false
+            layoutBinding.waterPlantButton.text = context.getString(R.string.already_watered)
+        } else {
+            layoutBinding.waterPlantButton.isEnabled = true
+            layoutBinding.waterPlantButton.text = context.getString(R.string.water_plant)
         }
 
     }
