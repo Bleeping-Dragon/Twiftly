@@ -11,12 +11,4 @@
         <item name="android:fontFamily">@font/carrois_gothic_sc</item>
     </style>
 
-    <style name="PlantCardImageCorner" parent="">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSizeTopLeft">10dp</item>
-        <item name="cornerSizeTopRight">10dp</item>
-        <item name="cornerSizeBottomLeft">10dp</item>
-        <item name="cornerSizeBottomRight">10dp</item>
-    </style>
-
 </resources>

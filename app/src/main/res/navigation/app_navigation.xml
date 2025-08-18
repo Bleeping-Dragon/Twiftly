@@ -45,14 +45,6 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
-
-        <action
-            android:id="@+id/action_homePage_to_plantsCarePage"
-            app:destination="@id/plantsCarePage"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <fragment
@@ -80,10 +72,4 @@
         android:name="com.bleepingdragon.twiftly.MapPage"
         android:label="fragment_map_page"
         tools:layout="@layout/fragment_map_page" />
-
-    <fragment
-        android:id="@+id/plantsCarePage"
-        android:name="com.bleepingdragon.twiftly.PlantsCarePage"
-        android:label="fragment_plants_care_page"
-        tools:layout="@layout/fragment_plants_care_page" />
 </navigation>

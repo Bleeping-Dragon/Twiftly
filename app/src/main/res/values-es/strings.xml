@@ -27,17 +27,4 @@
     <string name="create">Crear</string>
     <string name="work_category">Trabajo</string>
     <string name="explore_category">Explorar</string>
-    <string name="plants_care">Cuidado de Plantas</string>
-    <string name="care_category">Cuidados</string>
-    <string name="register_new_plant">Registrar nueva planta</string>
-    <string name="modal_plant_name">Nombre de la planta...</string>
-    <string name="modal_plant_notes">Notas sobre la planta (opcional)</string>
-    <string name="modal_watering_frequency">Frecuencia de riego (días)</string>
-    <string name="toast_plant_name_empty">El nombre de la planta no puede estar vacío</string>
-    <string name="water_plant">Regar</string>
-    <string name="watered_plant">%1$s regada</string>
-    <string name="modal_delete_plant_title">Borrar la planta</string>
-    <string name="modal_delete_plant_description">Borrar la planta %1$s y todos sus datos. Esta acción NO se puede deshacer.</string>
-    <string name="toast_plant_deleted">Planta borrada</string>
-    <string name="already_watered">Ya regada hoy</string>
 </resources>
