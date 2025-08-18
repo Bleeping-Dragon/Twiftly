@@ -12,7 +12,7 @@ android {
         applicationId = "com.bleepingdragon.twiftly"
         minSdk = 30
         targetSdk = 36
-        versionCode = 6
+        versionCode = 7
         versionName = "0.1.4"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
