@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bleepingdragon.twiftly.databinding.FragmentWorkingHoursPageBinding
+import com.bleepingdragon.twiftly.enums.WorkingHoursAlarmMode
 import com.bleepingdragon.twiftly.services.LocalDB
 import com.google.android.material.textfield.TextInputLayout
 import com.google.android.material.timepicker.MaterialTimePicker
@@ -56,7 +57,8 @@ class WorkingHoursPage : Fragment() {
 
         //Hide by default the calculated hour and set alarm buttons
         binding.calculatedDateTextView.visibility = View.INVISIBLE
-        binding.setAlarmButton.isEnabled = false
+        binding.exitAlarmButton.isEnabled = false
+        binding.breakEndAlarmButton.isEnabled = false
 
         //Hours to work
         binding.hoursToWorkLayout.textInputLayout.editText?.setInputType(InputType.TYPE_NULL)
@@ -110,9 +112,14 @@ class WorkingHoursPage : Fragment() {
                 pickTimeForInput(binding.breakEndLayout.textInputLayout, true)
         }
 
-        //Alarm button
-        binding.setAlarmButton.setOnClickListener {
-            trySetAlarm()
+        //Exit alarm button
+        binding.exitAlarmButton.setOnClickListener {
+            trySetAlarm(WorkingHoursAlarmMode.EXIT)
+        }
+
+        //Break end alarm button
+        binding.breakEndAlarmButton.setOnClickListener {
+            trySetAlarm(WorkingHoursAlarmMode.BREAK_END)
         }
 
         return binding.root
@@ -151,9 +158,11 @@ class WorkingHoursPage : Fragment() {
                 LocalDB.getString("calculatedExit", requireActivity())
             else ""
 
+        //Show buttons depending on the data filled
         if (binding.calculatedDateTextView.text.toString().isNotBlank()) {
             binding.calculatedDateTextView.visibility = View.VISIBLE
-            binding.setAlarmButton.isEnabled = true
+            binding.exitAlarmButton.isEnabled = true
+            binding.breakEndAlarmButton.isEnabled = true
         }
     }
 
@@ -205,12 +214,14 @@ class WorkingHoursPage : Fragment() {
 
                 binding.calculatedDateTextView.text = "$calculatedHours:$calculatedMinutes"
                 binding.calculatedDateTextView.visibility = View.VISIBLE
-                binding.setAlarmButton.isEnabled = true
+                binding.exitAlarmButton.isEnabled = true
+                binding.breakEndAlarmButton.isEnabled = true
             }
             else {
                 binding.calculatedDateTextView.text = ""
                 binding.calculatedDateTextView.visibility = View.INVISIBLE
-                binding.setAlarmButton.isEnabled = false
+                binding.exitAlarmButton.isEnabled = false
+                binding.breakEndAlarmButton.isEnabled = false
             }
 
             saveAllValues()
@@ -277,16 +288,37 @@ class WorkingHoursPage : Fragment() {
         LocalDB.setString("calculatedExit", binding.calculatedDateTextView.text.toString(), requireActivity())
     }
 
-    private fun trySetAlarm() {
+    private fun trySetAlarm(mode: WorkingHoursAlarmMode) {
 
-        if (binding.calculatedDateTextView.text.toString().isBlank())
-            return
+        var hours: String = ""
+        var minutes: String = ""
+        var alarmName: String = ""
 
-        var hours = binding.calculatedDateTextView.text.toString().take(2)
-        var minutes = binding.calculatedDateTextView.text.toString().takeLast(2)
+        if (mode == WorkingHoursAlarmMode.EXIT) {
+
+            if (binding.calculatedDateTextView.text.toString().isBlank()) return
+
+            hours = binding.calculatedDateTextView.text.toString().take(2)
+            minutes = binding.calculatedDateTextView.text.toString().takeLast(2)
+
+            alarmName = getString(R.string.work_exit_hour)
+
+        } else if (mode == WorkingHoursAlarmMode.BREAK_END) {
+
+            var breakStartText = binding.breakStartLayout.textInputLayout.editText?.text
+            var breakEndText = binding.breakEndLayout.textInputLayout.editText?.text
+
+            if (breakStartText.isNullOrBlank() || breakEndText.isNullOrBlank()) return
+
+            hours = breakEndText.toString().take(2)
+            minutes = breakEndText.toString().takeLast(2)
+
+            alarmName = getString(R.string.break_end)
+        }
+
 
         val intent = Intent(AlarmClock.ACTION_SET_ALARM).apply {
-            putExtra(AlarmClock.EXTRA_MESSAGE, getString(R.string.work_exit_hour))
+            putExtra(AlarmClock.EXTRA_MESSAGE, alarmName)
             putExtra(AlarmClock.EXTRA_HOUR, hours.toInt())
             putExtra(AlarmClock.EXTRA_MINUTES, minutes.toInt())
         }

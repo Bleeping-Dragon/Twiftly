@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="compass">Compass</string>
     <string name="work_exit_hour">Work exit hour</string>
-    <string name="set_alarm">Set alarm</string>
+    <string name="set_exit_alarm">Set exit alarm</string>
     <string name="pick_an_hour">Pick an hour...</string>
     <string name="hours_to_work">Hours to work</string>
     <string name="hour_to_start_working">Hour to start working</string>
@@ -29,5 +29,6 @@
     <string name="create">Create</string>
     <string name="work_category">Work</string>
     <string name="explore_category">Explore</string>
+    <string name="set_break_end_alarm">Set break end alarm</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

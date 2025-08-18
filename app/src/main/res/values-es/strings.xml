@@ -2,7 +2,7 @@
 <resources>
     <string name="compass">Brújula</string>
     <string name="work_exit_hour">Salida del trabajo</string>
-    <string name="set_alarm">Establecer alarma</string>
+    <string name="set_exit_alarm">Establecer alarma de salida</string>
     <string name="pick_an_hour">Selecciona una hora...</string>
     <string name="hours_to_work">Horas de trabajo</string>
     <string name="hour_to_start_working">Hora a la que empezar a trabajar</string>
@@ -27,4 +27,5 @@
     <string name="create">Crear</string>
     <string name="work_category">Trabajo</string>
     <string name="explore_category">Explorar</string>
+    <string name="set_break_end_alarm">Establecer alarma de fin del descanso</string>
 </resources>
