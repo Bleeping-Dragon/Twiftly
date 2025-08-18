@@ -65,11 +65,6 @@ class HomePage : Fragment() {
             view?.findNavController()?.navigate(R.id.action_homePage_to_mapPage) //Use app_navigation.xml action
         }
 
-        //Go to Plants Care fragment
-        binding.plantsCareButton.setOnClickListener {
-            view?.findNavController()?.navigate(R.id.action_homePage_to_plantsCarePage) //Use app_navigation.xml action
-        }
-
         return binding.root
     }
 
